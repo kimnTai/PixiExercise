@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <!-- bootstrap 5 CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+
+<body>
+   <div class="container mt-3">
+      <h1>角子老虎機</h1>
+   </div>
+
+
+   <!-- PIXI CDN -->
+   <script src="https://pixijs.download/release/pixi.js"></script>
+   <script>
+      let app = new PIXI.Application({ width: 640, height: 360, backgroundColor: 0x4169E1 });
+      document.querySelector('.container').appendChild(app.view);
+      // 加載我們需要的紋理
+      app.loader.add('bunny', 'img/one.png').load((loader, resources) => {
+         // 這將從“bunny.png”圖像創建紋理
+         const bunny = new PIXI.Sprite(resources.bunny.texture);
+
+         // 設置兔子的位置
+         bunny.x = app.renderer.width / 2;
+         bunny.y = app.renderer.height / 2;
+
+         // 繞中心旋轉
+         bunny.anchor.x = 0.5;
+         bunny.anchor.y = 0.5;
+
+         // 將兔子添加到我們正在構建的場景中
+         app.stage.addChild(bunny);
+
+         // 監聽幀更新
+         app.ticker.add(() => {
+            // 每一幀我們都會讓兔子旋轉一點
+            bunny.rotation += 0.01;
+         });
+      });
+   </script>
+</body>
+
+</html>
