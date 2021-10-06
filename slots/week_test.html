@@ -26,12 +26,12 @@
 
       // 顯示加載進度
       // app.loader.onProgress.add(loadProgressHandler);
-      app.loader
-         .add('one', 'img/one.png')
-         .add('two', 'img/two.png')
-         .add('three', 'img/three.png')
-         .add('four', 'img/four.png')
-         .load(setup);
+      app.loader.add([
+         { name: 'one', url: 'img/one.png' },
+         { name: 'two', url: 'img/two.png' },
+         { name: 'three', url: 'img/three.png' },
+         { name: 'four', url: 'img/four.png' }
+      ]).load(setup);
       // 顯示加載進度 fun
       function loadProgressHandler(loader, resource) {
          console.log(`loading: ${resource.url} %`);
@@ -39,10 +39,10 @@
       };
 
       // －－－－－－－－－－－－－－－－ 參數設定 －－－－－－－－－－－－－－－－
-      const REEL_WIDTH = 160;
-      const SYMBOL_SIZE = 160;
-      const LIST_NUM = 5;    // 多少列
-      const IMG_NUM = 5;     // 每列產生幾個圖案
+      const reel_width = 160;
+      const symbol_size = 160;
+      const list_number = 5;    // 多少列
+      const img_number = 3;     // 每列產生幾個圖案
 
       function setup() {
          // 創建不同的插槽符號。
@@ -56,10 +56,10 @@
          const reels = [];
          const reelContainer = new PIXI.Container();
 
-
-         for (let i = 0; i < LIST_NUM; i++) {
+         // 產生 列 －> 圖案
+         for (let i = 0; i < list_number; i++) {
             const rc = new PIXI.Container();
-            rc.x = i * REEL_WIDTH; // 160 320 480 640
+            rc.x = i * reel_width; // 160 320 480 640
             reelContainer.addChild(rc);
             const reel = {
                symbols: [],
@@ -69,37 +69,34 @@
             reel.blur.blurX = 0;
             reel.blur.blurY = 0;
             rc.filters = [reel.blur];
-
-            // 產生圖案
-            for (let j = 0; j < IMG_NUM; j++) {
+            for (let j = 0; j < img_number; j++) {
                // 隨機產生 0~3的數字
                const symbol = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
 
-
                // 設置 (x,y)座標
-               symbol.scale.x = symbol.scale.y = Math.min(SYMBOL_SIZE / symbol.width, SYMBOL_SIZE / symbol.height);
-               symbol.position.set(Math.round((SYMBOL_SIZE - symbol.width) / 2), j * SYMBOL_SIZE)
+               symbol.scale.x = symbol.scale.y = Math.min(symbol_size / symbol.width, symbol_size / symbol.height);
+               symbol.position.set(Math.round((symbol_size - symbol.width) / 2), j * symbol_size)
 
                reel.symbols.push(symbol);
                rc.addChild(symbol);
             }
             reels.push(reel);
-            console.log(reels)
+
          }
 
 
          // 構建頂蓋和底蓋
-         const margin = (app.screen.height - SYMBOL_SIZE * 3) / 2;
+         const margin = (app.screen.height - symbol_size * 3) / 2;
 
          // 設置 reelContainer
-         reelContainer.position.set(Math.round(app.screen.width - REEL_WIDTH * 5), margin)
+         reelContainer.position.set(Math.round(app.screen.width - reel_width * 5), margin)
 
          const top = new PIXI.Graphics();
          top.beginFill(0, 1);
          top.drawRect(0, 0, app.screen.width, margin);
          const bottom = new PIXI.Graphics();
          bottom.beginFill(0, 1);
-         bottom.drawRect(0, SYMBOL_SIZE * 3 + margin, app.screen.width, margin);
+         bottom.drawRect(0, symbol_size * 3 + margin, app.screen.width, margin);
 
          // －－－－－－－－－－－－－－－－ 字體樣式 －－－－－－－－－－－－－－－－
          const style = new PIXI.TextStyle({
@@ -121,9 +118,9 @@
 
 
          // －－－－－－－－－－－－－－－－ 舞台放置 －－－－－－－－－－－－－－－－
-         app.stage.addChild(reelContainer);
          bottom.addChild(playText);
          top.addChild(headerText);
+         app.stage.addChild(reelContainer);
          app.stage.addChild(top);
          app.stage.addChild(bottom);
 
@@ -171,13 +168,13 @@
                for (let j = 0; j < r.symbols.length; j++) {
                   const s = r.symbols[j];
                   const prevy = s.y;
-                  s.y = ((r.position + j) % r.symbols.length) * SYMBOL_SIZE - SYMBOL_SIZE;
-                  if (s.y < 0 && prevy > SYMBOL_SIZE) {
+                  s.y = ((r.position + j) % r.symbols.length) * symbol_size - symbol_size;
+                  if (s.y < 0 && prevy > symbol_size) {
                      // 檢測過去並交換紋理。
                      // 這應該在適當的產品中由一些邏輯捲軸確定。
                      s.texture = slotTextures[Math.floor(Math.random() * slotTextures.length)];
-                     s.scale.x = s.scale.y = Math.min(SYMBOL_SIZE / s.texture.width, SYMBOL_SIZE / s.texture.height);
-                     s.x = Math.round((SYMBOL_SIZE - s.width) / 2);
+                     s.scale.x = s.scale.y = Math.min(symbol_size / s.texture.width, symbol_size / s.texture.height);
+                     s.x = Math.round((symbol_size - s.width) / 2);
                   }
                }
             }

@@ -22,7 +22,7 @@
    <script>
       let app = new PIXI.Application({
          // 容器範圍
-         width: 800, height: 360,
+         width: 800, height: 600,
          // 容器顏色
          backgroundColor: 0x4169E1
       });
@@ -31,35 +31,36 @@
       // 顯示加載進度
       app.loader.onProgress.add(loadProgressHandler);
       // 加載需要的圖片
-      app.loader
-         .add('one', 'img/one.png')
-         .add('two', 'img/two.png')
-         .add('three', 'img/three.png')
-         .add('four', 'img/four.png')
-         .load(setup);
+      app.loader.add([
+         { name: 'one', url: 'img/one.png' },
+         { name: 'two', url: 'img/two.png' },
+         { name: 'three', url: 'img/three.png' },
+         { name: 'four', url: 'img/four.png' }
+      ]).load(setup);
 
 
       function setup(loader, resources) {
          console.log("加載完成");
          // 這將從“one.png”圖像創建圖片
-         const slotTextures = [
+         const img_container = new PIXI.Container();
+         const img_array = [
             PIXI.Texture.from('img/one.png'),
             PIXI.Texture.from('img/two.png'),
             PIXI.Texture.from('img/three.png'),
             PIXI.Texture.from('img/four.png'),
          ];
 
-         // 設置數字的位置         
-         
+         // 設置圖片位置         
+         for (let i = 0; i < 2; i++) {
 
-         // 將兔子添加到我們正在構建的場景中
-         app.stage.addChild(one);
-         
+         }
 
-        
+
+
+
+         app.stage.addChild(img_container);
       };
 
-      
 
       // 顯示加載進度 fun
       function loadProgressHandler(loader, resource) {
