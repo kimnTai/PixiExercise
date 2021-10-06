@@ -20,30 +20,52 @@
    <!-- PIXI CDN -->
    <script src="https://pixijs.download/release/pixi.js"></script>
    <script>
-      let app = new PIXI.Application({ width: 640, height: 360, backgroundColor: 0x4169E1 });
+      let app = new PIXI.Application({
+         // 容器範圍
+         width: 800, height: 360,
+         // 容器顏色
+         backgroundColor: 0x4169E1
+      });
       document.querySelector('.container').appendChild(app.view);
-      // 加載我們需要的紋理
-      app.loader.add('bunny', 'img/one.png').load((loader, resources) => {
-         // 這將從“bunny.png”圖像創建紋理
-         const bunny = new PIXI.Sprite(resources.bunny.texture);
 
-         // 設置兔子的位置
-         bunny.x = app.renderer.width / 2;
-         bunny.y = app.renderer.height / 2;
+      // 顯示加載進度
+      app.loader.onProgress.add(loadProgressHandler);
+      // 加載需要的圖片
+      app.loader
+         .add('one', 'img/one.png')
+         .add('two', 'img/two.png')
+         .add('three', 'img/three.png')
+         .add('four', 'img/four.png')
+         .load(setup);
 
-         // 繞中心旋轉
-         bunny.anchor.x = 0.5;
-         bunny.anchor.y = 0.5;
+
+      function setup(loader, resources) {
+         console.log("加載完成");
+         // 這將從“one.png”圖像創建圖片
+         const slotTextures = [
+            PIXI.Texture.from('img/one.png'),
+            PIXI.Texture.from('img/two.png'),
+            PIXI.Texture.from('img/three.png'),
+            PIXI.Texture.from('img/four.png'),
+         ];
+
+         // 設置數字的位置         
+         
 
          // 將兔子添加到我們正在構建的場景中
-         app.stage.addChild(bunny);
+         app.stage.addChild(one);
+         
 
-         // 監聽幀更新
-         app.ticker.add(() => {
-            // 每一幀我們都會讓兔子旋轉一點
-            bunny.rotation += 0.01;
-         });
-      });
+        
+      };
+
+      
+
+      // 顯示加載進度 fun
+      function loadProgressHandler(loader, resource) {
+         console.log(`loading: ${resource.url} %`);
+         console.log(`progress: ${loader.progress} %`);
+      };
    </script>
 </body>
 

@@ -18,13 +18,16 @@
    <!-- PIXI CDN -->
    <script src="https://pixijs.download/release/pixi.js"></script>
    <script>
-      const app = new PIXI.Application({ backgroundColor: 0x08294a });
+      const app = new PIXI.Application({
+         width: 800, height: 700,
+         backgroundColor: 0x08294a
+      });
       document.querySelector('.container').appendChild(app.view);
 
       // 顯示加載進度
       // app.loader.onProgress.add(loadProgressHandler);
       app.loader
-         // .add('one', 'img/one.png')
+         .add('one', 'img/one.png')
          .add('two', 'img/two.png')
          .add('three', 'img/three.png')
          .add('four', 'img/four.png')
@@ -35,26 +38,26 @@
          console.log(`progress: ${loader.progress} %`);
       };
 
-      // 參數設定
+      // －－－－－－－－－－－－－－－－ 參數設定 －－－－－－－－－－－－－－－－
       const REEL_WIDTH = 160;
       const SYMBOL_SIZE = 160;
-      const LIST_NUM = 5;    // 每列產生幾個圖案
-      const IMG_NUM = 5;     // 多少列
+      const LIST_NUM = 5;    // 多少列
+      const IMG_NUM = 5;     // 每列產生幾個圖案
 
       function setup() {
          // 創建不同的插槽符號。
          const slotTextures = [
             PIXI.Texture.from('img/one.png'),
             PIXI.Texture.from('img/two.png'),
-            // PIXI.Texture.from('img/three.png'),
-            // PIXI.Texture.from('img/four.png'),
+            PIXI.Texture.from('img/three.png'),
+            PIXI.Texture.from('img/four.png'),
          ];
          // 建造捲軸
          const reels = [];
          const reelContainer = new PIXI.Container();
 
 
-         for (let i = 0; i < IMG_NUM; i++) {
+         for (let i = 0; i < LIST_NUM; i++) {
             const rc = new PIXI.Container();
             rc.x = i * REEL_WIDTH; // 160 320 480 640
             reelContainer.addChild(rc);
@@ -63,30 +66,34 @@
                position: 0, // 位置
                blur: new PIXI.filters.BlurFilter(), //模糊
             };
-            // reel.blur.blurX = 0;
-            // reel.blur.blurY = 0;
+            reel.blur.blurX = 0;
+            reel.blur.blurY = 0;
             rc.filters = [reel.blur];
-            // 構建符號
-            for (let j = 0; j < LIST_NUM; j++) {
+
+            // 產生圖案
+            for (let j = 0; j < IMG_NUM; j++) {
                // 隨機產生 0~3的數字
                const symbol = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
-               // 縮放符號以適合符號區域。
-               symbol.y = j * SYMBOL_SIZE;
+
+
+               // 設置 (x,y)座標
                symbol.scale.x = symbol.scale.y = Math.min(SYMBOL_SIZE / symbol.width, SYMBOL_SIZE / symbol.height);
-               symbol.x = Math.round((SYMBOL_SIZE - symbol.width) / 2);
+               symbol.position.set(Math.round((SYMBOL_SIZE - symbol.width) / 2), j * SYMBOL_SIZE)
+
                reel.symbols.push(symbol);
                rc.addChild(symbol);
             }
             reels.push(reel);
+            console.log(reels)
          }
-         app.stage.addChild(reelContainer);
 
-         // 構建頂蓋和底蓋並放置 reelContainer
+
+         // 構建頂蓋和底蓋
          const margin = (app.screen.height - SYMBOL_SIZE * 3) / 2;
-         
-         reelContainer.y = margin;
-         reelContainer.x = Math.round(app.screen.width - REEL_WIDTH * 5);
-         console.log(reelContainer.x)
+
+         // 設置 reelContainer
+         reelContainer.position.set(Math.round(app.screen.width - REEL_WIDTH * 5), margin)
+
          const top = new PIXI.Graphics();
          top.beginFill(0, 1);
          top.drawRect(0, 0, app.screen.width, margin);
@@ -99,28 +106,33 @@
             fontSize: 36,
             fill: ['#ffffff', '#ffdd00'], // 坡度           
          });
-         // 下方 play 字體
+         // 設置文字內容
          const playText = new PIXI.Text('開始 !', style);
-         playText.x = Math.round((bottom.width - playText.width) / 2);
-         playText.y = app.screen.height - margin + Math.round((margin - playText.height) / 2);
-         bottom.addChild(playText);
-
-         // 添加標題文本
          const headerText = new PIXI.Text('角子老虎機 !', style);
-         headerText.x = Math.round((top.width - headerText.width) / 2);
-         headerText.y = Math.round((margin - headerText.height) / 2);
-         top.addChild(headerText);
 
+         // 設置文字位置 (x,y)
+         playText.position
+            .set(Math.round((bottom.width - playText.width) / 2),
+               app.screen.height - margin + Math.round((margin - playText.height) / 2))
+         headerText.position
+            .set(Math.round((top.width - headerText.width) / 2),
+               Math.round((margin - headerText.height) / 2))
+
+
+
+         // －－－－－－－－－－－－－－－－ 舞台放置 －－－－－－－－－－－－－－－－
+         app.stage.addChild(reelContainer);
+         bottom.addChild(playText);
+         top.addChild(headerText);
          app.stage.addChild(top);
          app.stage.addChild(bottom);
 
          // 設置交互性。
          bottom.interactive = true;
          bottom.buttonMode = true;
-         bottom.addListener('click', () => { startPlay(); });
+         bottom.addListener('click', () => startPlay());
 
          let running = false;
-
          // 開始遊玩的功能。
          function startPlay() {
             if (running) return;
@@ -130,10 +142,11 @@
                const r = reels[i];
                const extra = Math.floor(Math.random() * 3);  // 0~3
                const target = r.position + 10 + i * 5 + extra; // 速度
+               // const target = 100; // 速度
                const time = 2500 + i * 600 + extra * 600;
+               // const time = 1000;
 
-
-
+               // 不知道這啥
                tweenTo(r, 'position', target, time, backout(0.5), null, i === reels.length - 1 ? reelsComplete : null);
             }
 
