@@ -18,7 +18,13 @@
 
 <body>
    <div id="stage"></div>
-   <button id='scale' class="btn btn-primary" @click='test()'>縮放</button>
+   <div id='scale'>
+      <button class="btn btn-primary" @click='moveSprite'>移動</button>
+      <button class="btn btn-primary" @click='removeSprite'>移除</button>
+      <button class="btn btn-primary" @click='drawBorder'>畫幾何</button>
+      <button class="btn btn-primary" @click='pixiInfo'>資訊</button>
+      {{text}}
+   </div>
 
    <!-- Vue CDN -->
    <script src="https://unpkg.com/vue@next"></script>
@@ -32,39 +38,105 @@
       })
       document.querySelector('#stage').appendChild(app.view)
 
-
-
       // 精靈宣告
       const bgSprite = new PIXI.Sprite.from('./img/bg_img.jpeg')
       const petSprite = new PIXI.Sprite.from('./img/pet.png')
       const catSprite = new PIXI.Sprite.from('./img/cat.png')
-      // 精靈組
+      // 精靈組宣告
       const petContainer = new PIXI.Container();
+      // 幾何圖案
+      const borderline = new PIXI.Graphics();
+      // 文本
+      const messageStyle = { fontSize: '100px', fill: '#c00' }
+      const message = new PIXI.Text('pixi 測試', messageStyle)
+
+
+      // 別名設置
+      bgSprite.name = 'background';
+      petSprite.name = 'pet';
+      catSprite.name = 'cat';
+      petContainer.name = 'petContainer';
+
+      // 添加到精靈組中
+      petContainer.addChild(petSprite);
+      petContainer.addChild(catSprite);
+      petContainer.addChild(message);
 
       bgSprite.width = 750;
       bgSprite.height = 1334;
-      app.stage.addChild(bgSprite);
+
+
+
 
       // 設置位置
       petSprite.position.set(200, 900)
       // 設置錨點(百分比)
-      petSprite.anchor.set(0.5,0.5)
+      petSprite.anchor.set(0.5, 0.5)
       // 設置旋轉
       petSprite.rotation = Math.PI;
       // 設置大小
       petSprite.width = 270;
       petSprite.height = 270;
-      // 添加到精靈組中
-      petContainer.addChild(petSprite);
-      petContainer.addChild(catSprite);
 
-      
+
+      app.stage.addChild(bgSprite);
       app.stage.addChild(petContainer)
+      app.stage.addChild(borderline)
 
-      document.querySelector('#scale').onclick = () => {
-         petSprite.scale.x *= 0.9;
-         petSprite.scale.y *= 0.9;
-      }
+
+
+
+      const vueApp = Vue.createApp({
+         data() {
+            return {
+               text: '測試',
+               speed: 50,
+            }
+         },
+         methods: {
+            // 移動
+            moveSprite() {
+               app.ticker.add(delta => gameLoop(delta));
+               function gameLoop(delta) {
+                  petContainer.y += 5;
+                  if (petContainer.y >= 1334) { petContainer.y = -287; }
+               }
+            },
+            // 移除
+            removeSprite() {
+               petContainer.removeChild(petSprite)
+            },
+            // 查詢資訊
+            pixiInfo() {
+               console.log(`組內有多少個子元素 ${petContainer.children.length}`);
+               console.log(`組內第一個精靈 ${petContainer.children[0].name}`);
+               console.log(`小狗的父元素 ${petSprite.parent.name}`);
+               console.log(petContainer.getChildByName('pet'))
+               console.log(app.stage.getChildAt(0).name)
+               console.log(app.stage.getChildIndex(bgSprite))
+               console.log(petContainer.getGlobalPosition())
+            },
+            // 畫幾何圖形
+            drawBorder() {
+               borderline.lineStyle(20, 0xaaaaaa);
+               borderline.beginFill(0xffffff);
+               // 矩形
+               borderline.drawRect(400, 200, 200, 300);
+               // 圓角矩形
+               borderline.drawRoundedRect(100, 400, 200, 300, 50);
+               // 圓形
+               borderline.drawCircle(100, 100, 100);
+               // 橢圓
+               borderline.drawEllipse(200, 200, 100, 50);
+               // 線段
+               borderline.moveTo(0, 100);
+               borderline.lineTo(100, 200);
+               // 多邊形
+               let path = [100, 100, 200, 200, 100, 300,];
+               borderline.drawPolygon(path);
+            }
+         },
+      }).mount('#scale')
 
    </script>
 </body>
