@@ -39,10 +39,10 @@
       };
 
       // －－－－－－－－－－－－－－－－ 參數設定 －－－－－－－－－－－－－－－－
-      const reel_width = 160;
-      const symbol_size = 160;
+      const img_width = 160;
+      const img_size = 160;
       const list_number = 5;    // 多少列
-      const img_number = 3;     // 每列產生幾個圖案
+      const img_number = 4;     // 每列產生幾個圖案
 
       function setup() {
          // 創建不同的插槽符號。
@@ -59,7 +59,7 @@
          // 產生 列 －> 圖案
          for (let i = 0; i < list_number; i++) {
             const rc = new PIXI.Container();
-            rc.x = i * reel_width; // 160 320 480 640
+            rc.x = i * img_width; // 160 320 480 640
             reelContainer.addChild(rc);
             const reel = {
                symbols: [],
@@ -74,8 +74,8 @@
                const symbol = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
 
                // 設置 (x,y)座標
-               symbol.scale.x = symbol.scale.y = Math.min(symbol_size / symbol.width, symbol_size / symbol.height);
-               symbol.position.set(Math.round((symbol_size - symbol.width) / 2), j * symbol_size)
+               symbol.scale.x = symbol.scale.y = Math.min(img_size / symbol.width, img_size / symbol.height);
+               symbol.position.set(Math.round((img_size - symbol.width) / 2), j * img_size)
 
                reel.symbols.push(symbol);
                rc.addChild(symbol);
@@ -86,17 +86,17 @@
 
 
          // 構建頂蓋和底蓋
-         const margin = (app.screen.height - symbol_size * 3) / 2;
+         const margin = (app.screen.height - img_size * 3) / 2;
 
          // 設置 reelContainer
-         reelContainer.position.set(Math.round(app.screen.width - reel_width * 5), margin)
+         reelContainer.position.set(Math.round(app.screen.width - img_width * 5), margin)
 
          const top = new PIXI.Graphics();
          top.beginFill(0, 1);
          top.drawRect(0, 0, app.screen.width, margin);
          const bottom = new PIXI.Graphics();
          bottom.beginFill(0, 1);
-         bottom.drawRect(0, symbol_size * 3 + margin, app.screen.width, margin);
+         bottom.drawRect(0, img_size * 3 + margin, app.screen.width, margin);
 
          // －－－－－－－－－－－－－－－－ 字體樣式 －－－－－－－－－－－－－－－－
          const style = new PIXI.TextStyle({
@@ -161,20 +161,22 @@
                const r = reels[i];
                // 根據速度更新模糊過濾器 y 量。
                // 如果還考慮到時間計算，這會更好。 現在模糊取決於幀速率。
-               r.blur.blurY = (r.position - r.previousPosition) * 8;
-               r.previousPosition = r.position;
+               // r.blur.blurY = (r.position - r.previousPosition) * 8;
+               // r.previousPosition = r.position;
 
                // 更新捲軸上的符號位置。
                for (let j = 0; j < r.symbols.length; j++) {
                   const s = r.symbols[j];
                   const prevy = s.y;
-                  s.y = ((r.position + j) % r.symbols.length) * symbol_size - symbol_size;
-                  if (s.y < 0 && prevy > symbol_size) {
+
+                  s.y = ((r.position + j) % r.symbols.length) * img_size - img_size;
+
+                  if (s.y < 0 && prevy > img_size) {
                      // 檢測過去並交換紋理。
                      // 這應該在適當的產品中由一些邏輯捲軸確定。
-                     s.texture = slotTextures[Math.floor(Math.random() * slotTextures.length)];
-                     s.scale.x = s.scale.y = Math.min(symbol_size / s.texture.width, symbol_size / s.texture.height);
-                     s.x = Math.round((symbol_size - s.width) / 2);
+                     // s.texture = slotTextures[Math.floor(Math.random() * slotTextures.length)];
+                     // s.scale.x = s.scale.y = Math.min(img_size / s.texture.width, img_size / s.texture.height);
+                     // s.x = Math.round((img_size - s.width) / 2);
                   }
                }
             }

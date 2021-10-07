@@ -22,6 +22,7 @@
          </div>
          <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
          <button class="me-3 btn btn-primary" @click='moveSprite'>RUN</button>
+         <button class="me-3 btn btn-primary" @click='stopSprite'>STOP</button>
 
       </div>
    </div>
@@ -84,9 +85,13 @@
                this.runing = true
                app.ticker.add(delta => {
                   this.imgContainer.y += 10;
-                  if (this.imgContainer.y >= 600) { this.imgContainer.y = 0; }
+                  if (this.imgContainer.y >= 600) { this.imgContainer.y = 0; return }
                });
             },
+            stopSprite() {
+               this.runing = false;
+               app.ticker.stop();
+            }
          },
       }).mount('#vueApp')
    </script>
