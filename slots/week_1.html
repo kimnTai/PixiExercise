@@ -12,19 +12,16 @@
 </head>
 
 <body>
-   <div class="container mt-3">
-      <h1>Week1 - 角子老虎機</h1>
-      <div class="game"></div>
-      <div id="vueApp">
-         <div class="mb-2">
-            大小 <input v-model='imgSize' class="me-3" type="number">
-            列 <input v-model='list' class="me-3" type="number">
+   <div style="background-image: url('./img/bg_final.png');height: 1080px;">
+      <div style="position: absolute;top:235px;left:255px">
+         <h1 style="color: aliceblue;">Week1 - 角子老虎機</h1>
+         <div class="game"></div>
+         <div class="mt-4" id="vueApp">
+            <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
+            <button v-if='this.running !== ""  ' class="me-3 btn btn-primary" @click='moveSprite'>RUN</button>
          </div>
-         <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
-         <button class="me-3 btn btn-primary" @click='moveSprite'>RUN</button>
-         <button class="me-3 btn btn-primary" @click='stopSprite'>STOP</button>
-
       </div>
+
    </div>
 
 
@@ -36,8 +33,8 @@
    <script>
       // PIXI app
       const app = new PIXI.Application({
-         width: 800, height: 600,
-         backgroundColor: 0x000080
+         width: 1000, height: 570,
+         backgroundAlpha: 0
       });
       document.querySelector('.game').appendChild(app.view);
 
@@ -46,52 +43,67 @@
          data() {
             return {
                imgContainer: new PIXI.Container(),
+               imgContainerB: new PIXI.Container(),
                imgUrlArray: [
                   './img/one.png',
                   './img/two.png',
                   './img/three.png',
                   './img/four.png',
                ],
-               imgSize: 200,
-               list: 4,
-               runing: false,
+               imgSize: 190,
+               list: 5,
+               running: '',
             }
          },
          methods: {
-            // ------ 開始遊戲 ------ 
-            gameStart() {
-               if (this.imgContainer.children.length > 0) return
-               // 設置圖片位置
+            // 設置圖片位置
+            imgSet(imgContainer, place) {
                for (let j = 0; j < this.list; j++) {
-                  for (let i = 0; i < 6; i++) {
+                  for (let i = 0; i < 3; i++) {
                      // 產生０～４亂數
                      const randomNumber = Math.floor(Math.random() * this.imgUrlArray.length);
                      // 產生圖片
                      const img = new PIXI.Sprite.from(this.imgUrlArray[randomNumber]);
                      // 縮放設定
                      img.scale.set(this.imgSize / 200, this.imgSize / 200);
-                     img.y = -this.imgSize * 3 + this.imgSize * i;
+                     img.y = place + this.imgSize * i;
                      img.x = j * this.imgSize;
                      // 放入 Conatiner
-                     this.imgContainer.addChild(img);
+                     imgContainer.addChild(img);
                   }
-               }
+               };
+            },
+            // ------ 開始遊戲 ------ 
+            gameStart() {
+               if (this.imgContainer.children.length > 0) return
+               this.imgSet(this.imgContainer, 0);
+               this.imgSet(this.imgContainerB, this.imgSize * -3);
                // 舞台放置
                app.stage.addChild(this.imgContainer);
+               app.stage.addChild(this.imgContainerB);
+               setTimeout(() => {
+                  app.ticker.stop();
+                  app.ticker.add(time => {
+                     this.imgChange(this.imgContainer, 'A')
+                  }).add(time => {
+                     this.imgChange(this.imgContainerB, 'B')
+                  });
+                  this.running = false;
+               }, 1000)
             },
-            // ------  開始旋轉 ------ 
+            imgChange(imgContainer, sign) {
+               const size = this.imgSize * 3
+               imgContainer.y += 10;
+               if (imgContainer.y >= size && sign == 'A') { imgContainer.y = -size; return }
+               if (imgContainer.y >= size * 2 && sign == 'B') { imgContainer.y = 0; return }
+            },
             moveSprite() {
-               if (this.runing == true) return
-               this.runing = true
-               app.ticker.add(delta => {
-                  this.imgContainer.y += 10;
-                  if (this.imgContainer.y >= 600) { this.imgContainer.y = 0; return }
-               });
+               switch (this.running) {
+                  case true: this.running = false; app.ticker.stop(); break
+                  case false: this.running = true; app.ticker.start(); break
+                  case '': return
+               };
             },
-            stopSprite() {
-               this.runing = false;
-               app.ticker.stop();
-            }
          },
       }).mount('#vueApp')
    </script>
