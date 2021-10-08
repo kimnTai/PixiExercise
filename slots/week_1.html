@@ -6,6 +6,7 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Week_1</title>
+   <link rel="shortcut icon" href="./img/highwin_bell.png">
    <!-- bootstrap 5 CSS only -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -18,7 +19,7 @@
          <div class="game"></div>
          <div class="mt-4" id="vueApp">
             <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
-            <button v-if='this.running !== ""  ' class="me-3 btn btn-primary" @click='moveSprite'>RUN</button>
+            <button v-if='this.running !== "" ' class="me-3 btn btn-primary" @click='gameControl'>RUN</button>
          </div>
       </div>
 
@@ -49,9 +50,11 @@
                   './img/two.png',
                   './img/three.png',
                   './img/four.png',
+                  // './img/highwin_bell.png'
                ],
                imgSize: 190,
                list: 5,
+               runNumber: 0,
                running: '',
             }
          },
@@ -68,7 +71,7 @@
                      img.scale.set(this.imgSize / 200, this.imgSize / 200);
                      img.y = place + this.imgSize * i;
                      img.x = j * this.imgSize;
-                     // 放入 Conatiner
+                     // 放入 Container
                      imgContainer.addChild(img);
                   }
                };
@@ -84,27 +87,50 @@
                setTimeout(() => {
                   app.ticker.stop();
                   app.ticker.add(time => {
-                     this.imgChange(this.imgContainer, 'A')
+                     this.imgControl(this.imgContainer, 'A')
+
                   }).add(time => {
-                     this.imgChange(this.imgContainerB, 'B')
+                     this.imgControl(this.imgContainerB, 'B')
                   });
+                  console.log(app.ticker)
                   this.running = false;
                }, 1000)
             },
-            imgChange(imgContainer, sign) {
+            // 圖片交互 移動
+            imgControl(imgContainer, sign) {
                const size = this.imgSize * 3
-               imgContainer.y += 10;
-               if (imgContainer.y >= size && sign == 'A') { imgContainer.y = -size; return }
-               if (imgContainer.y >= size * 2 && sign == 'B') { imgContainer.y = 0; return }
+               const runGrid = 10;
+               let speed = 10;
+               if (this.runNumber >= this.imgSize * runGrid * 2) {
+                  this.gameControl();
+                  this.runNumber = 0;
+               }
+               imgContainer.y += speed;
+               this.runNumber += speed;
+               if (imgContainer.y >= size && sign == 'A') {
+                  imgContainer.removeChildren();
+                  this.imgSet(imgContainer, 0);
+                  imgContainer.y = -size;
+                  return
+               }
+               if (imgContainer.y >= size * 2 && sign == 'B') {
+                  imgContainer.removeChildren();
+                  this.imgSet(imgContainer, -size);
+                  imgContainer.y = 0;
+                  return
+               }
             },
-            moveSprite() {
+            gameControl() {
+               this.runNumber = 0;
                switch (this.running) {
                   case true: this.running = false; app.ticker.stop(); break
                   case false: this.running = true; app.ticker.start(); break
                   case '': return
                };
             },
+
          },
+
       }).mount('#vueApp')
    </script>
 </body>

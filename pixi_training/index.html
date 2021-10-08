@@ -19,8 +19,8 @@
 <body>
    <div id="stage"></div>
    <div id='scale'>
-      <button class="btn btn-primary" @click='moveSprite'>移動</button>
-      <button class="btn btn-primary" @click='removeSprite'>移除</button>
+      <button class="btn btn-primary" @click='gameControl'>移動</button>
+      <button class="btn btn-primary" @click='regameControl'>移除</button>
       <button class="btn btn-primary" @click='drawBorder'>畫幾何</button>
       <button class="btn btn-primary" @click='pixiInfo'>資訊</button>
       {{text}}
@@ -95,7 +95,7 @@
          },
          methods: {
             // 移動
-            moveSprite() {
+            gameControl() {
                app.ticker.add(delta => gameLoop(delta));
                function gameLoop(delta) {
                   petContainer.y += 5;
@@ -103,7 +103,7 @@
                }
             },
             // 移除
-            removeSprite() {
+            regameControl() {
                petContainer.removeChild(petSprite)
             },
             // 查詢資訊
