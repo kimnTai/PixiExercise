@@ -110,11 +110,11 @@
                const size = this.imgSize * 3
                const runGrid = 10;
 
-               // if (this.runNumber >= this.imgSize * runGrid * 2) {
-               //    this.gameControl();
-               //    this.runNumber = 0;
-               //    this.speed = 10;
-               // }
+               if (this.runNumber >= this.imgSize * runGrid * 2) {
+                  this.gameControl();
+                  this.runNumber = 0;
+                  this.speed = 10;
+               }
                imgContainer.y += speed;
                this.runNumber += speed;
                if (imgContainer.y >= size && sign == 'A') {
