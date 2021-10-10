@@ -1,0 +1,75 @@
+/* Loading */
+.loading{
+   display: block;
+}
+.linner{
+   position: absolute;
+   top: 35vh;
+   left: 50%;
+   width: 18.875rem;
+   margin-left: -9.4375rem;
+}
+.linner .linebox{
+   position: relative;
+   width: 100%;
+   height: 100%;
+}
+.linner .line{
+   width: 18.875rem;
+   height: 0.96875rem;
+   background-image: url(../images/carpet.png);
+   background-size: cover;
+}
+.linner .man {
+   width: 4.21875rem /* 135/16 */;
+   height: 6.625rem /* 212/16 */;
+   background-image: url(../images/run.png);
+   background-size: auto 100%;
+   background-position: 0 0;
+   animation: 0.5s manpao infinite;
+ }
+ .linner .man2 {
+   width: 4.5rem /* 144/16 */;
+   height: 5.3125rem /* 170/16 */;
+   background-image: url(../images/knock-human.png);
+   background-size: cover;
+   position: absolute;
+   right: 20%;
+   top: 28%;
+   display: none;
+ }
+@keyframes manpao {
+  0% {
+    background-position: 0 0;
+  }
+  19% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: -4.21875rem 0;
+  }
+  39% {
+    background-position: -4.21875rem 0;
+  }
+  40% {
+    background-position: -8.4375rem 0;
+  }
+  59% {
+    background-position: -8.4375rem 0;
+  }
+  60% {
+    background-position: -12.65625rem 0;
+  }
+  79% {
+    background-position: -12.65625rem 0;
+  }
+  80% {
+    background-position: -16.875rem 0;
+  }
+  99% {
+    background-position: -16.875rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
