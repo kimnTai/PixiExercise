@@ -19,7 +19,8 @@
          <div class="game"></div>
          <div class="mt-4" id="vueApp">
             <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
-            <button v-if='this.running !== "" ' class="me-3 btn btn-primary" @click='gameControl' @keyup.enter="gameControl" >RUN</button>
+            <button v-if='this.running !== "" ' class="me-3 btn btn-primary" @click='gameControl'
+               @keyup.enter="gameControl">RUN</button>
          </div>
       </div>
 
@@ -63,18 +64,21 @@
             }
          },
          methods: {
-            // 設置圖片位置
+            // ------ 設置圖片位置 ------ 
             imgSet(imgContainer, place) {
                for (let j = 0; j < this.list; j++) {
                   for (let i = 0; i < 3; i++) {
-                     // 產生０～４亂數
+                     // 產生亂數 (0 ~ 陣列長度)
                      const randomNumber = Math.floor(Math.random() * this.imgUrlArray.length);
                      // 產生圖片
                      const img = new PIXI.Sprite.from(this.imgUrlArray[randomNumber]);
                      // 縮放設定
                      img.scale.set(this.imgSize / 200, this.imgSize / 200);
-                     img.y = place + this.imgSize * i;
-                     img.x = j * this.imgSize;
+                     // 設置中心點
+                     img.anchor.set(0.5);
+                     // 設置位置 (起始點 + 位移量 + 錨點補正)
+                     img.y = place + this.imgSize * i + this.imgSize / 2;
+                     img.x = j * this.imgSize + this.imgSize / 2;
                      // 放入 Container
                      imgContainer.addChild(img);
                   }
@@ -82,60 +86,51 @@
             },
             // ------ 開始遊戲 ------ 
             gameStart() {
-               if (this.imgContainer.children.length > 0) return
+               if (this.imgContainer.children.length > 0) return;
                this.imgSet(this.imgContainer, 0);
-               this.imgSet(this.imgContainerB, this.imgSize * -3);
+               this.imgSet(this.imgContainerB, app.screen.height * -1);
                // 舞台放置
                app.stage.addChild(this.imgContainer);
                app.stage.addChild(this.imgContainerB);
+               const runGrid = 3;
+               const signArray = ['A', 'B'];
                setTimeout(() => {
                   app.ticker.stop();
                   app.ticker.add(time => {
-                     // if (this.speed >= 1) {
-                     //    this.speed *= 0.998
-                     // }
-                     this.imgControl(this.imgContainer, 'A', this.speed)
-                  }).add(time => {
-                     // if (this.speed >= 1) {
-                     //    this.speed *= 0.998
-                     // }
-                     this.imgControl(this.imgContainerB, 'B', this.speed)
+                     this.imgControl(this.imgContainer, signArray[0], time * this.speed, runGrid)
+                     this.imgControl(this.imgContainerB, signArray[1], time * this.speed, runGrid)
                   });
-
                   this.running = false;
                }, 1000)
             },
-            // 圖片交互 移動
-            imgControl(imgContainer, sign, speed) {
-               const size = this.imgSize * 3
-               const runGrid = 10;
-
+            // ------ 圖片交互 移動 ------ 
+            imgControl(imgContainer, sign, speed, runGrid) {
                if (this.runNumber >= this.imgSize * runGrid * 2) {
-                  this.gameControl();
+                  this.gameControl()
                   this.runNumber = 0;
-                  this.speed = 10;
                }
                imgContainer.y += speed;
                this.runNumber += speed;
-               if (imgContainer.y >= size && sign == 'A') {
+               if (imgContainer.y >= app.screen.height && sign == 'A') {
                   imgContainer.removeChildren();
                   this.imgSet(imgContainer, 0);
-                  imgContainer.y = -size;
-                  return
+                  imgContainer.y = app.screen.height * -1;
+                  return;
                }
-               if (imgContainer.y >= size * 2 && sign == 'B') {
+               if (imgContainer.y >= app.screen.height * 2 && sign == 'B') {
                   imgContainer.removeChildren();
-                  this.imgSet(imgContainer, -size);
+                  this.imgSet(imgContainer, app.screen.height * -1);
                   imgContainer.y = 0;
                   return
                }
             },
+            //------ 狀態控制 ------ 
             gameControl() {
                this.runNumber = 0;
                switch (this.running) {
-                  case true: this.running = false; app.ticker.stop(); break
-                  case false: this.running = true; app.ticker.start(); break
-                  case '': return
+                  case true: this.running = false; app.ticker.stop(); break;
+                  case false: this.running = true; app.ticker.start(); break;
+                  case '': return;
                };
             },
 

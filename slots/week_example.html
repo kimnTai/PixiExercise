@@ -19,7 +19,7 @@
    <script src="https://pixijs.download/release/pixi.js"></script>
    <script>
       const app = new PIXI.Application({
-         width: 800, height: 700,
+         width: 800, height: 600,
          backgroundColor: 0x08294a
       });
       document.querySelector('.container').appendChild(app.view);
@@ -40,8 +40,8 @@
 
       // －－－－－－－－－－－－－－－－ 參數設定 －－－－－－－－－－－－－－－－
       const img_width = 160;
-      const img_size = 160;
-      const list_number = 5;    // 多少列
+      const img_size = 100;
+      const list_number = 1;    // 多少列
       const img_number = 4;     // 每列產生幾個圖案
 
       function setup() {
@@ -62,7 +62,7 @@
             rc.x = i * img_width; // 160 320 480 640
             reelContainer.addChild(rc);
             const reel = {
-               symbols: [],
+               img_s: [],
                position: 0, // 位置
                blur: new PIXI.filters.BlurFilter(), //模糊
             };
@@ -71,14 +71,15 @@
             rc.filters = [reel.blur];
             for (let j = 0; j < img_number; j++) {
                // 隨機產生 0~3的數字
-               const symbol = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
+               const img = new PIXI.Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
 
                // 設置 (x,y)座標
-               symbol.scale.x = symbol.scale.y = Math.min(img_size / symbol.width, img_size / symbol.height);
-               symbol.position.set(Math.round((img_size - symbol.width) / 2), j * img_size)
+               img.scale.x = img.scale.y = Math.min(img_size / img.width, img_size / img.height);
+               console.log(img)
+               img.position.set(Math.round((img_size - img.width) / 2), j * img_size)
 
-               reel.symbols.push(symbol);
-               rc.addChild(symbol);
+               reel.img_s.push(img);
+               rc.addChild(img);
             }
             reels.push(reel);
 
@@ -163,13 +164,13 @@
                // 如果還考慮到時間計算，這會更好。 現在模糊取決於幀速率。
                // r.blur.blurY = (r.position - r.previousPosition) * 8;
                // r.previousPosition = r.position;
-
+  
                // 更新捲軸上的符號位置。
-               for (let j = 0; j < r.symbols.length; j++) {
-                  const s = r.symbols[j];
+               for (let j = 0; j < r.img_s.length; j++) {
+                  const s = r.img_s[j];
                   const prevy = s.y;
-
-                  s.y = ((r.position + j) % r.symbols.length) * img_size - img_size;
+         
+                  s.y = ((r.position + j) % r.img_s.length) * img_size - img_size;
 
                   if (s.y < 0 && prevy > img_size) {
                      // 檢測過去並交換紋理。
