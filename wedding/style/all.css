@@ -10,7 +10,6 @@
   display: none;
 }
 
-/* Loading */
 .loading {
   display: block;
 }
@@ -22,20 +21,17 @@
   width: 18.875rem;
   margin-left: -9.4375rem;
 }
-
 .linner .linebox {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
 .linner .line {
   width: 18.875rem;
   height: 0.96875rem;
   background-image: url(../images/carpet.png);
   background-size: cover;
 }
-
 .linner .man {
   width: 4.21875rem;
   height: 6.625rem;
@@ -45,8 +41,7 @@
   -webkit-animation: 0.5s manpao infinite;
           animation: 0.5s manpao infinite;
 }
-
-.linner .man2 {
+.linner .man_2 {
   width: 4.5rem;
   height: 5.3125rem;
   background-image: url(../images/knock-human.png);
@@ -54,6 +49,16 @@
   position: absolute;
   right: 20%;
   top: 28%;
+  display: none;
+}
+.linner .woman {
+  width: 3.96875rem;
+  height: 6.3125rem;
+  background-image: url(../images/girl.png);
+  background-size: cover;
+  position: absolute;
+  right: 0;
+  top: 12%;
   display: none;
 }
 
@@ -127,4 +132,178 @@
   100% {
     background-position: 0 0;
   }
-}/*# sourceMappingURL=all.css.map */
+}
+.kv {
+  background-image: url(../images/main-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.kv .title {
+  background-image: url(../images/main-title.png);
+  background-size: cover;
+  width: 21.03125rem;
+  height: 17.25rem;
+  position: absolute;
+  top: 15vh;
+  left: 50%;
+  margin-left: -10.515625rem;
+  -webkit-animation: 3s piao ease-in-out infinite;
+          animation: 3s piao ease-in-out infinite;
+}
+.kv .startBtn {
+  background-image: url(../images/main-btn.png);
+  background-size: cover;
+  width: 9.28125rem;
+  height: 3.40625rem;
+  position: absolute;
+  left: 50%;
+  margin-left: -4.640625rem;
+  top: 70vh;
+  -webkit-animation: 1s shanshan linear infinite;
+          animation: 1s shanshan linear infinite;
+}
+
+@-webkit-keyframes piao {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes piao {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(0, 10px);
+            transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes shanshan {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translate(-20px, 0) rotate(-5deg);
+            transform: translate(-20px, 0) rotate(-5deg);
+  }
+  50% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    -webkit-transform: translate(20px, 0) rotate(5deg);
+            transform: translate(20px, 0) rotate(5deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+}
+@keyframes shanshan {
+  0% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    -webkit-transform: translate(-20px, 0) rotate(-5deg);
+            transform: translate(-20px, 0) rotate(-5deg);
+  }
+  50% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    -webkit-transform: translate(20px, 0) rotate(5deg);
+            transform: translate(20px, 0) rotate(5deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0deg);
+            transform: translate(0, 0) rotate(0deg);
+  }
+}
+.gb {
+  display: block;
+}
+
+.gb {
+  background-image: url(../images/trans-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+}
+.gb .text_1 {
+  background-image: url(../images/cloud1.png);
+  background-size: cover;
+  width: 23.03125rem;
+  height: 22.25rem;
+  position: absolute;
+  right: 0;
+  top: 10vh;
+  display: none;
+}
+.gb .text_2 {
+  background-image: url(../images/cloud2.png);
+  background-size: cover;
+  width: 19.46875rem;
+  height: 18.40625rem;
+  position: absolute;
+  left: 0;
+  top: 50vh;
+  display: none;
+}
+.gb .enterText_1 {
+  -webkit-animation: 1s enterTxt1 ease-in;
+          animation: 1s enterTxt1 ease-in;
+}
+.gb .enterText_2 {
+  -webkit-animation: 1s enterTxt2 ease-in;
+          animation: 1s enterTxt2 ease-in;
+}
+
+@-webkit-keyframes enterText_1 {
+  0% {
+    right: -23.03125rem;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+@keyframes enterText_1 {
+  0% {
+    right: -23.03125rem;
+  }
+  100% {
+    right: 0;
+  }
+}
+@-webkit-keyframes enterText_2 {
+  0% {
+    left: -19.46875rem;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes enterText_2 {
+  0% {
+    left: -19.46875rem;
+  }
+  100% {
+    left: 0;
+  }
+}

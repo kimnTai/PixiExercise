@@ -1,0 +1,56 @@
+.kv {
+  background-image: url(../images/main-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  .title {
+    background-image: url(../images/main-title.png);
+    background-size: cover;
+    width: 21.03125rem /* 673/16 */;
+    height: 17.25rem /* 552/16 */;
+    position: absolute;
+    top: 15vh;
+    left: 50%;
+    margin-left: -10.515625rem /* 673/16 */;
+    animation: 3s piao ease-in-out infinite;
+  }
+  .startBtn {
+    background-image: url(../images/main-btn.png);
+    background-size: cover;
+    width: 9.28125rem /* 297/16 */;
+    height: 3.40625rem /* 109/16 */;
+    position: absolute;
+    left: 50%;
+    margin-left: -4.640625rem /* 297/16 */;
+    top: 70vh;
+    animation: 1s shanshan linear infinite;
+  }
+}
+
+@keyframes piao {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes shanshan {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-20px, 0) rotate(-5deg);
+  }
+  50% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(20px, 0) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}

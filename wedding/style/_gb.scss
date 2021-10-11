@@ -1,0 +1,51 @@
+// 告白
+.gb {
+  display: block;
+}
+.gb {
+  background-image: url(../images/trans-bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  .text_1 {
+    background-image: url(../images/cloud1.png);
+    background-size: cover;
+    width: 23.03125rem /* 737/16 */;
+    height: 22.25rem /* 712/16 */;
+    position: absolute;
+    right: 0;
+    top: 10vh;
+    display: none;
+  }
+  .text_2 {
+    background-image: url(../images/cloud2.png);
+    background-size: cover;
+    width: 19.46875rem /* 623/16 */;
+    height: 18.40625rem /* 589/16 */;
+    position: absolute;
+    left: 0;
+    top: 50vh;
+    display: none;
+  }
+  .enterText_1 {
+    animation: 1s enterTxt1 ease-in;
+  }
+  .enterText_2 {
+    animation: 1s enterTxt2 ease-in;
+  }
+}
+@keyframes enterText_1 {
+  0% {
+    right: -23.03125rem;
+  }
+  100% {
+    right: 0;
+  }
+}
+@keyframes enterText_2 {
+  0% {
+    left: -19.46875rem;
+  }
+  100% {
+    left: 0;
+  }
+}

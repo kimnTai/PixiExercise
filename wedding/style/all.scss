@@ -1,12 +1,5 @@
 /*公共样式*/
-.wrapper {
-   position: absolute;
-   width: 100vw;
-   height: 100vh;
-   left: 0;
-   top: 0;
-   background-color: #f9ede1;
-   display: none;
- }
-
+ @import "wrapper";
  @import "loading";
+ @import "kv";
+ @import "gb";
