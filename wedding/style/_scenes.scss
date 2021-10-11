@@ -1,0 +1,98 @@
+//布置场景
+.scenes {
+  .stage {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    > canvas {
+      width: 100%;
+    }
+  }
+  .saveBtn {
+    background-image: url(../images/img/btn-generate.png);
+    background-size: cover;
+    position: absolute;
+    bottom: 14.8125rem /* 474/16 */;
+    right: 0.9375rem /* 30/16 */;
+    width: 2.5rem /* 80/16 */;
+    height: 2.5rem /* 80/16 */;
+    z-index: 13;
+  }
+  .cardContent {
+    width: 100vw;
+    height: 13.875rem /* 444/16 */;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: #ffffff;
+    .tabs {
+      height: 2.5625rem /* 82/16 */;
+      .tab,
+      .xs {
+        width: 20vw;
+        float: left;
+        height: 2.5625rem /* 82/16 */;
+        text-align: center;
+        padding-top: 5px;
+        > img {
+          height: 80%;
+        }
+      }
+      .selected {
+        background-color: #f6f6f6;
+      }
+    }
+    .tabContents {
+      width: 100vw;
+      height: 11rem /* 176/16 */;
+      position: absolute;
+      top: 2.875rem /* 46/16 */;
+      background-color: #f6f6f6;
+      .tabContent {
+        height: 11rem /* 176/16 */;
+        overflow-y: auto;
+        width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+      }
+      .selected {
+        display: block;
+      }
+      li {
+        padding: 10px;
+        text-align: center;
+        width: 27%;
+        display: inline-block;
+      }
+      img {
+        width: 90%;
+      }
+    }
+  }
+  .subtab {
+    position: absolute;
+    top: 10vh;
+    right: 5vw;
+    .dobuleline {
+      width: 120px;
+    }
+    .singleline {
+      width: 60px;
+    }
+    > ul {
+      display: none;
+      float: right;
+    }
+    > li {
+      width: 40px;
+      height: 40px;
+      margin: 10px;
+      float: left;
+      > img {
+        width: 100%;
+      }
+    }
+  }
+}

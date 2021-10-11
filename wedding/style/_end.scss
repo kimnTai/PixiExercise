@@ -1,0 +1,66 @@
+// 頁尾
+.end {
+  .decorate_1 {
+    background-image: url(../images/fn-cloth.png);
+    background-size: cover;
+    width: 8.125rem /* 260/16 */;
+    height: 11.875rem /* 380/16 */;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 9;
+  }
+  .decorate_2 {
+    background-image: url(../images/fn-sepr-flower.png);
+    background-size: cover;
+    width: 5.34375rem /* 171/16 */;
+    height: 6.625rem /* 212/16 */;
+    position: absolute;
+    left: -2rem;
+    bottom: -1.5rem;
+  }
+  .decorate_3 {
+    background-image: url(../images/fn-b-flower.png);
+    background-size: cover;
+    width: 100vw;
+    height: 5.84375rem /* 187/16 */;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .poster {
+    position: absolute;
+    left: 10vw;
+    top: 7vh;
+    width: 70vw;
+    z-index: 1;
+  }
+  .poster img {
+    width: 100%;
+    border: 19px #fff solid;
+  }
+  .posterInner {
+    position: relative;
+  }
+  .btns {
+    width: 70vw;
+    position: absolute;
+    left: 50%;
+    margin-left: -35vw;
+    top: 85vh;
+    z-index: 9;
+    .btn {
+      width: 6.6875rem /* 214/16 */;
+      height: 2.40625rem /* 77/16 */;
+      background-size: cover;
+    }
+    .replayBtn {
+      background-image: url(../images/btn-l.png);
+      float: left;
+    }
+    .shareBtn {
+      background-image: url(../images/btn-r.png);
+      float: right;
+    }
+  }
+}

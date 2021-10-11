@@ -1,5 +1,3 @@
-@charset "UTF-8";
-/*公共样式*/
 .wrapper {
   position: absolute;
   width: 100vw;
@@ -8,10 +6,6 @@
   top: 0;
   background-color: #f9ede1;
   display: none;
-}
-
-.loading {
-  display: block;
 }
 
 .linner {
@@ -25,12 +19,14 @@
   position: relative;
   width: 100%;
   height: 100%;
+  height: 6.625rem;
 }
 .linner .line {
   width: 18.875rem;
   height: 0.96875rem;
   background-image: url(../images/carpet.png);
-  background-size: cover;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
 }
 .linner .man {
   width: 4.21875rem;
@@ -60,6 +56,10 @@
   right: 0;
   top: 12%;
   display: none;
+}
+.linner .loadingNum {
+  text-align: center;
+  padding-top: 1rem;
 }
 
 @-webkit-keyframes manpao {
@@ -237,10 +237,6 @@
   }
 }
 .gb {
-  display: block;
-}
-
-.gb {
   background-image: url(../images/trans-bg.jpg);
   background-size: cover;
   background-position: center center;
@@ -266,12 +262,12 @@
   display: none;
 }
 .gb .enterText_1 {
-  -webkit-animation: 1s enterTxt1 ease-in;
-          animation: 1s enterTxt1 ease-in;
+  -webkit-animation: 1s enterText_1 ease-in;
+          animation: 1s enterText_1 ease-in;
 }
 .gb .enterText_2 {
-  -webkit-animation: 1s enterTxt2 ease-in;
-          animation: 1s enterTxt2 ease-in;
+  -webkit-animation: 1s enterText_2 ease-in;
+          animation: 1s enterText_2 ease-in;
 }
 
 @-webkit-keyframes enterText_1 {
@@ -306,4 +302,168 @@
   100% {
     left: 0;
   }
+}
+.scenes .stage {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.scenes .stage > canvas {
+  width: 100%;
+}
+.scenes .saveBtn {
+  background-image: url(../images/img/btn-generate.png);
+  background-size: cover;
+  position: absolute;
+  bottom: 14.8125rem;
+  right: 0.9375rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 13;
+}
+.scenes .cardContent {
+  width: 100vw;
+  height: 13.875rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #ffffff;
+}
+.scenes .cardContent .tabs {
+  height: 2.5625rem;
+}
+.scenes .cardContent .tabs .tab,
+.scenes .cardContent .tabs .xs {
+  width: 20vw;
+  float: left;
+  height: 2.5625rem;
+  text-align: center;
+  padding-top: 5px;
+}
+.scenes .cardContent .tabs .tab > img,
+.scenes .cardContent .tabs .xs > img {
+  height: 80%;
+}
+.scenes .cardContent .tabs .selected {
+  background-color: #f6f6f6;
+}
+.scenes .cardContent .tabContents {
+  width: 100vw;
+  height: 11rem;
+  position: absolute;
+  top: 2.875rem;
+  background-color: #f6f6f6;
+}
+.scenes .cardContent .tabContents .tabContent {
+  height: 11rem;
+  overflow-y: auto;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.scenes .cardContent .tabContents .selected {
+  display: block;
+}
+.scenes .cardContent .tabContents li {
+  padding: 10px;
+  text-align: center;
+  width: 27%;
+  display: inline-block;
+}
+.scenes .cardContent .tabContents img {
+  width: 90%;
+}
+.scenes .subtab {
+  position: absolute;
+  top: 10vh;
+  right: 5vw;
+}
+.scenes .subtab .dobuleline {
+  width: 120px;
+}
+.scenes .subtab .singleline {
+  width: 60px;
+}
+.scenes .subtab > ul {
+  display: none;
+  float: right;
+}
+.scenes .subtab > li {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  float: left;
+}
+.scenes .subtab > li > img {
+  width: 100%;
+}
+
+.end .decorate_1 {
+  background-image: url(../images/fn-cloth.png);
+  background-size: cover;
+  width: 8.125rem;
+  height: 11.875rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}
+.end .decorate_2 {
+  background-image: url(../images/fn-sepr-flower.png);
+  background-size: cover;
+  width: 5.34375rem;
+  height: 6.625rem;
+  position: absolute;
+  left: -2rem;
+  bottom: -1.5rem;
+}
+.end .decorate_3 {
+  background-image: url(../images/fn-b-flower.png);
+  background-size: cover;
+  width: 100vw;
+  height: 5.84375rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.end .poster {
+  position: absolute;
+  left: 10vw;
+  top: 7vh;
+  width: 70vw;
+  z-index: 1;
+}
+.end .poster img {
+  width: 100%;
+  border: 19px #fff solid;
+}
+.end .posterInner {
+  position: relative;
+}
+.end .btns {
+  width: 70vw;
+  position: absolute;
+  left: 50%;
+  margin-left: -35vw;
+  top: 85vh;
+  z-index: 9;
+}
+.end .btns .btn {
+  width: 6.6875rem;
+  height: 2.40625rem;
+  background-size: cover;
+}
+.end .btns .replayBtn {
+  background-image: url(../images/btn-l.png);
+  float: left;
+}
+.end .btns .shareBtn {
+  background-image: url(../images/btn-r.png);
+  float: right;
+}
+
+.loading {
+  display: block;
 }

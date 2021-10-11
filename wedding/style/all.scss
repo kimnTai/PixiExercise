@@ -1,5 +1,10 @@
-/*公共样式*/
- @import "wrapper";
- @import "loading";
- @import "kv";
- @import "gb";
+///公共样式
+@import "wrapper";
+@import "loading";
+@import "kv";
+@import "gb";
+@import "scenes";
+@import "end";
+.loading {
+   display: block;
+ }

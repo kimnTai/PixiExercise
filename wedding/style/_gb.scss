@@ -1,8 +1,5 @@
 // 告白
 .gb {
-  display: block;
-}
-.gb {
   background-image: url(../images/trans-bg.jpg);
   background-size: cover;
   background-position: center center;
@@ -27,10 +24,10 @@
     display: none;
   }
   .enterText_1 {
-    animation: 1s enterTxt1 ease-in;
+    animation: 1s enterText_1 ease-in;
   }
   .enterText_2 {
-    animation: 1s enterTxt2 ease-in;
+    animation: 1s enterText_2 ease-in;
   }
 }
 @keyframes enterText_1 {
