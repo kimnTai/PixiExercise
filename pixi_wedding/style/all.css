@@ -386,17 +386,17 @@
 .scenes .subtab .singleline {
   width: 60px;
 }
-.scenes .subtab > ul {
+.scenes .subtab ul {
   display: none;
   float: right;
 }
-.scenes .subtab > li {
+.scenes .subtab li {
   width: 40px;
   height: 40px;
   margin: 10px;
   float: left;
 }
-.scenes .subtab > li > img {
+.scenes .subtab li img {
   width: 100%;
 }
 

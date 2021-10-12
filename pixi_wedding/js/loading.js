@@ -201,31 +201,3 @@ loader.process(function () {
    }
 });
 loader.start();
-
-// 開始製作
-const startMake = () => {
-   $('.kv').hide();
-   $('.gb').show();
-   // 文字顯示
-   $('.text_1').show();
-   $('.text_1').addClass('enterText_1')
-   setTimeout(() => {
-      $('.text_2').show();
-      $('.text_2').addClass('enterText_2')
-   }, 500)
-
-   setTimeout(() => {
-      $('.gb').hide();
-      $('.scenes').show();
-   }, 3000)
-
-
-}
-$('.startBtn').bind('touchend', startMake)
-
-// 製作完成
-const finish = () => {
-   $('.scenes').hide();
-   $('.end').show();
-}
-$('.saveBtn').bind('touchend', finish)

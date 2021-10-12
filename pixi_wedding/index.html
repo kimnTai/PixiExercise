@@ -11,76 +11,119 @@
 </head>
 
 <body>
-   <!-- Loading -->
-   <div class="wrapper loading">
-      <div class="linner">
-         <div class="linebox">
-            <div class="man"></div>
-            <div class="man_2"></div>
-            <div class="woman"></div>
-            <div class="line"></div>
-            <div class="loadingNum"></div>
-         </div>
-      </div>
-   </div>
-   <!-- KV -->
-   <div class="wrapper kv">
-      <div class="kvbg">
-         <div class="title"></div>
-         <div class="startBtn"></div>
-      </div>
-   </div>
-   <!-- 告白 -->
-   <div class="wrapper gb">
-      <div class="gbbg">
-         <div class="text_1"></div>
-         <div class="text_2"></div>
-      </div>
-   </div>
-   <!-- 布置場景 -->
-   <div class="wrapper scenes">
-      <div class="stage"></div>
-      <div class="cardContent">
-         <div class="saveBtn"></div>
-         <div class="tabs">
-            <div class="tab">
-               <img src="./images/img/nav-pet.png" alt="">
-            </div>
-            <div class="tab"></div>
-            <div class="tab"></div>
-            <div class="tab"></div>
-            <div class="xs">
-               <img src="./images/img/nav-arrow.png" alt="">
+   <div id="app">
+      <!-- Loading -->
+      <div class="wrapper loading">
+         <div class="linner">
+            <div class="linebox">
+               <div class="man"></div>
+               <div class="man_2"></div>
+               <div class="woman"></div>
+               <div class="line"></div>
+               <div class="loadingNum"></div>
             </div>
          </div>
-         <div class="tabContents">
-            <!-- 風景 -->
-            <div class="tabContent selected">
-               <ul>
-                  <li><img src="./images/img/thumb-s1.jpg" alt=""></li>
-               </ul>
-            </div>
-            <div class="tabContent"></div>
-            <div class="tabContent"></div>
-            <div class="tabContent"></div>
+      </div>
+      <!-- KV -->
+      <div class="wrapper kv">
+         <div class="kvbg">
+            <div class="title"></div>
+            <div @click='startMake' class="startBtn"></div>
          </div>
       </div>
-   </div>
-   <!-- 頁尾 -->
-   <div class="wrapper end">
-      <div class="lastpage">
-         <div class="poster"></div>
-         <div class="decorate_1"></div>
-         <div class="decorate_2"></div>
-         <div class="btns">
-            <div class="btn replayBtn"></div>
-            <div class="btn shareBtn"></div>
+      <!-- 告白 -->
+      <div class="wrapper gb">
+         <div class="gbbg">
+            <div class="text_1"></div>
+            <div class="text_2"></div>
          </div>
-         <div class="decorate_3"></div>
+      </div>
+      <!-- 布置場景 -->
+      <div class="wrapper scenes">
+         <div id="stage" class="stage"></div>
+         <div class="saveBtn" @click='finish'></div>
+         <div class="subtab">
+            <ul class="dobuleline">
+               <li v-for='item in imgData.bridegroom'><img :src="item" alt=""></li>
+            </ul>
+            <ul class="singleline">
+               <li v-for='item in imgData.bestman'><img :src="item" alt=""></li>
+            </ul>
+            <ul class="singleline">
+               <li v-for='item in imgData.boy'><img :src="item" alt=""></li>
+            </ul>
+            <ul class="dobuleline">
+               <li v-for='item in imgData.bridegroom'><img :src="item" alt=""></li>
+            </ul>
+            <ul class="singleline">
+               <li v-for='item in imgData.bridesmaid'><img :src="item" alt=""></li>
+            </ul>
+            <ul class="singleline">
+               <li v-for='item in imgData.girl'><img :src="item" alt=""></li>
+            </ul>
+         </div>
+         <div class="cardContent">
+
+            <div class="tabs">
+               <div class="tab" v-for='(item,key) in imgData.nav' :key="key">
+                  <img @click="selectTab(key)" :src="item" alt="">
+               </div>
+               <div class="xs">
+                  <img src="./images/img/nav-arrow.png" alt="">
+               </div>
+            </div>
+            <div class="tabContents">
+               <!-- 風景 -->
+               <div :class='tabContent == "thumb_s" ? "selected":"" ' class="tabContent ">
+                  <ul>
+                     <li v-for='(item,key) in imgData.thumb_s' :key="key">
+                        <img :src="item" @click='changeBg(key)' alt="">
+                     </li>
+                  </ul>
+               </div>
+               <!-- 人物 -->
+               <div :class='tabContent == "thumb_hm" ? "selected":"" ' class="tabContent ">
+                  <ul>
+                     <li v-for='(item,key) in imgData.thumb_hm' :key="key">
+                        <img :src="item" @click='addSprite(key)' alt="">
+                     </li>
+                  </ul>
+               </div>
+               <!-- 裝飾 -->
+               <div :class='tabContent == "thumb_d" ? "selected":"" ' class="tabContent ">
+                  <ul>
+                     <li v-for='item in imgData.thumb_d'><img :src="item" alt=""></li>
+                  </ul>
+               </div>
+               <!-- 寵物 -->
+               <div :class='tabContent == "thumb_p" ? "selected":"" ' class="tabContent">
+                  <ul>
+                     <li v-for='item in imgData.thumb_p'><img :src="item" alt=""></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- 頁尾 -->
+      <div class="wrapper end">
+         <div class="lastpage">
+            <div class="poster"></div>
+            <div class="decorate_1"></div>
+            <div class="decorate_2"></div>
+            <div class="btns">
+               <div class="btn replayBtn"></div>
+               <div class="btn shareBtn"></div>
+            </div>
+            <div class="decorate_3"></div>
+         </div>
       </div>
    </div>
 
 
+
+
+   <!-- Vue CDN -->
+   <script src="https://unpkg.com/vue@next"></script>
    <!-- PIXI CDN -->
    <script src="https://pixijs.download/release/pixi.js"></script>
    <!-- jQuery CDN -->
@@ -89,7 +132,123 @@
 
    <script src="./js/imagesLoader.min.js"></script>
    <script src="./js/loading.js"></script>
-   <script></script>
+   <script src="./js/data.js"></script>
+   <script>
+      const vueApp = Vue.createApp({
+         data() {
+            return {
+               app: new PIXI.Application({
+                  width: 750,
+                  height: 1334,
+                  backgroundAlpha: 1,
+               }),
+               bgSprite: new PIXI.Sprite.from("./images/img/bg1.jpg"),
+               // container: new PIXI.Container(),
+               imgData: {},
+               tabContent: 'thumb_s',
+            }
+         },
+         methods: {
+            // 開始製作 - 頁面切換
+            startMake() {
+               $('.kv').hide(); $('.gb').show();
+               $('.text_1').show(); $('.text_1').addClass('enterText_1')
+               setTimeout(() => {
+                  $('.text_2').show(); $('.text_2').addClass('enterText_2');
+               }, 500)
+               setTimeout(() => { $('.gb').hide(); $('.scenes').show(); }, 3000)
+            },
+            // 製作完成 - 頁面切換
+            finish() {
+               $('.scenes').hide(); $('.end').show();
+            },
+            // 製作選單切換
+            selectTab(key) {
+               switch (key) {
+                  case 0: this.tabContent = 'thumb_s'; break;
+                  case 1: this.tabContent = 'thumb_hm'; break;
+                  case 2: this.tabContent = 'thumb_d'; break;
+                  case 3: this.tabContent = 'thumb_p'; break;
+               }
+            },
+            // 背景設置
+            setBackground(Sprite) {
+               Sprite.position.set(0, 0);
+               Sprite.width = 750;
+               Sprite.height = 1334;
+               this.app.stage.addChild(Sprite);
+            },
+            // 背景切換
+            changeBg(key) {
+               this.bgSprite.texture = PIXI.Texture.from(imgData.background[key]);
+            },
+            addSprite(key) {
+               const container = new PIXI.Container();
+               const cpos = this.randomPos();
+               console.log()
+               container.position.set(cpos.x, cpos.y);
+
+               // 邊框、縮放按鈕、刪除按鈕
+               const space = 20;
+               const btnSize = 50;
+               const borderline = new PIXI.Graphics();
+               borderline.lineStyle(5, 0xaaaaaa)
+               borderline.position.set(0, 0);
+               const scaleBtn = new PIXI.Sprite.from('./images/img/btn-resize.png');
+               scaleBtn.width = btnSize;
+               scaleBtn.height = btnSize;
+               const delBtn = new PIXI.Sprite.from('./images/img/btn-del.png');
+               delBtn.width = btnSize;
+               delBtn.height = btnSize;
+               const imgContainer = new PIXI.Container();
+               imgContainer.position.set(space / 2, space / 2);
+
+               if (key == 0) {
+                  const maleSpace = [340 + space, 681 + space];
+                  container.width = maleSpace[0];
+                  container.height = maleSpace[1];
+                  container.pivot.set(maleSpace[0] / 2, maleSpace[1] / 2)
+                  borderline.drawRoundedRect(0, 0, maleSpace[0], maleSpace[1], 10)
+
+                  scaleBtn.position.set(maleSpace[0] - btnSize / 2, -btnSize / 2);
+                  delBtn.position.set(-btnSize / 2, maleSpace[1] - btnSize / 2);
+                  const maleBody = new PIXI.Sprite.from('./images/img/bg-clothes1.png');
+                  maleBody.position.set(0, 148);
+                  const maleFace = new PIXI.Sprite.from('./images/img/bridegroom-face.png');
+                  maleFace.position.set(135, 2);
+
+                  const maleHair = new PIXI.Sprite.from('./images/img/bg-hair1.png');
+                  maleHair.position.set(137, 0);
+
+                  imgContainer.addChild(maleBody);
+                  imgContainer.addChild(maleFace);
+                  imgContainer.addChild(maleHair);
+               }
+
+               container.addChild(imgContainer);
+               container.addChild(borderline);
+               container.addChild(scaleBtn);
+               container.addChild(delBtn);
+
+               this.app.stage.addChild(container);
+               console.log(key)
+            },
+            randomPos() {
+               return {
+                  x: 750 / 2 + Math.random() * 40,
+                  y: 1334 / 2 + Math.random() * 40
+               }
+            }
+         },
+         mounted() {
+            this.imgData = imgData;
+            document.querySelector('#stage').appendChild(this.app.view);
+            this.setBackground(this.bgSprite);
+         },
+         computed: {
+         },
+      }).mount('#app')
+   </script>
 </body>
 
 </html>

@@ -13,11 +13,11 @@
 </head>
 
 <body>
-   <div style="background-image: url('./img/bg_final.png');height: 1080px;">
+   <div id="vueApp" style="background-image: url('./img/bg_final.png');height: 1080px;">
       <div style="position: absolute;top:235px;left:255px">
          <h1 style="color: aliceblue;">Week1 - 角子老虎機</h1>
          <div class="game"></div>
-         <div class="mt-4" id="vueApp">
+         <div class="mt-4">
             <button class="me-3 btn btn-primary" @click='gameStart'>開始遊戲</button>
             <button v-if='this.running !== "" ' class="me-3 btn btn-primary" @click='gameControl'
                @keyup.enter="gameControl">RUN</button>
@@ -33,17 +33,16 @@
    <!-- PIXI CDN -->
    <script src="https://pixijs.download/release/pixi.js"></script>
    <script>
-      // PIXI app
-      const app = new PIXI.Application({
-         width: 1000, height: 570,
-         backgroundAlpha: 0
-      });
-      document.querySelector('.game').appendChild(app.view);
 
       // Vue App
       const vueApp = Vue.createApp({
          data() {
             return {
+               // PIXI app
+               app: new PIXI.Application({
+                  width: 1000, height: 570,
+                  backgroundAlpha: 0
+               }),
                imgContainer: new PIXI.Container(),
                imgContainerB: new PIXI.Container(),
                imgUrlArray: [
@@ -88,15 +87,15 @@
             gameStart() {
                if (this.imgContainer.children.length > 0) return;
                this.imgSet(this.imgContainer, 0);
-               this.imgSet(this.imgContainerB, app.screen.height * -1);
+               this.imgSet(this.imgContainerB, this.app.screen.height * -1);
                // 舞台放置
-               app.stage.addChild(this.imgContainer);
-               app.stage.addChild(this.imgContainerB);
+               this.app.stage.addChild(this.imgContainer);
+               this.app.stage.addChild(this.imgContainerB);
                const runGrid = 8;
                const signArray = ['A', 'B'];
                setTimeout(() => {
-                  app.ticker.stop();
-                  app.ticker.add(time => {
+                  this.app.ticker.stop();
+                  this.app.ticker.add(time => {
                      this.imgControl(this.imgContainer, signArray[0], time * this.speed, runGrid)
                      this.imgControl(this.imgContainerB, signArray[1], time * this.speed, runGrid)
                   });
@@ -108,18 +107,21 @@
                if (this.runNumber >= this.imgSize * runGrid * 2) {
                   this.gameControl()
                   this.runNumber = 0;
+                  imgContainer.y += speed;
+                  console.log(imgContainer.y % this.imgSize)
+                  return
                }
                imgContainer.y += speed;
                this.runNumber += speed;
-               if (imgContainer.y >= app.screen.height && sign == 'A') {
+               if (imgContainer.y >= this.app.screen.height && sign == 'A') {
                   imgContainer.removeChildren();
                   this.imgSet(imgContainer, 0);
-                  imgContainer.y = app.screen.height * -1;
+                  imgContainer.y = this.app.screen.height * -1;
                   return;
                }
-               if (imgContainer.y >= app.screen.height * 2 && sign == 'B') {
+               if (imgContainer.y >= this.app.screen.height * 2 && sign == 'B') {
                   imgContainer.removeChildren();
-                  this.imgSet(imgContainer, app.screen.height * -1);
+                  this.imgSet(imgContainer, this.app.screen.height * -1);
                   imgContainer.y = 0;
                   return
                }
@@ -128,12 +130,14 @@
             gameControl() {
                this.runNumber = 0;
                switch (this.running) {
-                  case true: this.running = false; app.ticker.stop(); break;
-                  case false: this.running = true; app.ticker.start(); break;
+                  case true: this.running = false; this.app.ticker.stop(); break;
+                  case false: this.running = true; this.app.ticker.start(); break;
                   case '': return;
                };
             },
-
+         },
+         mounted() {
+            document.querySelector('.game').appendChild(this.app.view);
          },
 
       }).mount('#vueApp')

@@ -1,0 +1,14 @@
+const imgData = {
+   bridegroom: ["images/img/thumb-bg-hair1.png", "images/img/thumb-bg-hair2.png", "images/img/thumb-bg-hair3.png", "images/img/thumb-bg-hair4.png", "images/img/thumb-bg-hair5.png", "images/img/thumb-bg-hair6.png", "images/img/thumb-bg-clothes1.png", "images/img/thumb-bg-clothes2.png", "images/img/thumb-bg-clothes3.png", "images/img/thumb-bg-clothes4.png", "images/img/thumb-bg-clothes5.png", "images/img/thumb-bg-clothes6.png"],
+   bestman: ["images/img/thumb-bmm1.png", "images/img/thumb-bmm2.png", "images/img/thumb-bmm3.png"],
+   boy: ["images/img/thumb-chm1.png", "images/img/thumb-chm2.png", "images/img/thumb-chm3.png"],
+   bride: ["images/img/thumb-b-hair1.png", "images/img/thumb-b-hair2.png", "images/img/thumb-b-hair3.png", "images/img/thumb-b-hair4.png", "images/img/thumb-b-hair5.png", "images/img/thumb-b-hair6.png", "images/img/thumb-b-clothes1.png", "images/img/thumb-b-clothes2.png", "images/img/thumb-b-clothes3.png", "images/img/thumb-b-clothes4.png", "images/img/thumb-b-clothes5.png", "images/img/thumb-b-clothes6.png",],
+   bridesmaid: ["images/img/thumb-bm1.png", "images/img/thumb-bm2.png", "images/img/thumb-bm3.png"],
+   girl: ["images/img/thumb-chf1.png", "images/img/thumb-chf2.png", "images/img/thumb-chf3.png"],
+   nav: ["images/img/nav-place.png", "images/img/nav-human.png", "images/img/nav-dec.png", "images/img/nav-pet.png"],
+   thumb_s: ["./images/img/thumb-s1.jpg", "./images/img/thumb-s2.jpg", "./images/img/thumb-s3.jpg", "./images/img/thumb-s4.jpg", "./images/img/thumb-s5.jpg", "./images/img/thumb-s6.jpg", "./images/img/thumb-s7.jpg", "./images/img/thumb-s8.jpg", "./images/img/thumb-s9.jpg",],
+   thumb_hm: ["./images/img/thumb-hm1.png", "./images/img/thumb-hm4.png", "./images/img/thumb-hm3.png", "./images/img/thumb-hm2.png", "./images/img/thumb-hm5.png", "./images/img/thumb-hm6.png",],
+   thumb_d: ["./images/img/thumb-d1.png", "./images/img/thumb-d2.png", "./images/img/thumb-d3.png", "./images/img/thumb-d4.png", "./images/img/thumb-d5.png", "./images/img/thumb-d6.png", "./images/img/thumb-d7.png", "./images/img/thumb-d8.png", "./images/img/thumb-d9.png", "./images/img/thumb-d10.png", "./images/img/thumb-d11.png", "./images/img/thumb-d12.png",],
+   thumb_p: ["./images/img/thumb-p1.png", "./images/img/thumb-p2.png", "./images/img/thumb-p3.png", "./images/img/thumb-p4.png", "./images/img/thumb-p5.png", "./images/img/thumb-p6.png",],
+   background: ["./images/img/bg1.jpg","./images/img/bg2.jpg","./images/img/bg3.jpg","./images/img/bg4.jpg","./images/img/bg5.jpg","./images/img/bg6.jpg","./images/img/bg7.jpg","./images/img/bg8.jpg","./images/img/bg9.jpg",],
+}
