@@ -44,22 +44,34 @@
          <div class="saveBtn" @click='finish'></div>
          <div class="subtab">
             <ul class="dobuleline">
-               <li v-for='item in imgData.bridegroom'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.bridegroom' :key="key">
+                  <img :src="item" @click='subtabChose(key,"bridegroom")' alt="">
+               </li>
             </ul>
             <ul class="singleline">
-               <li v-for='item in imgData.bestman'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.bestman' :key="key">
+                  <img :src="item" @click='subtabChose(key,"bestman")' alt="">
+               </li>
             </ul>
             <ul class="singleline">
-               <li v-for='item in imgData.boy'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.boy' :key="key">
+                  <img :src="item" @click='subtabChose(key,"boy")' alt="">
+               </li>
             </ul>
             <ul class="dobuleline">
-               <li v-for='item in imgData.bridegroom'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.bride' :key="key">
+                  <img :src="item" @click='subtabChose(key,"bride")' alt="">
+               </li>
             </ul>
             <ul class="singleline">
-               <li v-for='item in imgData.bridesmaid'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.bridesmaid' :key="key">
+                  <img :src="item" @click='subtabChose(key,"bridesmaid")' alt="">
+               </li>
             </ul>
             <ul class="singleline">
-               <li v-for='item in imgData.girl'><img :src="item" alt=""></li>
+               <li v-for='(item,key) in subtabData.girl' :key="key">
+                  <img :src="item" @click='subtabChose(key,"girl")' alt="">
+               </li>
             </ul>
          </div>
          <div class="cardContent">
@@ -77,7 +89,7 @@
                <div :class='tabContent == "thumb_s" ? "selected":"" ' class="tabContent ">
                   <ul>
                      <li v-for='(item,key) in imgData.thumb_s' :key="key">
-                        <img :src="item" @click='changeBg(key)' alt="">
+                        <img :src="item" @click='changeBg(key,"thumb_s")' alt="">
                      </li>
                   </ul>
                </div>
@@ -85,20 +97,24 @@
                <div :class='tabContent == "thumb_hm" ? "selected":"" ' class="tabContent ">
                   <ul>
                      <li v-for='(item,key) in imgData.thumb_hm' :key="key">
-                        <img :src="item" @click='addSprite(key)' alt="">
+                        <img :src="item" @click='addSprite(key,"thumb_hm")' alt="">
                      </li>
                   </ul>
                </div>
                <!-- 裝飾 -->
                <div :class='tabContent == "thumb_d" ? "selected":"" ' class="tabContent ">
                   <ul>
-                     <li v-for='item in imgData.thumb_d'><img :src="item" alt=""></li>
+                     <li v-for='(item,key) in imgData.thumb_d' :key="key">
+                        <img :src="item" @click='addSprite(key,"thumb_d",true)' alt="">
+                     </li>
                   </ul>
                </div>
                <!-- 寵物 -->
                <div :class='tabContent == "thumb_p" ? "selected":"" ' class="tabContent">
                   <ul>
-                     <li v-for='item in imgData.thumb_p'><img :src="item" alt=""></li>
+                     <li v-for='(item,key) in imgData.thumb_p' :key="key">
+                        <img :src="item" @click='addSprite(key,"thumb_p",true)' alt="">
+                     </li>
                   </ul>
                </div>
             </div>
@@ -143,9 +159,10 @@
                   backgroundAlpha: 1,
                }),
                bgSprite: new PIXI.Sprite.from("./images/img/bg1.jpg"),
-               // container: new PIXI.Container(),
                imgData: {},
+               subtabData: {},
                tabContent: 'thumb_s',
+               sizeJson: {},
             }
          },
          methods: {
@@ -182,72 +199,178 @@
             changeBg(key) {
                this.bgSprite.texture = PIXI.Texture.from(imgData.background[key]);
             },
-            addSprite(key) {
+            // 新增物件
+            addSprite(key, text, subtab) {
+               this.clearSelected()
                const container = new PIXI.Container();
-               const cpos = this.randomPos();
-               console.log()
+               const cpos = { x: 750 / 2 + Math.random() * 40, y: 1334 / 2 + Math.random() * 40 }
                container.position.set(cpos.x, cpos.y);
 
                // 邊框、縮放按鈕、刪除按鈕
                const space = 20;
                const btnSize = 50;
                const borderline = new PIXI.Graphics();
-               borderline.lineStyle(5, 0xaaaaaa)
+               borderline.lineStyle(3, 0xaaaaaa)
                borderline.position.set(0, 0);
                const scaleBtn = new PIXI.Sprite.from('./images/img/btn-resize.png');
                scaleBtn.width = btnSize;
                scaleBtn.height = btnSize;
+               scaleBtn.interactive = true;
                const delBtn = new PIXI.Sprite.from('./images/img/btn-del.png');
                delBtn.width = btnSize;
                delBtn.height = btnSize;
+               delBtn.interactive = true;
+
                const imgContainer = new PIXI.Container();
                imgContainer.position.set(space / 2, space / 2);
+               imgContainer.interactive = true
 
-               if (key == 0) {
-                  const maleSpace = [340 + space, 681 + space];
-                  container.width = maleSpace[0];
-                  container.height = maleSpace[1];
-                  container.pivot.set(maleSpace[0] / 2, maleSpace[1] / 2)
-                  borderline.drawRoundedRect(0, 0, maleSpace[0], maleSpace[1], 10)
+               let boxSpace = [0, 0];
+               $('.subtab ul').hide();
 
-                  scaleBtn.position.set(maleSpace[0] - btnSize / 2, -btnSize / 2);
-                  delBtn.position.set(-btnSize / 2, maleSpace[1] - btnSize / 2);
+               if (key == 0 && text == "thumb_hm") {
+                  // 新郎
+                  if (this.isOnly('bridegroom') == false) return
+                  container.name = 'bridegroom'
+                  $('.subtab ul').eq(key).show();
+                  boxSpace = [340 + space, 681 + space];
+
                   const maleBody = new PIXI.Sprite.from('./images/img/bg-clothes1.png');
                   maleBody.position.set(0, 148);
                   const maleFace = new PIXI.Sprite.from('./images/img/bridegroom-face.png');
                   maleFace.position.set(135, 2);
-
                   const maleHair = new PIXI.Sprite.from('./images/img/bg-hair1.png');
                   maleHair.position.set(137, 0);
 
                   imgContainer.addChild(maleBody);
                   imgContainer.addChild(maleFace);
                   imgContainer.addChild(maleHair);
+
+               } else if (key == 3 && text == "thumb_hm") {
+                  // 新娘
+                  if (this.isOnly('bride') == false) return
+                  container.name = 'bride'
+                  $('.subtab ul').eq(key).show();
+                  const female = [460, 806]
+                  boxSpace = [460 + space, 806 + space];
+
+                  const femaleBody = new PIXI.Sprite.from('./images/img/b-clothes1.png');
+                  femaleBody.position.set(0, 200);
+                  const femaleFace = new PIXI.Sprite.from('./images/img/bride-face.png');
+                  femaleFace.position.set(140, 60);
+                  const femaleHair = new PIXI.Sprite.from('./images/img/b-hair1.png');
+                  femaleHair.position.set(60, 0);
+
+                  imgContainer.addChild(femaleBody);
+                  imgContainer.addChild(femaleFace);
+                  imgContainer.addChild(femaleHair);
+
+               } else if (key != 3 && text == "thumb_hm") {
+                  // 伴郎、伴娘、男童、女童
+                  $('.subtab ul').eq(key).show();
+                  return
+               } else if (subtab != undefined) {
+                  // 寵物、裝飾品
+                  let obj = this.tabContentChoose(key, text);
+                  boxSpace = [obj.width + space, obj.height + space];
+                  const sprite = new PIXI.Sprite.from(obj.url);
+                  imgContainer.addChild(sprite);
                }
+
+               container.width = boxSpace[0];
+               container.height = boxSpace[1];
+               container.pivot.set(boxSpace[0] / 2, boxSpace[1] / 2)
+               borderline.drawRoundedRect(0, 0, boxSpace[0], boxSpace[1], 10)
+               scaleBtn.position.set(boxSpace[0] - btnSize / 2, -btnSize / 2);
+               delBtn.position.set(-btnSize / 2, boxSpace[1] - btnSize / 2);
 
                container.addChild(imgContainer);
                container.addChild(borderline);
                container.addChild(scaleBtn);
                container.addChild(delBtn);
 
+               imgContainer.on('touchstart', drapdropTouchStart);
+
                this.app.stage.addChild(container);
-               console.log(key)
+
+
             },
-            randomPos() {
-               return {
-                  x: 750 / 2 + Math.random() * 40,
-                  y: 1334 / 2 + Math.random() * 40
+            // 選擇樣式
+            subtabChose(key, text) {
+               let url = this.tabContentChoose(key, text);
+               switch (text) {
+                  case 'bridegroom':
+                     if (key <= 5) {
+                        this.app.stage.getChildByName('bridegroom').children[0].children[2].texture
+                           = new PIXI.Texture.from(`./images/img/bg-hair${key + 1}.png`)
+                     } else {
+                        this.app.stage.getChildByName('bridegroom').children[0].children[0].texture
+                           = new PIXI.Texture.from(`./images/img/bg-clothes${key - 5}.png`)
+                     }
+                     break;
+                  case 'bride':
+                     if (key <= 5) {
+                        this.app.stage.getChildByName('bride').children[0].children[2].texture
+                           = new PIXI.Texture.from(`./images/img/b-hair${key + 1}.png`)
+                     } else {
+                        this.app.stage.getChildByName('bride').children[0].children[0].texture
+                           = new PIXI.Texture.from(`./images/img/b-clothes${key - 5}.png`)
+                     }
+                     break;
+                  default: this.addSprite(key, text, true); break;
                }
-            }
+            },
+            // 選擇寵物、裝飾品
+            tabContentChoose(key, text) {
+               switch (text) {
+                  case 'thumb_p': return this.sizeJson.thumb_p[key];
+                  case 'thumb_d': return this.sizeJson.thumb_d[key];
+                  case 'bestman': return this.sizeJson.bmm[key];
+                  case 'bridesmaid': return this.sizeJson.bm[key];
+                  case 'boy': return this.sizeJson.cm[key];
+                  case 'girl': return this.sizeJson.cf[key];
+               }
+            },
+            // 新郎、新娘唯一性
+            isOnly(text) {
+               const stageChildren = this.app.stage.children;
+               const stageNum = stageChildren.length;
+               for (let i = 0; i < stageNum; i++) {
+                  if (stageChildren[i].name == text) { alert('只能一個'); return false; }
+               }
+            },
+            // 清除選中狀態
+            clearSelected() {
+               const appAllChildren = this.app.stage.children;
+               const num = appAllChildren.length
+               for (let i = 1; i < num; i++) {
+                  let sprite = appAllChildren[i];
+                  sprite.children[1].visible = false;
+                  sprite.children[2].visible = false;
+                  sprite.children[3].visible = false;
+               }
+            },
+
+
          },
          mounted() {
             this.imgData = imgData;
+            this.subtabData = subtabData;
+            this.sizeJson = sizeJson;
             document.querySelector('#stage').appendChild(this.app.view);
             this.setBackground(this.bgSprite);
          },
-         computed: {
-         },
       }).mount('#app')
+
+      function drapdropTouchStart() {
+         // vueApp.methods.clearSelected;
+         this.parent.children[1].visible = true;
+         this.parent.children[2].visible = true;
+         this.parent.children[3].visible = true;
+      }
+
+
+
    </script>
 </body>
 
