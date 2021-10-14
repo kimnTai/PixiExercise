@@ -11,3 +11,7 @@
   - [婚禮卡片製作](https://kimntai.github.io/PixiExercise/pixi_wedding/index.html)
 
     進度：80 %，拖曳功能需完善，欠缺刪除、縮放與製作功能
+
+- week_2
+    
+    * 學習 TypeScript
