@@ -223,7 +223,9 @@
 
                const imgContainer = new PIXI.Container();
                imgContainer.position.set(space / 2, space / 2);
+               // imgContainer.anchor.set(0.5);
                imgContainer.interactive = true
+               imgContainer.buttonMode = true
 
                let boxSpace = [0, 0];
                $('.subtab ul').hide();
@@ -289,7 +291,11 @@
                container.addChild(scaleBtn);
                container.addChild(delBtn);
 
-               imgContainer.on('touchstart', drapdropTouchStart);
+               imgContainer
+                  .on('pointerdown', onDragStart)
+                  .on('pointerup', onDragEnd)
+                  .on('pointerupoutside', onDragEnd)
+                  .on('pointermove', onDragMove);
 
                this.app.stage.addChild(container);
 
@@ -362,11 +368,29 @@
          },
       }).mount('#app')
 
-      function drapdropTouchStart() {
-         // vueApp.methods.clearSelected;
+      // PIXI 拖移方法
+      function onDragStart(event) {
+         vueApp.clearSelected();
          this.parent.children[1].visible = true;
          this.parent.children[2].visible = true;
          this.parent.children[3].visible = true;
+         this.data = event.data;
+         this.alpha = 0.5;
+         this.dragging = true;
+      };
+      function onDragEnd() {
+         this.alpha = 1;
+         this.dragging = false;
+         // set the interaction data to null
+         this.data = null;
+      };
+      function onDragMove(text) {
+         if (this.dragging) {
+            const newPosition = this.data.getLocalPosition(this.parent);
+            this.x = newPosition.x;
+            this.y = newPosition.y;
+         }
+         console.log(text)
       }
 
 
