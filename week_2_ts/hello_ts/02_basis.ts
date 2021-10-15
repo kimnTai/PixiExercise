@@ -22,3 +22,15 @@ function sum(a: number, b: number): number {
 
 // 參數多傳少傳都會報錯
 let result = sum(123, 456);
+
+//介面
+interface Point {
+  x: number;
+  y: number;
+}
+
+const point: Point = {
+  x: 4,
+  y: 3,
+};
+point.x;
