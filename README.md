@@ -2,7 +2,7 @@
 
 ## [筆記](https://hackmd.io/@kimn/SyIwsGHrt)
 
-- week_1
+- week_1 Pixi 練習
 
   - [拉霸機](https://kimntai.github.io/PixiExercise/pixi_slots/week_1.html)
 
@@ -12,6 +12,6 @@
 
     進度：80 %，拖曳功能需完善，欠缺刪除、縮放與製作功能
 
-- week_2
+- week_2 TypeScript
     
     * 學習 TypeScript
