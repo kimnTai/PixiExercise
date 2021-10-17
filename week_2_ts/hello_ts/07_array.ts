@@ -6,8 +6,8 @@ const undefinedArr: undefined[] = [undefined];
 type User = { name: string; age: number };
 
 class Teacher {
-  name: string;
-  age: number;
+  name!: string;
+  age!: number;
 }
 
 const objArr: Teacher[] = [
