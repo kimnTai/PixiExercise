@@ -14,13 +14,13 @@ const teacherName: string = "Dell";
 // 物件類型
 class Person {}
 
-const teacher: {
-  name: string;
-  age: number;
-} = {
-  name: "dell",
-  age: 18,
-};
+// const teacher: {
+//   name: string;
+//   age: number;
+// } = {
+//   name: "dell",
+//   age: 18,
+// };
 
 const numbers: number[] = [1, 2, 3];
 

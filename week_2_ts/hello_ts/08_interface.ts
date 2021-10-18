@@ -1,15 +1,15 @@
 // 一般都用介面表示
 // interface 和 type 類似，但並不完全一致
 // 介面並不會被編譯成 js 是ts 為了方便語法校驗
-interface Person {
-  //   readonly name: string;
-  name: string;
-  // ? 代表可有可無
-  age?: number;
-  // 代表可以接受其他屬性
-  [propName: string]: any;
-  say(): string;
-}
+// interface Person {
+//   //   readonly name: string;
+//   name: string;
+//   // ? 代表可有可無
+//   age?: number;
+//   // 代表可以接受其他屬性
+//   [propName: string]: any;
+//   say(): string;
+// }
 
 // 繼承 可以繼承介面
 interface Teacher_8 extends Person {
