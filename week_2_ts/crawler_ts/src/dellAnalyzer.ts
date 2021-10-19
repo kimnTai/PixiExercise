@@ -15,6 +15,13 @@ interface Content {
 }
 
 export default class DellAnalyzer implements Analyzer {
+  private static instance: DellAnalyzer;
+  static getInstance() {
+    if (!DellAnalyzer.instance) {
+      DellAnalyzer.instance = new DellAnalyzer();
+    }
+    return DellAnalyzer.instance;
+  }
   // 傳入 html 並回傳 Data 物件
   private getCourseInfo(html: string) {
     const $ = cheerio.load(html);
@@ -30,7 +37,7 @@ export default class DellAnalyzer implements Analyzer {
     return { time: new Date().getTime(), data: courseInfos };
   }
   // 取得檔案內容方法
-  generateJsonContent(courseInfo: CourseResult, filePath: string) {
+  private generateJsonContent(courseInfo: CourseResult, filePath: string) {
     let fileContent: Content = {};
     // 判斷該路徑文件是否存在
     if (fs.existsSync(filePath)) {
@@ -47,4 +54,5 @@ export default class DellAnalyzer implements Analyzer {
     const fileContent = this.generateJsonContent(courseInfo, filePath); // 將 data物件 傳入 generateJsonContent()
     return JSON.stringify(fileContent);
   }
+  private constructor() {}
 }
