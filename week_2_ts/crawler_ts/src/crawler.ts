@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 import superagent from "superagent";
-import DellAnalyzer from "./dellAnalyzer";
 
-const url = `http://www.dell-lee.com/`;
+
+
 export interface Analyzer {
   ToAnalyzer: (html: string, filePath: string) => string;
 }
@@ -35,7 +35,9 @@ class Crawler {
   }
 }
 
+export default Crawler;
+
 // 組合設計模式
 // 思考 － 如何將 Analyzer 變成單例模式
-const analyzer = DellAnalyzer.getInstance();
-new Crawler(url, analyzer);
+
+

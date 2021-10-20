@@ -45,10 +45,10 @@ interface Student extends Person {
 interface Driver extends Person {
   age: number;
 }
-const teacher = {
-  name: "dell",
-  teachingAge: 3,
-};
+// const teacher = {
+//   name: "dell",
+//   teachingAge: 3,
+// };
 const student = {
   name: "lee",
   age: 18,
@@ -58,4 +58,4 @@ const getUserInfo = (user: Person) => {
   console.log(user.name);
 };
 getUserInfo(teacher);
-getUserInfo(student);
+// getUserInfo(student);

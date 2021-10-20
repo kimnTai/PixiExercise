@@ -42,7 +42,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 var superagent_1 = __importDefault(require("superagent"));
-var dellAnalyzer_1 = __importDefault(require("./dellAnalyzer"));
 // 負責單獨爬取內容
 var Crawler = /** @class */ (function () {
     // 構造器
@@ -89,8 +88,6 @@ var Crawler = /** @class */ (function () {
     };
     return Crawler;
 }());
-var url = "http://www.dell-lee.com/";
+exports.default = Crawler;
 // 組合設計模式
 // 思考 － 如何將 Analyzer 變成單例模式
-var analyzer = dellAnalyzer_1.default.getInstance();
-new Crawler(url, analyzer);
