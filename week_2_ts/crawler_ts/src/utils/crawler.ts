@@ -2,15 +2,13 @@ import fs from "fs";
 import path from "path";
 import superagent from "superagent";
 
-
-
 export interface Analyzer {
   ToAnalyzer: (html: string, filePath: string) => string;
 }
 
 // 負責單獨爬取內容
 class Crawler {
-  private filePath = path.resolve(__dirname, "../data/course.json");
+  private filePath = path.resolve(__dirname, "../../data/course.json");
   // 獲取 html 方法
   private async getRawHtml() {
     const result = await superagent.get(this.url);
@@ -39,5 +37,3 @@ export default Crawler;
 
 // 組合設計模式
 // 思考 － 如何將 Analyzer 變成單例模式
-
-
