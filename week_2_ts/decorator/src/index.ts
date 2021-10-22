@@ -1,12 +1,29 @@
-// 修改的並不是實例上的 name,而是原型上的 name
-function nameDecorator(target: any, key: string): any {
-  target[key] = "lee"; // 這樣改會放在 Test.prototype, "name"
+const userInfo: any = undefined;
+
+function catchError(msg: string) {
+  return function (target: any, key: string, descriptor: PropertyDescriptor) {
+    const fn = descriptor.value;
+    descriptor.value = function () {
+      try {
+        fn();
+      } catch (e) {
+        console.log(msg);
+      }
+    };
+  };
 }
 
-// name 放在實例上
 class Test {
- 
+  @catchError('userInfo.name 不存在')
+  getName() {
+    return userInfo.name;
+  }
+  @catchError('userInfo.age 不存在')
+  getAge() {
+    return userInfo.age;
+  }
 }
 
 const test = new Test();
-console.log((test as any).__proto__.name); // 會先找 實例上的 name
+test.getName(); // userInfo.name 不存在
+test.getAge(); // userInfo.age 不存在
