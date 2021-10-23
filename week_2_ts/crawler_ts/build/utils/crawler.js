@@ -79,7 +79,8 @@ var Crawler = /** @class */ (function () {
                     case 1:
                         html = _a.sent();
                         fileContent = this.analyzer.ToAnalyzer(html, this.filePath);
-                        this.writeFile(fileContent); // 將 courseInfo 傳入 writeFile()
+                        // 將 courseInfo 傳入 writeFile()
+                        this.writeFile(fileContent);
                         console.log("爬蟲已完成");
                         return [2 /*return*/];
                 }
@@ -89,5 +90,3 @@ var Crawler = /** @class */ (function () {
     return Crawler;
 }());
 exports.default = Crawler;
-// 組合設計模式
-// 思考 － 如何將 Analyzer 變成單例模式

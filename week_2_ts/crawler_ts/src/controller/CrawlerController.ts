@@ -5,7 +5,7 @@ import { Request, Response, NextFunction } from "express";
 import { controller, get, use } from "./decorator";
 import { getResponseData } from "../utils/util";
 import Crawler from "../utils/crawler";
-import Analyzer from "../utils/analyzer";
+import Analyzer from "../utils/waterAnalyzer";
 
 interface BodyRequest extends Request {
   body: { [key: string]: string | undefined };
@@ -25,7 +25,8 @@ class CrawlerController {
   @get("/getData")
   @use(checkLogin)
   getData(req: BodyRequest, res: Response) {
-    const url = `http://www.dell-lee.com/`;
+    // const url = `http://www.dell-lee.com/`;
+    const url = `https://water.taiwanstat.com/`;
     const analyzer = Analyzer.getInstance();
     new Crawler(url, analyzer);
     res.json(getResponseData(true));

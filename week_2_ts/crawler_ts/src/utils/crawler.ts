@@ -22,9 +22,10 @@ class Crawler {
   // 將邏輯過程拆分出來 (controller ?) -> 避免耦合
   private async initSpiderProcess() {
     const html = await this.getRawHtml();
-    // 將分析交給 analyzer (class)
-    const fileContent = this.analyzer.ToAnalyzer(html, this.filePath); // analyzer 必須回傳字串
-    this.writeFile(fileContent); // 將 courseInfo 傳入 writeFile()
+    // 將分析交給 analyzer (class)，並且 analyzer 必須回傳字串
+    const fileContent = this.analyzer.ToAnalyzer(html, this.filePath);
+    // 將 courseInfo 傳入 writeFile()
+    this.writeFile(fileContent);
     console.log("爬蟲已完成");
   }
   // 構造器
@@ -34,6 +35,3 @@ class Crawler {
 }
 
 export default Crawler;
-
-// 組合設計模式
-// 思考 － 如何將 Analyzer 變成單例模式

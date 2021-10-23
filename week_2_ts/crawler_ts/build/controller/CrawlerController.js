@@ -18,7 +18,7 @@ require("reflect-metadata");
 var decorator_1 = require("./decorator");
 var util_1 = require("../utils/util");
 var crawler_1 = __importDefault(require("../utils/crawler"));
-var analyzer_1 = __importDefault(require("../utils/analyzer"));
+var waterAnalyzer_1 = __importDefault(require("../utils/waterAnalyzer"));
 var checkLogin = function (req, res, next) {
     var isLogin = req.session ? req.session.login : false;
     if (isLogin) {
@@ -31,10 +31,10 @@ var checkLogin = function (req, res, next) {
 var CrawlerController = /** @class */ (function () {
     function CrawlerController() {
     }
-    // ----- 獲取資料 -----
     CrawlerController.prototype.getData = function (req, res) {
-        var url = "http://www.dell-lee.com/";
-        var analyzer = analyzer_1.default.getInstance();
+        // const url = `http://www.dell-lee.com/`;
+        var url = "https://water.taiwanstat.com/";
+        var analyzer = waterAnalyzer_1.default.getInstance();
         new crawler_1.default(url, analyzer);
         res.json((0, util_1.getResponseData)(true));
     };

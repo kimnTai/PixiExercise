@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc -w",
     "start": "nodemon node ./build/index.js",
-    "test":"tsc && node ./build/controller/LoginController.js"
+    "test": "tsc && node ./build/controller/LoginController.js"
   },
   "nodemonConfig": {
     "ignore": [
