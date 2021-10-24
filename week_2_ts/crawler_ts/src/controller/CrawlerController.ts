@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import "reflect-metadata";
 import { Request, Response, NextFunction } from "express";
-import { controller, get, use } from "./decorator";
+import { controller, use, get } from "../decorator";
 import { getResponseData } from "../utils/util";
 import Crawler from "../utils/crawler";
 import Analyzer from "../utils/waterAnalyzer";
@@ -11,8 +11,9 @@ interface BodyRequest extends Request {
   body: { [key: string]: string | undefined };
 }
 
-const checkLogin = (req: Request, res: Response, next: NextFunction) => {
-  const isLogin = req.session ? req.session.login : false;
+const checkLogin = (req: Request, res: Response, next: NextFunction): void => {
+  const isLogin = !!(req.session ? req.session.login : false);
+  console.log("checkLogin middleware");
   if (isLogin) {
     next();
   } else {
@@ -20,11 +21,16 @@ const checkLogin = (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-@controller
-class CrawlerController {
+const test = (req: Request, res: Response, next: NextFunction): void => {
+  console.log("test middleware");
+  next();
+};
+
+@controller("/")
+export class CrawlerController {
   @get("/getData")
   @use(checkLogin)
-  getData(req: BodyRequest, res: Response) {
+  getData(req: BodyRequest, res: Response): void {
     // const url = `http://www.dell-lee.com/`;
     const url = `https://water.taiwanstat.com/`;
     const analyzer = Analyzer.getInstance();
@@ -33,7 +39,8 @@ class CrawlerController {
   }
   @get("/showData")
   @use(checkLogin)
-  showData(req: BodyRequest, res: Response) {
+  @use(test)
+  showData(req: BodyRequest, res: Response): void {
     try {
       const position = path.resolve(__dirname, "../../data/course.json");
       const result = fs.readFileSync(position, "utf-8");

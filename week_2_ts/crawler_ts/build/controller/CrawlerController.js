@@ -12,21 +12,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CrawlerController = void 0;
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
 require("reflect-metadata");
-var decorator_1 = require("./decorator");
+var decorator_1 = require("../decorator");
 var util_1 = require("../utils/util");
 var crawler_1 = __importDefault(require("../utils/crawler"));
 var waterAnalyzer_1 = __importDefault(require("../utils/waterAnalyzer"));
 var checkLogin = function (req, res, next) {
-    var isLogin = req.session ? req.session.login : false;
+    var isLogin = !!(req.session ? req.session.login : false);
+    console.log("checkLogin middleware");
     if (isLogin) {
         next();
     }
     else {
         res.json((0, util_1.getResponseData)(null, "請先登入"));
     }
+};
+var test = function (req, res, next) {
+    console.log("test middleware");
+    next();
 };
 var CrawlerController = /** @class */ (function () {
     function CrawlerController() {
@@ -59,12 +65,14 @@ var CrawlerController = /** @class */ (function () {
     __decorate([
         (0, decorator_1.get)("/showData"),
         (0, decorator_1.use)(checkLogin),
+        (0, decorator_1.use)(test),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], CrawlerController.prototype, "showData", null);
     CrawlerController = __decorate([
-        decorator_1.controller
+        (0, decorator_1.controller)("/")
     ], CrawlerController);
     return CrawlerController;
 }());
+exports.CrawlerController = CrawlerController;
