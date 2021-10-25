@@ -21,10 +21,10 @@ var PowerAnalyzer = /** @class */ (function () {
         var item = $(".reservoir");
         item.map(function (index, element) {
             var name = $(element).find(".name").eq(0).text();
-            var volumn = $(element).find(".volumn").eq(0).text();
+            var volume = $(element).find(".volumn").eq(0).text();
             // 過濾字串，只保留數字
-            var volumNumber = volumn.replace(/[^\d|.]/g, "");
-            infos.push({ name: name, volumNumber: volumNumber });
+            var volumeNumber = volume.replace(/[^\d|.]/g, "");
+            infos.push({ name: name, volumeNumber: volumeNumber });
         });
         return { time: new Date().getTime(), data: infos };
     };

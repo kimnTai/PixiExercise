@@ -4,7 +4,7 @@ import { Analyzer } from "./crawler";
 
 interface Course {
   name: string;
-  volumNumber: string;
+  volumeNumber: string;
 }
 interface CourseResult {
   time: number;
@@ -29,10 +29,10 @@ export default class PowerAnalyzer implements Analyzer {
     const item = $(".reservoir");
     item.map((index, element) => {
       const name = $(element).find(".name").eq(0).text();
-      const volumn = $(element).find(".volumn").eq(0).text();
+      const volume = $(element).find(".volumn").eq(0).text();
       // 過濾字串，只保留數字
-      const volumNumber = volumn.replace(/[^\d|.]/g, "");
-      infos.push({ name, volumNumber });
+      const volumeNumber = volume.replace(/[^\d|.]/g, "");
+      infos.push({ name, volumeNumber });
     });
     return { time: new Date().getTime(), data: infos };
   }

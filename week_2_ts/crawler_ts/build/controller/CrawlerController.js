@@ -71,7 +71,7 @@ var CrawlerController = /** @class */ (function () {
         __metadata("design:returntype", void 0)
     ], CrawlerController.prototype, "showData", null);
     CrawlerController = __decorate([
-        (0, decorator_1.controller)("/")
+        (0, decorator_1.controller)("/api")
     ], CrawlerController);
     return CrawlerController;
 }());

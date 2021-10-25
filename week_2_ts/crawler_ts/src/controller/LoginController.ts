@@ -5,10 +5,16 @@ interface BodyRequest extends Request {
   body: { [key: string]: string | undefined };
 }
 
-@controller("/")
+@controller("/api")
 export class LoginController {
   static isLogin(req: BodyRequest): boolean {
     return !!(req.session ? req.session.login : false);
+  }
+
+  @get("/isLogin")
+  test(req: BodyRequest, res: Response): void {
+    const isLogin = LoginController.isLogin(req);
+    res.json(getResponseData(isLogin));
   }
 
   @post("/login")
@@ -16,7 +22,7 @@ export class LoginController {
     const { password } = req.body;
     const isLogin = LoginController.isLogin(req);
     if (isLogin) {
-      res.json(getResponseData(false, "已經登入過"));
+      res.json(getResponseData(true));
     } else {
       if (password === "123" && req.session) {
         req.session.login = true;
@@ -33,33 +39,5 @@ export class LoginController {
       req.session.login = undefined;
     }
     res.json(getResponseData(true));
-  }
-
-  @get("/")
-  home(req: BodyRequest, res: Response): void {
-    const isLogin = LoginController.isLogin(req);
-    if (isLogin) {
-      res.send(`
-         <html>
-            <body>
-            <a href='/getData' >爬取內容</a>
-            <a href='/showData' >展示內容</a>
-              <a href='/logout' >退出</a>
-            </body>
-         </html>
-        `);
-    } else {
-      res.send(`
-         <html>
-            <body>
-              <p>請輸入密碼</p>
-               <form method="post" action="/login">
-                  <input type="password" name="password"/>
-                  <button>登入</button>
-               </form>
-            </body>
-         </html>
-        `);
-    }
   }
 }
