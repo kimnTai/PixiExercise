@@ -65,7 +65,7 @@ class Director {
   }
 }
 
-class Client {
+class Client1 {
   static main(): void {
     // 創建指揮者物件
     const director = new Director(new MobileBuilder());
@@ -77,4 +77,5 @@ class Client {
   }
 }
 
-Client.main();
+
+Client1.main();

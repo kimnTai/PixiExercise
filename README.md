@@ -3,6 +3,9 @@ week_3 Design Pattern
 ---
 - [10/26 - 概述分類、UML、開閉原則、里氏代換原則](https://hackmd.io/DGyqUz44TjKL8pI-cxH9ag)
 - [10/27 - 依賴倒轉、介面隔離、迪米特、合成復用、創建者模式](https://hackmd.io/J9tUKd7fRvGS-NT7_BDzVA)
+- [10/28 - 簡單工廠、工廠方法、使用 TS 實作](https://hackmd.io/jnZkfm6pRReniKFQi6Udfw)
+- [10/29 - 原型模式 : 淺拷貝、深拷貝、建造者模式](https://hackmd.io/kgf4HIEVSfOF_tagnLeBVA)
+- [10/30 ~ 10/31 - 結構型模式、靜態、動態代理 Proxy](https://hackmd.io/1AxN8__nS1K3lB77AMgiGg)
 - [參考資料、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
 
 week_2 TypeScript
@@ -26,7 +29,7 @@ week_1 PIXI
 - [基本設定](https://hackmd.io/6J5ERTPXQhyp492JY4szaw)
 - [場景佈置、幾合圖形、文本](https://hackmd.io/4Kh7zQaBTA2yjuJEzV9cvA)
 - [參考資料、問題](/OFKJDUVIQq61UUaOQMtrZg)
-- [拉霸機](https://kimntai.github.io/PixiExercise/pixi_slots/week_1.html)
+- [拉霸機](https://kimntai.github.io/work-training/week_1_pixi/pixi_slots/week_1.html)
   進度：30 % ，旋轉動畫不佳，缺乏計分功能與特效
-- [婚禮卡片製作](https://kimntai.github.io/PixiExercise/pixi_wedding/index.html)
+- [婚禮卡片製作](https://kimntai.github.io/work-training/week_1_pixi/pixi_wedding/index.html)
   進度：80 %，拖曳功能需完善，欠缺刪除、縮放與製作功能
