@@ -6,6 +6,7 @@ week_3 Design Pattern
 - [10/28 - 簡單工廠、工廠方法、使用 TS 實作](https://hackmd.io/jnZkfm6pRReniKFQi6Udfw)
 - [10/29 - 原型模式 : 淺拷貝、深拷貝、建造者模式](https://hackmd.io/kgf4HIEVSfOF_tagnLeBVA)
 - [10/30 ~ 10/31 - 結構型模式、靜態、動態代理 Proxy](https://hackmd.io/1AxN8__nS1K3lB77AMgiGg)
+- [11/01 - 適配器、裝飾者、橋接](https://hackmd.io/kZn5PwWeRfGQ_H_sAb21rA)
 - [參考資料、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
 
 week_2 TypeScript
