@@ -27,11 +27,11 @@ class ProxyFactory {
   }
 }
 
-class Client {
-  static main(): void {
-    const instance = new ProxyFactory(new TrainStation()).getProxyObject();
-    instance.sell();
-  }
-}
+// class Client {
+//   static main(): void {
+//     const instance = new ProxyFactory(new TrainStation()).getProxyObject();
+//     instance.sell();
+//   }
+// }
 
-Client.main();
+// Client.main();

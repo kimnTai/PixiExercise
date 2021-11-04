@@ -79,20 +79,20 @@ class Bacon extends Garnish {
   }
 }
 
-class Client {
-  static main(): void {
-    // 點一份炒飯
-    let food: FastFood = new FriedRice();
-    console.log(`${food.desc}  ${food.cost()}元`);
-    // 在上面的炒飯中 加雞蛋
-    food = new Egg(food);
-    console.log(`${food.desc}  ${food.cost()}元`);
-    // 再加一個雞蛋
-    food = new Egg(food);
-    console.log(`${food.desc}  ${food.cost()}元`);
-    // 再加一個培根
-    food = new Bacon(food);
-    console.log(`${food.desc}  ${food.cost()}元`);
-  }
-}
-Client.main();
+// class Client {
+//   static main(): void {
+//     // 點一份炒飯
+//     let food: FastFood = new FriedRice();
+//     console.log(`${food.desc}  ${food.cost()}元`);
+//     // 在上面的炒飯中 加雞蛋
+//     food = new Egg(food);
+//     console.log(`${food.desc}  ${food.cost()}元`);
+//     // 再加一個雞蛋
+//     food = new Egg(food);
+//     console.log(`${food.desc}  ${food.cost()}元`);
+//     // 再加一個培根
+//     food = new Bacon(food);
+//     console.log(`${food.desc}  ${food.cost()}元`);
+//   }
+// }
+// Client.main();

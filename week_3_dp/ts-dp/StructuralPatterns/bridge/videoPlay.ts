@@ -42,12 +42,12 @@ class Mac extends OperatingSystem {
   }
 }
 
-class Client {
-  static main(): void {
-    // 創建 mac 系統物件
-    const system: OperatingSystem = new Mac(new AviFile());
-    // 使用操作系統播放影片
-    system.play("猛毒２");
-  }
-}
-Client.main();
+// class Client {
+//   static main(): void {
+//     // 創建 mac 系統物件
+//     const system: OperatingSystem = new Mac(new AviFile());
+//     // 使用操作系統播放影片
+//     system.play("猛毒２");
+//   }
+// }
+// Client.main();
