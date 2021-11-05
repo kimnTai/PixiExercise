@@ -40,13 +40,13 @@ class ConcreteClass_Chon extends ABstractClass {
     console.log("下鍋的醬料是蒜蓉");
   }
 }
-class Client {
-  static main(): void {
-    // 炒包菜
-    // 創建物件
-    const cabbage = new ConcreteClass_Cabbage();
-    // 調用炒菜的功能
-    cabbage.cookProcess();
-  }
-}
-Client.main();
+// class Client {
+//   static main(): void {
+//     // 炒包菜
+//     // 創建物件
+//     const cabbage = new ConcreteClass_Cabbage();
+//     // 調用炒菜的功能
+//     cabbage.cookProcess();
+//   }
+// }
+// Client.main();

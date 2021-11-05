@@ -2,13 +2,14 @@
 week_3 Design Pattern
 ---
 - [10/26 - 概述分類、UML、開閉原則、里氏代換原則](https://hackmd.io/DGyqUz44TjKL8pI-cxH9ag)
-- [10/27 - 依賴倒轉、介面隔離、迪米特、合成復用、創建者模式](https://hackmd.io/J9tUKd7fRvGS-NT7_BDzVA)
+- [10/27 - 依賴倒轉、介面隔離、迪米特、合成復用、單例模式](https://hackmd.io/J9tUKd7fRvGS-NT7_BDzVA)
 - [10/28 - 簡單工廠、工廠方法、使用 TS 實作](https://hackmd.io/jnZkfm6pRReniKFQi6Udfw)
 - [10/29 - 原型模式 : 淺拷貝、深拷貝、建造者模式](https://hackmd.io/kgf4HIEVSfOF_tagnLeBVA)
 - [10/30 ~ 10/31 - 結構型模式、靜態、動態代理 Proxy](https://hackmd.io/1AxN8__nS1K3lB77AMgiGg)
 - [11/01 - 適配器、裝飾者、橋接模式](https://hackmd.io/kZn5PwWeRfGQ_H_sAb21rA)
 - [11/02 - 外觀、組合、享元模式](https://hackmd.io/R3kzkDJSQmeJ8MS4ttAIcA)
 - [11/03 - 行為型模式、模板方法、策略模式](https://hackmd.io/wxtue3q9R7a_d9819JfBWw)
+- [11/04 - 簡報製作、命令模式、責任鏈模式](https://hackmd.io/QeAmtI5gTeuyZiU0uc1wHw)
 - [參考資料、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
 
 week_2 TypeScript
