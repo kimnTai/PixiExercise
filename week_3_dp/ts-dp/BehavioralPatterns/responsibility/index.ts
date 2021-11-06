@@ -1,14 +1,8 @@
 class LeaveRequest {
   // 姓名
   private _name: string;
-  public get name(): string {
-    return this._name;
-  }
   // 請假天數
   private _num: number;
-  public get num(): number {
-    return this._num;
-  }
   // 請假內容
   private _content: string;
   public get content(): string {
@@ -18,6 +12,13 @@ class LeaveRequest {
     this._name = name;
     this._num = num;
     this._content = content;
+  }
+  public get name(): string {
+    return this._name;
+  }
+
+  public get num(): number {
+    return this._num;
   }
 }
 // 抽象處理者
@@ -44,9 +45,9 @@ abstract class Handler {
   submit(leave: LeaveRequest): void {
     // 該領導進行審批
     this.handleLeave(leave);
-    if (this.nextHandler != null && leave.num > this.numEnd) {
+    if (this._nextHandler != null && leave.num > this.numEnd) {
       // 提交給上級領導進行審批
-      this.nextHandler.submit(leave);
+      this._nextHandler.submit(leave);
     } else {
       console.log("流程結束！");
     }
@@ -85,7 +86,7 @@ class GeneralManager extends Handler {
 class Client {
   static main(): void {
     // 創建一個請假條物件
-    const leave = new LeaveRequest("小明", 4, "身體不適");
+    const leave = new LeaveRequest("小明", 8, "身體不適");
     // 創建各級領導物件
     const groupLeader = new GroupLeader();
     const manager = new Manager();
