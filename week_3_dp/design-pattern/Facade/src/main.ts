@@ -6,7 +6,7 @@ const todoData: ITodoData[] = [
   {
     id: 1,
     content: "123",
-    completed: true,
+    completed: false,
   },
   {
     id: 2,
@@ -18,13 +18,10 @@ const todoData: ITodoData[] = [
     content: "789",
     completed: true,
   },
+  
 ];
 const init = () => {
   const todoList: TodoList = new TodoList(app, todoData);
   todoList.init();
 };
 init();
-
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-`;
