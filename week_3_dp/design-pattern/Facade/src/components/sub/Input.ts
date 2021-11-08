@@ -24,7 +24,6 @@ class Input extends Component {
   public bindEvent(): void {
     const oAddBtn = document.querySelector(".add-btn");
     const oInput: HTMLInputElement = document.querySelector(".todo-input");
-
     oAddBtn.addEventListener(
       "click",
       this.handleBtnClick.bind(this, oInput),
@@ -33,9 +32,6 @@ class Input extends Component {
   }
   private handleBtnClick(inputDom: HTMLInputElement) {
     const val: string = inputDom.value.trim();
-
-
-
     if (val.length) {
       console.log(val);
       List.addItem(val);

@@ -42,7 +42,7 @@ class SuccessModal extends Modal {
 class WarningModal extends Modal {
   constructor(title: string) {
     super(ModalTypes.WARNING);
-    this.title = `告警 : ${title}`;
+    this.title = `警告 : ${title}`;
   }
 }
 class ErrorModal extends Modal {

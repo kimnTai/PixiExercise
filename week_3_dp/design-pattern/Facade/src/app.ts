@@ -2,24 +2,7 @@ import TodoList from "./components";
 import { ITodoData } from "./types";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
-const todoData: ITodoData[] = [
-  {
-    id: 1,
-    content: "123",
-    completed: false,
-  },
-  {
-    id: 2,
-    content: "456",
-    completed: true,
-  },
-  {
-    id: 3,
-    content: "789",
-    completed: true,
-  },
-  
-];
+const todoData: ITodoData[] = [];
 const init = () => {
   const todoList: TodoList = new TodoList(app, todoData);
   todoList.init();

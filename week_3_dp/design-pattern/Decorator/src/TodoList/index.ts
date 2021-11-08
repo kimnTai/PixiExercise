@@ -1,4 +1,5 @@
 import { todoView } from "./template";
+import { addTodo, removeTodo } from "./todoEvent";
 
 export interface ITodo {
   id: number;
@@ -6,26 +7,21 @@ export interface ITodo {
   completed: boolean;
 }
 
+const todoData: ITodo[] = [];
+
 class TodoList {
   private oTodoList: HTMLElement;
   private static instance: TodoList;
-  constructor(oTodoList: HTMLElement) {
-    this.oTodoList = oTodoList;
-  }
-  public static create(oTodoList: HTMLElement) {
-    if (!TodoList.instance) {
-      TodoList.instance = new TodoList(oTodoList);
-    }
-    return TodoList.instance;
-  }
-  // 新增
+
+  @addTodo(todoData)
   public addItem(todo: ITodo) {
     const oItem: HTMLElement = document.createElement("div");
-    oItem.className = "todo-item";
+    oItem.className =
+      "todo-item border d-flex justify-content-between align-items-center";
     oItem.innerHTML = todoView(todo);
     this.oTodoList.appendChild(oItem);
   }
-  // 刪除
+  @removeTodo(todoData)
   public removeItem(id: number) {
     const oItems: HTMLCollection = document.getElementsByClassName("todo-item");
     Array.from(oItems).forEach((oItem) => {
@@ -35,10 +31,9 @@ class TodoList {
       }
     });
   }
-  // 是否完成
+  //@changeCompleted(todoData)
   public toggleCompleted(id: number, completed?: boolean) {
     const oItems: HTMLCollection = document.getElementsByClassName("todo-item");
-
     Array.from(oItems).forEach((oItem) => {
       const _id = parseInt(oItem.querySelector("input").dataset.id);
       if (_id === id) {
@@ -46,6 +41,17 @@ class TodoList {
         oContent.style.textDecoration = completed ? "line-through" : "none";
       }
     });
+  }
+
+  private constructor(oTodoList: HTMLElement) {
+    this.oTodoList = oTodoList;
+  }
+  // 創建方法 實現單例
+  public static create(oTodoList: HTMLElement) {
+    if (!TodoList.instance) {
+      TodoList.instance = new TodoList(oTodoList);
+    }
+    return TodoList.instance;
   }
 }
 

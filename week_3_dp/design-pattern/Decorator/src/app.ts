@@ -14,14 +14,7 @@ import TodoList from "./TodoList";
    * toggleCompleted    listItems -> id -> item -> content -> 刪除線
    */
 
-  const init = (): void => {
-    bindEvent();
-  };
-  function bindEvent() {
-    oAddBtn.addEventListener("click", handleAddBtnClick, false);
-    oTodoList.addEventListener("click", handleListClick, false);
-  }
-
+  // 事件處理
   function handleAddBtnClick() {
     const val: string = oInput.value.trim();
     if (!val.length) {
@@ -34,10 +27,9 @@ import TodoList from "./TodoList";
     });
     oInput.value = "";
   }
-
   function handleListClick(e: MouseEvent) {
     const tar = e.target as HTMLElement;
-    const tagName = tar.tagName;
+    const tagName = tar.tagName.toLowerCase();
     if (tagName === "input" || tagName === "button") {
       const id: number = parseInt(tar.dataset.id);
       switch (tagName) {
@@ -52,5 +44,12 @@ import TodoList from "./TodoList";
       }
     }
   }
+  function bindEvent() {
+    oAddBtn.addEventListener("click", handleAddBtnClick, false);
+    oTodoList.addEventListener("click", handleListClick, false);
+  }
+  const init = (): void => {
+    bindEvent();
+  };
   init();
 })(document);

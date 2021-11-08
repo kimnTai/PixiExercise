@@ -6,10 +6,11 @@ abstract class Component {
     buttonText: string
   ): string {
     return `
-    <div>
-      <input type="text" class="todo-input" placeholder="${placeholderText}" />
-      <button class="add-btn">${buttonText}</button>
-    </div>
+      <div class="input-group mb-3">
+          <span class="input-group-text">待辦事項</span>
+          <input class="todo-input" type="text" placeholder="${placeholderText}" >
+          <button class="btn btn-primary add-btn" type="button">${buttonText}</button>
+      </div>
     `;
   }
   protected static listView(data: ITodoData[]): string {
@@ -31,12 +32,14 @@ abstract class Component {
   protected static todoView(todo: ITodoData): string {
     const { id, content, completed } = todo;
     return `
-   <div>
-      <input type="checkbox" data-id="${id}" ${completed ? "checked" : ""} />
-<span style="text-decoration:${
+   <div class="border d-flex justify-content-between align-items-center todo-item" style="width: 22rem;">
+      <input class="me-5" type="checkbox" data-id="${id}" ${
+      completed ? "checked" : ""
+    } />
+<span class="h5" style="text-decoration:${
       completed ? "line-through" : ""
     }">${content}</span>
-      <button data-id="${id}">刪除</button>
+      <button class="btn btn-danger ms-auto" data-id="${id}">刪除</button>
    </div>
     `;
   }
