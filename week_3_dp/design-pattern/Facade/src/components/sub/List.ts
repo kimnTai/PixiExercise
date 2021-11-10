@@ -10,40 +10,6 @@ class List extends Component {
   private wrapperEl: HTMLElement;
   private static todoData: ITodoData[];
 
-  constructor(options: IListOptions) {
-    super();
-    this.wrapperEl = options.wrapperEl;
-    List.todoData = options.todoData;
-  }
-
-  public render(): void {
-    this.wrapperEl.innerHTML += Component.listView(List.todoData);
-  }
-
-  public bindEvent() {
-    const oTodoList: HTMLElement = document.querySelector(".todo-list");
-    oTodoList.addEventListener("click", this.handleListClick.bind(this), false);
-  }
-  private handleListClick(e: MouseEvent) {
-    const tar = e.target as HTMLElement;
-    const tagName = tar.tagName.toLowerCase();
-    const oTodoItems: HTMLCollection =
-      document.getElementsByClassName("todo-item");
-
-    if (tagName === "input" || tagName === "button") {
-      const id: number = parseInt(tar.dataset.id);
-      switch (tagName) {
-        case "input":
-          this._handleCheckBoxClick(id, oTodoItems);
-          break;
-        case "button":
-          this._handleButtonClick(id, oTodoItems);
-          break;
-        default:
-          break;
-      }
-    }
-  }
   private _handleCheckBoxClick(id: number, oTodoItems: HTMLCollection) {
     List.todoData = List.todoData.map((todo: ITodoData, index: number) => {
       if (todo.id === id) {
@@ -65,6 +31,35 @@ class List extends Component {
     });
   }
 
+  private handleListClick(e: MouseEvent) {
+    const tar = e.target as HTMLElement;
+    const tagName = tar.tagName.toLowerCase();
+    const oTodoItems: HTMLCollection =
+      document.getElementsByClassName("todo-item");
+
+    if (tagName === "input" || tagName === "button") {
+      const id: number = parseInt(tar.dataset.id);
+      switch (tagName) {
+        case "input":
+          this._handleCheckBoxClick(id, oTodoItems);
+          break;
+        case "button":
+          this._handleButtonClick(id, oTodoItems);
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
+  public render(): void {
+    this.wrapperEl.innerHTML += Component.listView(List.todoData);
+  }
+
+  public bindEvent() {
+    const oTodoList: HTMLElement = document.querySelector(".todo-list");
+    oTodoList.addEventListener("click", this.handleListClick.bind(this), false);
+  }
   public static addItem(val: string): void {
     const oTodoList: HTMLElement = document.querySelector(".todo-list");
     const _item: ITodoData = {
@@ -77,6 +72,11 @@ class List extends Component {
       oTodoList.innerHTML = "";
     }
     oTodoList.innerHTML += Component.todoView(_item);
+  }
+  constructor(options: IListOptions) {
+    super();
+    this.wrapperEl = options.wrapperEl;
+    List.todoData = options.todoData;
   }
 }
 export default List;

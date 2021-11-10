@@ -10,7 +10,23 @@ export class PersonA implements Handler {
     console.log("張三完成任務");
   }
   // spring 透過這個方法將 class 註冊到 map
-  afterPropertiesSet(): void {
+  setToFactory(): void {
     Factory.register("張三", this);
+  }
+}
+export class PersonB implements Handler {
+  logic(name: string): void {
+    console.log("李四完成任務");
+  }
+  setToFactory(): void {
+    Factory.register("李四", this);
+  }
+}
+export class PersonC implements Handler {
+  logic(name: string): void {
+    console.log("王五完成任務");
+  }
+  setToFactory(): void {
+    Factory.register("王五", this);
   }
 }

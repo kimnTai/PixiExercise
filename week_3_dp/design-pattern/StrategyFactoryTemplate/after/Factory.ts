@@ -1,15 +1,18 @@
-import { Handler } from "./Handler";
+import { Handler, PersonA } from "./Handler";
 
 // 工廠設計模式
 export class Factory {
   private static strategyMap: Map<string, Handler> = new Map();
 
-  public static getStrategy(name: string): Handler {
-    console.log(Factory.strategyMap);
-
-    return this.strategyMap.get(name);
+  static getStrategy(name: string): Handler {
+    const strategy = Factory.strategyMap.get(name);
+    if (strategy) {
+      return strategy;
+    } else {
+      throw new Error("不存在");
+    }
   }
-  public static register(name: string, handler: Handler) {
+  static register(name: string, handler: Handler) {
     if (handler == null) {
       return;
     }

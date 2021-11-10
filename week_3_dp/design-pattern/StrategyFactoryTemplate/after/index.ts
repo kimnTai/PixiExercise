@@ -4,15 +4,16 @@ import { Handler, PersonA } from "./Handler";
 // 使用策略＋工廠＋模板改寫 if else
 class ClientAfter {
   static main(): void {
-    const spring = new PersonA();
-    spring.afterPropertiesSet();
+    const Spring = new PersonA();
+    Spring.setToFactory();
 
     const name = "張三";
     // 獲取策略類
-    const strategy: Handler = Factory.getStrategy(name);
-    // 執行邏輯
-    // strategy.logic(name);
+    const strategy = Factory.getStrategy(name);
+    //執行邏輯
+    strategy.logic(name);
+    // 結果： 張三完成任務
   }
 }
 ClientAfter.main();
-// 業務邏輯不相同，使用模板方法
+

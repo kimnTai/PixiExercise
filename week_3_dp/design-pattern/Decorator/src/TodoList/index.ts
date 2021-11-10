@@ -1,5 +1,5 @@
 import { todoView } from "./template";
-import { addTodo, removeTodo } from "./todoEvent";
+import { addTodo, changeCompleted, removeTodo } from "./todoEvent";
 
 export interface ITodo {
   id: number;
@@ -7,22 +7,20 @@ export interface ITodo {
   completed: boolean;
 }
 
-const todoData: ITodo[] = [];
-
 class TodoList {
   private oTodoList: HTMLElement;
   private static instance: TodoList;
 
-  @addTodo(todoData)
-  public addItem(todo: ITodo) {
+  @addTodo
+  public addItem(todo: ITodo): void {
     const oItem: HTMLElement = document.createElement("div");
     oItem.className =
       "todo-item border d-flex justify-content-between align-items-center";
     oItem.innerHTML = todoView(todo);
     this.oTodoList.appendChild(oItem);
   }
-  @removeTodo(todoData)
-  public removeItem(id: number) {
+  @removeTodo
+  public removeItem(id: number): void {
     const oItems: HTMLCollection = document.getElementsByClassName("todo-item");
     Array.from(oItems).forEach((oItem) => {
       const _id = parseInt(oItem.querySelector("button").dataset.id);
@@ -31,8 +29,8 @@ class TodoList {
       }
     });
   }
-  //@changeCompleted(todoData)
-  public toggleCompleted(id: number, completed?: boolean) {
+  @changeCompleted
+  public toggleCompleted(id: number, completed?: boolean): void {
     const oItems: HTMLCollection = document.getElementsByClassName("todo-item");
     Array.from(oItems).forEach((oItem) => {
       const _id = parseInt(oItem.querySelector("input").dataset.id);
@@ -56,3 +54,37 @@ class TodoList {
 }
 
 export default TodoList;
+
+interface Strategy {
+  do(todo?: ITodo, id?: number, completed?: boolean): void;
+}
+
+export class toAddTodo implements Strategy {
+  private oTodoList: HTMLElement;
+
+  @addTodo
+  do(todo: ITodo): void {
+    const oItem: HTMLElement = document.createElement("div");
+    oItem.className =
+      "todo-item border d-flex justify-content-between align-items-center";
+    oItem.innerHTML = todoView(todo);
+    this.oTodoList.appendChild(oItem);
+  }
+  constructor(oTodoList: HTMLElement) {
+    this.oTodoList = oTodoList;
+  }
+}
+
+export class toRemoveItem implements Strategy {
+  @removeTodo
+  do(todo?: ITodo, id?: number): void {
+    const oItems: HTMLCollection = document.getElementsByClassName("todo-item");
+    Array.from(oItems).forEach((oItem) => {
+      const _id = parseInt(oItem.querySelector("button").dataset.id);
+
+      if (_id === id) {
+        oItem.remove();
+      }
+    });
+  }
+}
