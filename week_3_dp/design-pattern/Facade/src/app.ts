@@ -1,5 +1,5 @@
 import TodoList from "./components";
-import { ITodoData } from "./types";
+import { ITodoData } from "./components/sub/type";
 
 const app = document.querySelector<HTMLDivElement>("#app")!;
 const todoData: ITodoData[] = [];

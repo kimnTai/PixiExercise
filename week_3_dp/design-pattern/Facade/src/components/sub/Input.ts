@@ -1,11 +1,6 @@
+import { IInputOptions } from "./type";
 import Component from "./Components";
 import List from "./List";
-
-export interface IInputOptions {
-  wrapperEl: HTMLElement;
-  placeholderText: string;
-  buttonText: string;
-}
 
 class Input extends Component {
   private options: IInputOptions;
@@ -13,7 +8,7 @@ class Input extends Component {
     super();
     this.options = options;
   }
-  public render() {
+  public render(): void {
     const { placeholderText, buttonText } = this.options;
     this.options.wrapperEl.innerHTML += Component.inputView(
       placeholderText,
@@ -30,7 +25,7 @@ class Input extends Component {
       false
     );
   }
-  private handleBtnClick(inputDom: HTMLInputElement) {
+  private handleBtnClick(inputDom: HTMLInputElement): void {
     const val: string = inputDom.value.trim();
     if (val.length) {
       console.log(val);

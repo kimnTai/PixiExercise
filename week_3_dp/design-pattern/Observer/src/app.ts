@@ -1,26 +1,25 @@
 import TodoList from "./TodoList";
-
+import { EVENT_TYPE, ITodo } from "./type";
 ((doc) => {
+  const oTodoList: HTMLElement = doc.querySelector(".todo-list");
   const oInput: HTMLInputElement = doc.querySelector("input");
   const oAddBtn: HTMLButtonElement = doc.querySelector(".add-btn");
-  const oTodoList: HTMLElement = doc.querySelector(".todo-list");
 
   const todoList = TodoList.create(oTodoList);
 
-  /**
-   * 方法:
-   * addItem(todo) { id: new Date().getTime(), content: oTodoList.value, completed:false }
-   * removeItem   listItems -> id -> item -> remove
-   * toggleCompleted    listItems -> id -> item -> content -> 刪除線
-   */
-
-  // 事件處理
+  const init = (): void => {
+    bindEvent();
+  };
+  function bindEvent(): void {
+    oAddBtn.addEventListener("click", handleAddBtnClick, false);
+    oTodoList.addEventListener("click", handleListClick, false);
+  }
   function handleAddBtnClick(): void {
     const val: string = oInput.value.trim();
     if (!val.length) {
       return;
     }
-    todoList.addItem({
+    todoList.notify<ITodo>(EVENT_TYPE.ADD, {
       id: new Date().getTime(),
       content: val,
       completed: false,
@@ -35,22 +34,15 @@ import TodoList from "./TodoList";
 
       switch (tagName) {
         case "input":
-          todoList.toggleCompleted(id);
+          todoList.notify(EVENT_TYPE.TOGGLE, id);
           break;
         case "button":
-          todoList.removeItem(id);
+          todoList.notify(EVENT_TYPE.REMOVE, id);
           break;
         default:
           break;
       }
     }
   }
-  function bindEvent(): void {
-    oAddBtn.addEventListener("click", handleAddBtnClick, false);
-    oTodoList.addEventListener("click", handleListClick, false);
-  }
-  const init = (): void => {
-    bindEvent();
-  };
   init();
 })(document);

@@ -1,6 +1,6 @@
-import { ITodoData } from "../types";
-import Input, { IInputOptions } from "./sub/input";
-import List, { IListOptions } from "./sub/List";
+import { IInputOptions, IListOptions, ITodoData } from "./sub/type";
+import Input from "./sub/input";
+import List from "./sub/List";
 
 class TodoList {
   private input: Input;
@@ -12,7 +12,7 @@ class TodoList {
     this.todoWrapper = document.createElement("div");
   }
   // 創造組件
-  private createComponents() {
+  private createComponents(): void {
     const inputObj: IInputOptions = {
       wrapperEl: this.todoWrapper,
       placeholderText: "請輸入",
@@ -26,18 +26,18 @@ class TodoList {
     this.list = new List(listObj);
   }
   // 畫面渲染
-  private render() {
+  private render(): void {
     this.input.render();
     this.list.render();
     this.element.appendChild(this.todoWrapper);
   }
   // 事件綁定
-  private bindEvent() {
+  private bindEvent(): void {
     this.input.bindEvent();
     this.list.bindEvent();
   }
   // 外觀模式接口
-  public init() {
+  public init(): void {
     this.createComponents();
     this.render();
     this.bindEvent();

@@ -1,4 +1,4 @@
-export default function utils(Target: any) {
+export default function utils(Target: any): void {
   Target.prototype.plus = function (a: number, b: number) {
     return a + b;
   };

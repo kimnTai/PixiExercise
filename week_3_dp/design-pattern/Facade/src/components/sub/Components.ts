@@ -1,4 +1,4 @@
-import { ITodoData } from "../../types";
+import { ITodoData } from "./type";
 
 abstract class Component {
   protected static inputView(

@@ -1,16 +1,11 @@
-import { ITodoData } from "../../types";
+import { IListOptions, ITodoData } from "./type";
 import Component from "./Components";
-
-export interface IListOptions {
-  wrapperEl: HTMLElement;
-  todoData: ITodoData[];
-}
 
 class List extends Component {
   private wrapperEl: HTMLElement;
   private static todoData: ITodoData[];
 
-  private _handleCheckBoxClick(id: number, oTodoItems: HTMLCollection) {
+  private _handleCheckBoxClick(id: number, oTodoItems: HTMLCollection): void {
     List.todoData = List.todoData.map((todo: ITodoData, index: number) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
@@ -20,7 +15,7 @@ class List extends Component {
       return todo;
     });
   }
-  private _handleButtonClick(id: number, oTodoItems: HTMLCollection) {
+  private _handleButtonClick(id: number, oTodoItems: HTMLCollection): void {
     List.todoData = List.todoData.filter((todo: ITodoData, index: number) => {
       if (todo.id !== id) {
         return todo;
@@ -31,7 +26,7 @@ class List extends Component {
     });
   }
 
-  private handleListClick(e: MouseEvent) {
+  private handleListClick(e: MouseEvent): void {
     const tar = e.target as HTMLElement;
     const tagName = tar.tagName.toLowerCase();
     const oTodoItems: HTMLCollection =
@@ -56,7 +51,7 @@ class List extends Component {
     this.wrapperEl.innerHTML += Component.listView(List.todoData);
   }
 
-  public bindEvent() {
+  public bindEvent(): void {
     const oTodoList: HTMLElement = document.querySelector(".todo-list");
     oTodoList.addEventListener("click", this.handleListClick.bind(this), false);
   }
