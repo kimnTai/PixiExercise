@@ -47,12 +47,6 @@
             <version>7.4.0</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.crygier</groupId>
-            <artifactId>SpringUtils</artifactId>
-            <version>1.0.1</version>
-            <scope>compile</scope>
-        </dependency>
 
     </dependencies>
 
