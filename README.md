@@ -1,4 +1,8 @@
 # [目錄](https://hackmd.io/@kimn/SyIwsGHrt)
+RPG GAME
+---
+ - [11/13](/AqIG3o53SGWiMUCtCZW0BQ)
+
 week_3 Design Pattern
 ---
 - [10/26 - 概述分類、UML、開閉原則、里氏代換原則](https://hackmd.io/DGyqUz44TjKL8pI-cxH9ag)
@@ -10,7 +14,8 @@ week_3 Design Pattern
 - [11/02 - 外觀、組合、享元模式](https://hackmd.io/R3kzkDJSQmeJ8MS4ttAIcA)
 - [11/03 - 行為型模式、模板方法、策略模式](https://hackmd.io/wxtue3q9R7a_d9819JfBWw)
 - [11/04 - 簡報製作、命令模式、責任鏈模式](https://hackmd.io/QeAmtI5gTeuyZiU0uc1wHw)
-- [參考資料、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
+- [11/05 ~ 11/12](https://hackmd.io/cngK-1F2TJ2bMcOdkqEqNg)
+- [參考資料、整理、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
 
 week_2 TypeScript
 ---
