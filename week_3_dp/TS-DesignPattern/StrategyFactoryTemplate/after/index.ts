@@ -4,6 +4,7 @@ import { Handler, PersonA } from "./Handler";
 // 使用策略＋工廠＋模板改寫 if else
 class ClientAfter {
   static main(): void {
+    // 希望由 框架幫我們產生物件
     const Spring = new PersonA();
     Spring.setToFactory();
 
@@ -16,4 +17,3 @@ class ClientAfter {
   }
 }
 ClientAfter.main();
-
