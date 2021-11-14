@@ -1,7 +1,8 @@
 # [目錄](https://hackmd.io/@kimn/SyIwsGHrt)
 RPG GAME
 ---
- - [11/13](/AqIG3o53SGWiMUCtCZW0BQ)
+- [11/13 ~ 11/14 - Text 版完成](https://hackmd.io/AqIG3o53SGWiMUCtCZW0BQ)
+- [控制反轉(IOC)、依賴注入(DI)](https://hackmd.io/ERgXW8joT3WA1ARTNrOj1w)
 
 week_3 Design Pattern
 ---
