@@ -1,4 +1,4 @@
-import { playData, Race, RaceSkill, Status } from "./type";
+import { Profession, Race, RaceSkill, Status } from "./type";
 
 // 人族實作類
 export class Human implements Race {
@@ -6,7 +6,7 @@ export class Human implements Race {
   HP!: number;
   strength!: number;
   MaxHp!: number;
-  raceSkill(data: playData): RaceSkill {
+  raceSkill(data: Profession): RaceSkill {
     if (this.HP / this.MaxHp <= 0.2) {
       console.log(`${this.name} : ${RaceSkill.HUMANSKILL}發動`);
       this.strength = this.strength * 1.5;
@@ -20,7 +20,7 @@ export class Dwarf implements Race {
   name!: string;
   HP!: number;
   MaxHp!: number;
-  raceSkill(data: playData): RaceSkill {
+  raceSkill(data: Profession): RaceSkill {
     if (this.HP / this.MaxHp <= 0.5) {
       const health = this.MaxHp * 0.05;
       this.HP += health;
@@ -35,7 +35,7 @@ export class Dwarf implements Race {
 // 妖精實作類
 export class Elves implements Race {
   name!: string;
-  raceSkill(data: playData): RaceSkill {
+  raceSkill(data: Profession): RaceSkill {
     if (Math.random() <= 0.1) {
       console.log(`${this.name} : ${RaceSkill.ELVESSKILL}發動`);
       data.status = Status.CONFUSION;

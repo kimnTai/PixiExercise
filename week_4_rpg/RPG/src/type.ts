@@ -1,6 +1,6 @@
 // 種族介面
 export interface Race {
-  raceSkill(data: playData): RaceSkill;
+  raceSkill(data: Profession): RaceSkill;
 }
 
 // 玩家資料，血量、攻擊力、狀態
@@ -8,7 +8,6 @@ export interface playData {
   name: string; // 玩家暱稱
   MaxHp: number; // 最大血量
   strength: number; // 攻擊力
-  status: Status; // 狀態
 }
 
 // 職業抽象類
@@ -16,7 +15,7 @@ export abstract class Profession implements Race, playData {
   name: string;
   MaxHp: number;
   strength: number;
-  status: Status;
+  status: Status = Status.HEALTHY;
   HP: number; // 當前血量
   absorb!: boolean; // 法師吸血判定
 
@@ -29,14 +28,13 @@ export abstract class Profession implements Race, playData {
   proSkill(injured: Profession): void {
     throw new Error("Method not implemented.");
   }
-  raceSkill(data: playData): RaceSkill {
+  raceSkill(data: Profession): RaceSkill {
     throw new Error("Method not implemented.");
   }
   constructor(data: playData, race: Race) {
     this.raceSkill = race.raceSkill;
     this.HP = this.MaxHp = data.MaxHp;
     this.strength = data.strength;
-    this.status = data.status;
     this.name = data.name;
   }
 }

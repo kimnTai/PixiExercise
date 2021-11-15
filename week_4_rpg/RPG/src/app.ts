@@ -1,84 +1,103 @@
-import { Dwarf, Elves, Human } from "./race";
-import { Knight, Thieves, Wizard } from "./profession";
-import { playData, Profession, Status } from "./type";
+import { handleClick, gameStart, game } from "./game";
+import * as PIXI from "pixi.js-legacy";
+import { npcName } from "./player";
 
-const dataA: playData = {
-  name: "玩家A",
-  strength: 10,
-  MaxHp: 300,
-  status: Status.HEALTHY,
+export let app!: PIXI.Application;
+
+const init = () => {
+  pixiInit();
+  setBackground();
+  setAttSprite();
+  gameStart();
+  npcText();
 };
-const dataB: playData = {
-  name: "玩家B",
-  strength: 10,
-  MaxHp: 300,
-  status: Status.HEALTHY,
-};
-let player1 = new Thieves(dataA, new Dwarf());
-let player2 = new Wizard(dataB, new Elves());
-let turn = 1;
+init();
 
-function start() {
-  player1 = new Knight(dataA, new Human());
-  player2 = new Knight(dataB, new Human());
-  turn = 1;
-  console.clear();
+app.ticker.add(() => {});
+
+function pixiInit() {
+  app = new PIXI.Application({
+    width: 800,
+    height: 400,
+    antialias: true,
+    resolution: 1,
+  });
+  document.querySelector("#app")?.appendChild(app.view);
+}
+function setBackground() {
+  const background = PIXI.Sprite.from("../img/background.png");
+  background.width = app.screen.width;
+  background.height = app.screen.height;
+  app.stage.addChild(background);
 }
 
-function battle() {
-  console.log("-------------------");
-  if (turn % 2 === 1) {
-    console.log(`${player1.name}的回合`);
-    fight(player1, player2);
-  } else {
-    console.log(`${player2.name}的回合`);
-    fight(player2, player1);
+function setAttSprite() {
+  const container = new PIXI.Container();
+  const sprite = PIXI.Sprite.from("../img/attack.png");
+  const text = new PIXI.Text("攻擊", {
+    fontSize: 50,
+    fill: ["#000"],
+  });
+  sprite.anchor.set(0.5);
+  text.anchor.set(0.5);
+  container.addChild(sprite);
+  container.addChild(text);
+  container.interactive = true;
+  container.addListener("click", () => {
+    handleClick();
+  });
+  container.x = 400;
+  container.y = 200;
+  app.stage.addChild(container);
+}
+
+function npcText() {
+  const HPtext = app.stage.addChild(
+    new PIXI.Text(
+      `剩餘 HP\n${game.playerA.name} : ${game.playerA.HP}，${game.playerB.name} : ${game.playerB.HP}`,
+      {
+        fontSize: 40,
+      }
+    )
+  );
+  const text = app.stage.addChild(
+    new PIXI.Text(`對上：${npcName}`, {
+      fontSize: 40,
+    })
+  );
+  text.x = 500;
+  const sprite = app.stage.addChild(PIXI.Sprite.from("../img/Thieves.png"));
+  sprite.x = 100;
+  sprite.y = 150;
+}
+
+const logs: string[] = ['LOG 測試'];
+const logText = app.stage.addChild(
+  new PIXI.Text("", {
+    fontSize: 14,
+  })
+);
+function onEvent(e: any) {
+  const type = e.type;
+  const targetName = e.target.name;
+  const currentTargetName = e.currentTarget.name;
+  // Add event to top of logs
+  logs.push(
+    `${currentTargetName} received ${type} event (target is ${targetName})`
+  );
+  if (
+    currentTargetName === "stage" ||
+    type === "pointerenter" ||
+    type === "pointerleave"
+  ) {
+    logs.push("-----------------------------------------", "");
   }
-  turn++;
-  hpLog(player1, player2);
-  whoWin(player1, player2);
-}
-
-function fight(attacker: Profession, injured: Profession) {
-  attacker.baseSkill();
-  switch (attacker.status) {
-    case Status.DIZZY:
-      console.log(`${attacker.name} : 暈眩，停止行動`);
-      attacker.status = Status.HEALTHY;
-      return;
-    case Status.CONFUSION:
-      console.log(`${attacker.name} : 陷入混亂，攻擊自己`);
-      attacker.attack(attacker);
-      attacker.status = Status.HEALTHY;
-      return;
+  // Prevent logs from growing too long
+  if (logs.length > 30) {
+    while (logs.length > 30) {
+      logs.shift();
+    }
   }
-  attacker.raceSkill(injured);
-  switch (injured.status) {
-    case Status.DODGE:
-      console.log(`${injured.name} : 閃避發動`);
-      injured.status = Status.HEALTHY;
-      return;
-    case Status.COUNTERATTACK:
-      injured.status = Status.HEALTHY;
-      console.log(`${injured.name} : 反擊發動`);
-      injured.attack(attacker);
-      return;
-  }
-  attacker.proSkill(injured);
-  attacker.attack(injured);
-  return;
+  // Update logText
+  logText.text = logs.join("\n");
 }
-
-function hpLog(playerA: Profession, playerB: Profession) {
-  console.log(`玩家A : ${playerA.HP}，玩家B : ${playerB.HP}`);
-}
-function whoWin(playerA: Profession, playerB: Profession) {
-  if (playerA.HP <= 0) {
-    alert("玩家2 勝利");
-  } else if (playerB.HP <= 0) {
-    alert("玩家1 勝利");
-  }
-}
-
-document.querySelector("#attack")?.addEventListener("click", battle);
-document.querySelector("#start")?.addEventListener("click", start);
