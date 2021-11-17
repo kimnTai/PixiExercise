@@ -1,6 +1,9 @@
-import { playData, Profession, Race, RaceSkill, Status } from "./type";
+import { logs } from "./game";
+import { BaseSkill, ProSkill } from "./skill";
+import { playData, Profession, Race } from "./type";
+
 // 騎士實作類
-export class Knight extends Profession {
+class Knight extends Profession {
   attack(injured: Profession): void {
     const damage = this.strength;
     injured.HP -= damage;
@@ -9,22 +12,14 @@ export class Knight extends Profession {
     );
     return;
   }
-  baseSkill(): void {
-    if (Math.random() >= 0.1) {
-      return;
-    }
-    this.status = Status.COUNTERATTACK;
-  }
-  proSkill(injured: Profession): void {
-    if (Math.random() >= 0.2) {
-      return;
-    }
-    injured.HP -= this.strength * 1.5;
-    return;
+  constructor(data: playData, race: Race) {
+    super(data, race);
+    this.baseSkill = BaseSkill.counterAttack;
+    this.proSkill = ProSkill.strongAttack;
   }
 }
 // 盜賊實作類
-export class Thieves extends Profession {
+class Thieves extends Profession {
   attack(injured: Profession): void {
     const damage = this.strength * 0.8;
     injured.HP -= damage;
@@ -33,26 +28,18 @@ export class Thieves extends Profession {
     );
     return;
   }
-  baseSkill(): void {
-    if (Math.random() >= 0.15) {
-      return;
-    }
-    this.status = Status.DODGE;
-  }
-  proSkill(injured: Profession): void {
-    if (Math.random() >= 0.4) {
-      return;
-    }
-    console.log(`${this.name} : 連擊發動`);
-    this.attack(injured);
+  constructor(data: playData, race: Race) {
+    super(data, race);
+    this.baseSkill = BaseSkill.dodge;
+    this.proSkill = ProSkill.doubleAttack;
   }
 }
 // 法師實作類
-export class Wizard extends Profession {
+class Wizard extends Profession {
   absorb!: boolean;
   attack(injured: Profession): void {
     if (Math.random() <= 0.2) {
-      console.log(`${this.name} 遠距離攻擊 未命中`);
+      logs.push(`${this.name} 遠距離攻擊 未命中`);
       return;
     }
     const damage = this.strength * 1.2;
@@ -63,31 +50,15 @@ export class Wizard extends Profession {
     if (this.absorb) {
       this.HP += damage;
       this.absorb = false;
-      console.log(`${this.name} 吸收發動，回復了 ${damage} 點生命值`);
+      logs.push(`${this.name} 吸收發動，回復了 ${damage} 點生命值`);
     }
     return;
   }
-  baseSkill(): void {
-    if (Math.random() >= 0.1) {
-      return;
-    }
-    this.absorb = true;
-  }
-  proSkill(injured: Profession): void {
-    if (Math.random() >= 0.1) {
-      return;
-    }
-    const damage = this.strength * 2;
-    injured.HP -= damage;
-    injured.status = Status.DIZZY;
-    console.log(
-      `${this.name} : 火球發動，造成了 ${damage} 點傷害，${injured.name}暈眩`
-    );
-    if (this.absorb) {
-      this.HP += damage;
-      this.absorb = false;
-      console.log(`${this.name} 吸收發動，回復了 ${damage} 點生命值`);
-    }
-    return;
+  constructor(data: playData, race: Race) {
+    super(data, race);
+    this.baseSkill = BaseSkill.Absorb;
+    this.proSkill = ProSkill.fireball;
   }
 }
+
+export { Knight, Thieves, Wizard };

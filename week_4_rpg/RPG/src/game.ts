@@ -1,11 +1,13 @@
-import { NPC } from "./player";
-import { Thieves } from "./profession";
-import { Dwarf } from "./race";
-import { playData, Profession, Status } from "./type";
+import { app, autoAtt, createPace } from "./pixi-component";
+import { NPC, npcName, playerString } from "./player";
+import { Profession, Status, style } from "./type";
 
-export class Game {
+let logs: string[] = [" 戰鬥紀錄"];
+let game: Game;
+
+class Game {
   turn: number = 1;
-  battle() {
+  battle(): void {
     let playerA = this.playerA;
     let playerB = this.playerB;
     console.log("-------------------");
@@ -20,15 +22,15 @@ export class Game {
     this.hpLog(playerA, playerB);
     this.whoWin(playerA, playerB);
   }
-  fight(attacker: Profession, injured: Profession) {
+  private fight(attacker: Profession, injured: Profession): void {
     attacker.baseSkill();
     switch (attacker.status) {
       case Status.DIZZY:
-        console.log(`${attacker.name} : 暈眩，停止行動`);
+        logs.push(`${attacker.name} : 暈眩，停止行動`);
         attacker.status = Status.HEALTHY;
         return;
       case Status.CONFUSION:
-        console.log(`${attacker.name} : 陷入混亂，攻擊自己`);
+        logs.push(`${attacker.name} : 陷入混亂，攻擊自己`);
         attacker.attack(attacker);
         attacker.status = Status.HEALTHY;
         return;
@@ -36,12 +38,12 @@ export class Game {
     attacker.raceSkill(injured);
     switch (injured.status) {
       case Status.DODGE:
-        console.log(`${injured.name} : 閃避發動`);
+        logs.push(`${injured.name} : 閃避成功`);
         injured.status = Status.HEALTHY;
         return;
       case Status.COUNTERATTACK:
         injured.status = Status.HEALTHY;
-        console.log(`${injured.name} : 反擊發動`);
+        logs.push(`${injured.name} : 格擋成功，發動反擊`);
         injured.attack(attacker);
         return;
     }
@@ -49,34 +51,41 @@ export class Game {
     attacker.attack(injured);
     return;
   }
-  hpLog(playerA: Profession, playerB: Profession) {
+  private hpLog(playerA: Profession, playerB: Profession): void {
     console.log(
       `剩餘 HP : ${playerA.name} : ${playerA.HP}，${playerB.name} : ${playerB.HP}`
     );
   }
-  whoWin(playerA: Profession, playerB: Profession) {
+  private whoWin(playerA: Profession, NPC: Profession) {
     if (playerA.HP <= 0) {
-      alert(`${playerB.name} 勝利`);
-    } else if (playerB.HP <= 0) {
-      alert(`${playerA.name} 勝利`);
+      window.clearInterval(autoAtt);
+      console.log(`%c ${NPC.name} 勝利 `, style.FDF);
+      console.log(`%c ${npcName} > ${playerString} `, style.CCC);
+      console.log(this.turn);
+    } else if (NPC.HP <= 0) {
+      window.clearInterval(autoAtt);
+      console.log(`%c ${playerA.name} 勝利 `, style.FDF);
+      console.log(`%c ${playerString} > ${npcName} `, style.CCC);
+      console.log(this.turn);
     }
   }
   constructor(public playerA: Profession, public playerB: Profession) {}
 }
 
-export let game: Game;
-
-export function gameStart() {
-  const dataA: playData = {
-    name: "玩家A",
-    strength: 10,
-    MaxHp: 300,
-  };
-  //console.clear();
-  let player1 = new Thieves(dataA, new Dwarf());
+function gameStart(player: Profession): void {
   let player2 = new NPC().create();
-  game = new Game(player1, player2);
+  game = new Game(player, player2);
 }
-export function handleClick() {
+function handleClick(): void {
   game.battle();
 }
+
+// auto 關閉按鈕
+document.querySelector("button")?.addEventListener("click", again);
+function again() {
+  logs = [" 戰鬥紀錄\n-------"];
+  app.stage.removeChildren(4, 6);
+  app.loader.load(createPace);
+}
+
+export { logs, game, Game, gameStart, handleClick };

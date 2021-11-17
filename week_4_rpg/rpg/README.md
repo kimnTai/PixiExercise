@@ -21,5 +21,5 @@
 - 妖精 (Elves)
   - 魅惑 - 攻擊時有 10 % 機率造成混亂(Confusion)，讓敵人下回合以普攻攻擊自己
 
-### Text 版完成：
-- ![](https://i.imgur.com/nUtfPij.gif)
+### 初版 Demo：
+- ![](https://i.imgur.com/wkvpFK3.gif)
