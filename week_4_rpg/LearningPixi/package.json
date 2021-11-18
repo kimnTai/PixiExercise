@@ -1,0 +1,18 @@
+{
+  "name": "learningpixi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "pixi.js-legacy": "^6.2.0"
+  }
+}

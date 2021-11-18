@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <input type="text">
+   <button onclick="sendServer()">送出</button>
+
+   <script>
+      const ws = new WebSocket('ws://localhost:8080/')
+      ws.onopen = () => {
+         console.log(`${new Date()}服務已連接`);
+      }
+      ws.onmessage = (msg) => {
+         console.log(`${new Date()} 來自服務器端的資料 : '${msg.data}`);
+      }
+      ws.onclose = () => {
+         console.log(`${new Date()} 伺服器關閉`);
+      }
+
+      function sendServer() {
+         let msg = document.querySelector('input').value
+         ws.send(msg)
+      }
+   </script>
+</body>
+
+</html>
