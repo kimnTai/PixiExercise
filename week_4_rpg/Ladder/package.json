@@ -10,9 +10,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/gsap": "^3.0.0",
     "vite": "^2.6.14"
   },
   "dependencies": {
+    "gsap": "^3.8.0",
     "pixi.js-legacy": "^6.2.0"
   }
 }
