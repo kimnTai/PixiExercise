@@ -1,13 +1,13 @@
-import * as PIXI from "pixi.js-legacy";
+import { Application, Container, Sprite, Text } from "pixi.js";
 import { game, handleClick, logs } from "./game";
 import { choseSwitch, npcName } from "./player";
 import { menu } from "./type";
 
 let autoAtt!: number;
-let app!: PIXI.Application;
+let app!: Application;
 
 function pixiInit() {
-  app = new PIXI.Application({
+  app = new Application({
     width: 800,
     height: 400,
     antialias: true,
@@ -29,8 +29,8 @@ function pixiInit() {
 
 // 背景設置
 function setBackground() {
-  const background = PIXI.Sprite.from("background.png");
-  const background_2 = PIXI.Sprite.from("background.png");
+  const background = Sprite.from("background.png");
+  const background_2 = Sprite.from("background.png");
   background.width = app.screen.width;
   background.height = app.screen.height;
   background_2.width = app.screen.width;
@@ -51,9 +51,9 @@ function setBackground() {
 
 // 攻擊按鈕設置
 function setAttSprite() {
-  const container = new PIXI.Container();
-  const sprite = PIXI.Sprite.from("attack.png");
-  const text = new PIXI.Text("攻擊", {
+  const container = new Container();
+  const sprite = Sprite.from("attack.png");
+  const text = new Text("攻擊", {
     fontSize: 50,
     fill: ["#000"],
   });
@@ -72,10 +72,10 @@ function setAttSprite() {
 
 // 雙方角色圖案設置
 function setPlayer(playerPath: string, playerString: string) {
-  const playerContainer = new PIXI.Container();
-  const playerHP = new PIXI.Text(`${game.playerA.name} : ${game.playerA.HP}`);
-  const playerSprite = PIXI.Sprite.from(switchPath(playerPath));
-  const playerRace = new PIXI.Text("");
+  const playerContainer = new Container();
+  const playerHP = new Text(`${game.playerA.name} : ${game.playerA.HP}`);
+  const playerSprite = Sprite.from(switchPath(playerPath));
+  const playerRace = new Text("");
   playerHP.y = -60;
   playerRace.x = 40;
   playerRace.y = -30;
@@ -83,13 +83,13 @@ function setPlayer(playerPath: string, playerString: string) {
   playerContainer.y = 150;
   playerRace.text = `${playerString}`;
   playerContainer.addChild(playerSprite, playerRace, playerHP);
-  const npcContainer = new PIXI.Container();
+  const npcContainer = new Container();
   const str = npcName.slice(2, 4);
-  const npcSprite = PIXI.Sprite.from(switchPath(str));
-  const npcRace = new PIXI.Text(npcName);
+  const npcSprite = Sprite.from(switchPath(str));
+  const npcRace = new Text(npcName);
   npcRace.x = 40;
   npcRace.y = -30;
-  const computerHP = new PIXI.Text(`${game.playerB.name} : ${game.playerB.HP}`);
+  const computerHP = new Text(`${game.playerB.name} : ${game.playerB.HP}`);
   computerHP.y = -60;
   npcContainer.addChild(npcSprite, npcRace, computerHP);
   npcContainer.y = 150;
@@ -119,7 +119,7 @@ function switchPath(path: string): string {
 // log 紀錄
 function logText() {
   const logText = app.stage.addChild(
-    new PIXI.Text("", {
+    new Text("", {
       fontSize: 16,
     })
   );
@@ -134,18 +134,18 @@ function logText() {
 
 // 角色創建
 function createPace() {
-  const container = new PIXI.Container();
+  const container = new Container();
   container.name = "選擇種族";
-  const logText = new PIXI.Text("選擇種族", {
+  const logText = new Text("選擇種族", {
     fontSize: 32,
   });
-  const Human = new PIXI.Text(menu.Human, {
+  const Human = new Text(menu.Human, {
     fontSize: 50,
   });
-  const Dwarf = new PIXI.Text(menu.Dwarf, {
+  const Dwarf = new Text(menu.Dwarf, {
     fontSize: 50,
   });
-  const Elves = new PIXI.Text(menu.Elves, {
+  const Elves = new Text(menu.Elves, {
     fontSize: 50,
   });
   Human.y = 50;

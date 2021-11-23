@@ -1,4 +1,4 @@
-import * as PIXI from "pixi.js-legacy";
+import { Text } from "pixi.js";
 import { gameStart } from "./game";
 import { app, setPlayer } from "./pixi-component";
 import { Knight, Thieves, Wizard } from "./profession";
@@ -62,7 +62,7 @@ class NPC {
 }
 
 // 玩家角色創建
-function choseSwitch(pixi: PIXI.Text) {
+function choseSwitch(pixi: Text) {
   if (playerString.length > 4) {
     playerString = playerString.slice(4, 6);
   }
@@ -98,10 +98,10 @@ function choseSwitch(pixi: PIXI.Text) {
   }
   playerString += pixi.text;
   // 選擇種族後，更改為選擇職業
-  (pixi.parent.children[0] as PIXI.Text).text = "選擇職業";
-  (pixi.parent.children[1] as PIXI.Text).text = menu.Knight;
-  (pixi.parent.children[2] as PIXI.Text).text = menu.Thieves;
-  (pixi.parent.children[3] as PIXI.Text).text = menu.Wizard;
+  (pixi.parent.children[0] as Text).text = "選擇職業";
+  (pixi.parent.children[1] as Text).text = menu.Knight;
+  (pixi.parent.children[2] as Text).text = menu.Thieves;
+  (pixi.parent.children[3] as Text).text = menu.Wizard;
   if (isCreate) {
     //pixi.parent.renderable = false;
     app.stage.removeChildAt(4);

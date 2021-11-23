@@ -4,7 +4,9 @@
   "description": "職業: 騎士，盜賊，法師\r 種族: 人類，矮人，妖精",
   "main": "index.js",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
