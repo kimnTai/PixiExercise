@@ -1,28 +1,18 @@
-import * as PIXI from "pixi.js-legacy";
-
-interface startPoint {
-  x: number;
-  y: number;
-}
-
-function calculate(start: startPoint, point: startPoint[]) {
-  const newPoint: any[] = [];
-  for (let i = 0; i <= 800; i++) {
-    start.y++;
-    const findPoint = point.filter((item, index, array) => {
-      if (item.x == start.x && item.y == start.y) {
-        newPoint.push(item);
-      }
-      return item.y == start.y;
-    });
-    if (newPoint.length > 0) {
-      return;
+//獲取不重複亂數
+function getRandom(ranges: number, count: number): number[] {
+  const array: number[] = [];
+  const arrayLength = ranges;
+  for (let i = 0; i < count; i++) {
+    let radomNum = Math.floor(Math.random() * arrayLength);
+    if (array.indexOf(radomNum) == -1) {
+      // indexOf 返回值為-1表示陣列中沒有和新亂數重複的值
+      array.push(radomNum);
+    } else {
+      // 有重複值i--，不新增重複的值到陣列中，並再迴圈一次
+      i--;
     }
   }
-  console.log(newPoint);
+  return array;
 }
-const test = {
-  x: 100,
-  y: 0,
-};
-//calculate(test, point);
+
+export { getRandom };
