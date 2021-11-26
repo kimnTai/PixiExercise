@@ -23,6 +23,7 @@ class Game {
     this.whoWin(playerA, playerB);
   }
   private fight(attacker: Profession, injured: Profession): void {
+    // 攻擊者發動 被動技能，並檢查自身狀態
     attacker.baseSkill();
     switch (attacker.status) {
       case Status.DIZZY:
@@ -35,6 +36,7 @@ class Game {
         attacker.status = Status.HEALTHY;
         return;
     }
+    // 攻擊者發動 種族技能，並檢查對方狀態
     attacker.raceSkill(injured);
     switch (injured.status) {
       case Status.DODGE:
@@ -47,7 +49,9 @@ class Game {
         injured.attack(attacker);
         return;
     }
+    // 攻擊者發動 職業技能
     attacker.proSkill(injured);
+    // 攻擊者 攻擊 對方
     attacker.attack(injured);
     return;
   }

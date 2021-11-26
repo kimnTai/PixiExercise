@@ -11,7 +11,7 @@ interface playData {
 }
 
 // 職業抽象類
-abstract class Profession implements Race, playData {
+abstract class Profession implements playData {
   name: string;
   MaxHp: number;
   strength: number;
@@ -71,4 +71,4 @@ enum style {
   FDF = "background: #fdfd99; color: #000; font-weight: bold",
 }
 
-export { Race, playData, Profession, Status, RaceSkill, menu, style};
+export { Race, playData, Profession, Status, RaceSkill, menu, style };

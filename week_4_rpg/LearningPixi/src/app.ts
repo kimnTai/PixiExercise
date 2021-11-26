@@ -18,20 +18,111 @@ let state;
 function setup() {
   cat = PIXI.Sprite.from("cat.png");
   cat.y = 96;
-
-  //Set the game state
-  state = play;
-
   app.stage.addChild(cat);
-  //開始遊戲循環
+
+  //捕獲鍵盤方向鍵
+  let left = keyboard(37),
+    up = keyboard(38),
+    right = keyboard(39),
+    down = keyboard(40);
+
+  //左箭頭鍵`press`方法
+  left.press = () => {
+    //Change the cat's velocity when the key is pressed
+    cat.vx = -5;
+    cat.vy = 0;
+  };
+
+  //Left arrow key `release` method
+  left.release = () => {
+    //If the left arrow has been released, and the right arrow isn't down,
+    //and the cat isn't moving vertically:
+    //Stop the cat
+    if (!right.isDown && cat.vy === 0) {
+      cat.vx = 0;
+    }
+  };
+
+  //Up
+  up.press = () => {
+    cat.vy = -5;
+    cat.vx = 0;
+  };
+  up.release = () => {
+    if (!down.isDown && cat.vx === 0) {
+      cat.vy = 0;
+    }
+  };
+
+  //Right
+  right.press = () => {
+    cat.vx = 5;
+    cat.vy = 0;
+  };
+  right.release = () => {
+    if (!left.isDown && cat.vy === 0) {
+      cat.vx = 0;
+    }
+  };
+
+  //Down
+  down.press = () => {
+    cat.vy = 5;
+    cat.vx = 0;
+  };
+  down.release = () => {
+    if (!up.isDown && cat.vx === 0) {
+      cat.vy = 0;
+    }
+  };
+  state = play;
   app.ticker.add((delta) => gameLoop(delta));
 }
-function gameLoop(delta: number) {
-  //可以選擇使用 `delta` 值
-  cat.x += delta;
-}
-function play(delta: number) {
-  //Move the cat 1 pixel to the right each frame
 
-  cat.x += 1;
+function gameLoop(delta) {
+  //Update the current game state:
+  state(delta);
+}
+
+function play(delta) {
+  //Use the cat's velocity to make it move
+  cat.x += cat.vx;
+  cat.y += cat.vy;
+}
+
+class Key {
+  isDown = false;
+  isUp = true;
+  press = undefined;
+  release = undefined;
+  downHandler = (event: KeyboardEvent) => {
+    if (event. === this.code) {
+      if (this.isUp && this.press) this.press();
+      this.isDown = true;
+      this.isUp = false;
+    }
+    event.preventDefault();
+  };
+  upHandler = (event) => {
+    if (event.keyCode === this.code) {
+      if (this.isDown && this.release) this.release();
+      this.isDown = false;
+      this.isUp = true;
+    }
+    event.preventDefault();
+  };
+  constructor(private code: number) {
+    window.addEventListener("keydown", this.downHandler.bind(this), false);
+    window.addEventListener("keyup", this.upHandler.bind(this), false);
+  }
+}
+
+//`keyboard` 輔助函數
+function keyboard(keyCode: number) {
+  //The `downHandler`
+  //The `upHandler`
+
+  //A附加事件偵聽器
+
+  return key;
 }
