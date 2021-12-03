@@ -1,5 +1,5 @@
-import { Info } from "./info";
-import { RoleInfo, State } from "./type";
+import { Info } from "../info";
+import { RoleInfo, State } from "../type";
 
 /**玩家資訊*/
 interface Player {
@@ -17,7 +17,7 @@ interface Player {
    * @param Info - 自身資訊
    * @param Info - 對方資訊
    */
-  action(myInfo: Info, otherInfo: Info): any;
+  action(myInfo: Info, otherInfo: Info): void;
 }
 
 /**英雄實作類*/
@@ -29,23 +29,29 @@ class Hero implements Player {
 
   /**可不可以行動 */
   get isAction(): boolean {
-    switch (this.roleInfo.state) {
-      case State.暈眩:
-        return false;
-      case State.混亂:
-        this.roleInfo.Hp -= this.roleInfo.strength;
-        return false;
-    }
+    this.roleInfo.state.find((item, index, array) => {
+      switch (item) {
+        // 不知道該怎麼加文字到 myInfo 內，改成用 sessionStorage ？
+        case State.暈眩:
+          array.splice(index, 1);
+          return false;
+          break;
+        case State.混亂:
+          array.splice(index, 1);
+          this.roleInfo.HP -= this.roleInfo.strength;
+          break;
+      }
+    });
     return true;
   }
 
   constructor(name: string) {
     this.name.push(name);
     this.roleInfo = {
-      Hp: 300,
-      MaxHp: 300,
+      HP: 300,
+      MaxHP: 300,
       strength: 10,
-      state: State.健康,
+      state: [State.健康],
     };
   }
 }

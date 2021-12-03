@@ -5,9 +5,13 @@ import { Info } from "../info";
  * @param num 機率 ex 0.1、0.2
  */
 function probability(num: number) {
-  return function (target: any, key: string, descriptor: PropertyDescriptor) {
+  return function (
+    target: any,
+    key: string,
+    descriptor: PropertyDescriptor
+  ): void {
     const _origin = descriptor.value;
-    descriptor.value = function (myInfo?: Info, otherInfo?: Info) {
+    descriptor.value = function (myInfo: Info, otherInfo: Info) {
       if (Math.random() >= num) {
         return;
       }

@@ -1,0 +1,22 @@
+{
+  "name": "promise",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jqueryui": "^1.12.16",
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.9",
+    "fetch": "^1.1.0",
+    "jquery": "^3.6.0",
+    "pixi.js-legacy": "^6.2.0"
+  }
+}

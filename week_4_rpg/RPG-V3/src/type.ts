@@ -1,30 +1,36 @@
-interface RoleInfo {
+type RoleInfo = {
   /**攻擊力 */
   strength: number;
   /**最大血量 */
-  MaxHp: number;
+  MaxHP: number;
   /**當前血量 */
-  Hp: number;
+  HP: number;
   /**角色狀態 */
-  state: State;
-}
+  state: State[];
+};
 
-/** 角色狀態：暈眩、閃避、混亂、反擊 */
+/**戰鬥顯示文字 */
+type BattleText = {
+  [key: string]: string;
+};
+
+/** 角色狀態：暈眩、混亂 */
 enum State {
   健康,
-  暈眩,
-  閃避,
-  混亂,
-  反擊,
+  暈眩 = "暈眩",
+  混亂 = "混亂",
 }
 
-/**技能*/
+/**增益效果*/
 enum Buff {
-  奮力一搏,
-  生命力,
-  魅惑,
-  吸收,
-  失敗,
+  奮力一搏 = 1.5,
+}
+
+enum RaceSkill {
+  奮力一搏 = "奮力一搏",
+  生命力 = "生命力",
+  魅惑 = "魅惑",
+  吸收 = "吸收",
 }
 
 /** 菜單 */
@@ -37,4 +43,10 @@ enum menu {
   法師 = "法師",
 }
 
-export { RoleInfo, State, Buff, menu };
+/**console 樣式 */
+enum style {
+  CCC = "background: #CCC; color: #000",
+  FDF = "background: #fdfd99; color: #000; font-weight: bold",
+}
+
+export { RoleInfo, BattleText, State, Buff, RaceSkill, menu, style };
