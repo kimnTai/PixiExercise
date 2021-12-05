@@ -2,10 +2,12 @@ import { Container, Text } from "pixi.js";
 import { app } from ".";
 import { PlayerCreate } from "../character/create";
 import { Hero } from "../character/hero";
+import { Game } from "../game";
 import { menu } from "../type";
+import { changeButtonImage } from "./attButton";
 
 /**戰鬥紀錄 */
-function logText() {
+function logText(): void {
   sessionStorage.setItem("戰鬥紀錄", JSON.stringify(["戰鬥紀錄"]));
 
   const logText = app.stage.addChild(
@@ -60,10 +62,12 @@ function createRace(): void {
 // 再來一局按鈕
 document.querySelector("button")?.addEventListener("click", again);
 let logs: string[] = [" 戰鬥紀錄"];
-function again() {
+function again(): void {
   logs = [" 戰鬥紀錄\n-------"];
   app.stage.removeChildren(4, 6);
   PlayerCreate._player = new Hero("玩家");
+  Game.turn = 1;
+  changeButtonImage();
   app.loader.load(createRace);
 }
 

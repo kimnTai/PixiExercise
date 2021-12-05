@@ -5,10 +5,8 @@ import { app } from ".";
 function background(): void {
   const background = Sprite.from("background.png");
   const background_2 = Sprite.from("background.png");
-  background.width = app.screen.width;
-  background.height = app.screen.height;
-  background_2.width = app.screen.width;
-  background_2.height = app.screen.height;
+  background.width = background_2.width = app.screen.width;
+  background.height = background_2.height = app.screen.height;
   background_2.x = -app.screen.width;
   app.ticker.add((time) => {
     if (background.x >= app.screen.width) {

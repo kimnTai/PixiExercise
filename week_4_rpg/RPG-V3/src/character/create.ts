@@ -2,12 +2,10 @@ import { Text } from "pixi.js";
 import { Hero, Player } from "./hero";
 import { Knight, Thieves, Wizard } from "./profession";
 import { Dwarf, Elves, Human } from "./race";
-import { app } from "../component";
 import { menu } from "../type";
 import { Game } from "../game";
-import { setPlayer } from "../component/setPlayer";
 
-class NPC {
+class Computer {
   /**NPC 種族、職業隨機產生 */
   static create(): Player {
     let computer = new Hero("電腦");
@@ -74,15 +72,11 @@ class PlayerCreate {
     (pixi.parent.children[1] as Text).text = menu.騎士;
     (pixi.parent.children[2] as Text).text = menu.盜賊;
     (pixi.parent.children[3] as Text).text = menu.法師;
-    // 如果創建完成 - 開始遊戲 & 設置角色
+    // 如果創建完成 - 開始遊戲
     if (isCreate) {
-      //return player;
-      pixi.parent.renderable = false;
-      app.stage.removeChildAt(4);
       Game.Start(this._player);
-      setPlayer(pixi.text); // 設置角色
     }
   }
 }
 
-export { NPC, PlayerCreate };
+export { Computer, PlayerCreate };

@@ -26,7 +26,9 @@ enum Buff {
   奮力一搏 = 1.5,
 }
 
-enum RaceSkill {
+enum Skill {
+  反擊 = "反擊",
+  火球 = "火球",
   奮力一搏 = "奮力一搏",
   生命力 = "生命力",
   魅惑 = "魅惑",
@@ -49,4 +51,4 @@ enum style {
   FDF = "background: #fdfd99; color: #000; font-weight: bold",
 }
 
-export { RoleInfo, BattleText, State, Buff, RaceSkill, menu, style };
+export { RoleInfo, BattleText, State, Buff, Skill, menu, style };

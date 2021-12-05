@@ -7,12 +7,12 @@ abstract class BaseDecorator implements Player {
   name!: string[];
   roleInfo: RoleInfo;
 
-  action(myInfo: Info, otherInfo: Info): void {
+  async action(myInfo: Info, otherInfo: Info): Promise<void> {
     this.player.action(myInfo, otherInfo);
   }
 
-  isAction(): Promise<boolean> {
-    return this.player.isAction();
+  async isAction(myInfo: Info): Promise<boolean> {
+    return this.player.isAction(myInfo);
   }
 
   constructor(protected player: Player) {

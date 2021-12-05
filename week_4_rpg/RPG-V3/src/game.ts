@@ -1,60 +1,65 @@
 import { Player } from "./character/hero";
-import { NPC } from "./character/create";
+import { Computer } from "./character/create";
 import { BattleInfo, Info } from "./info";
 import { style } from "./type";
-import { showAttack, showDeath } from "./component/show_event";
+import { ShowInfo } from "./component/showInfo";
+import { SetPlayerSprite } from "./component/setPlayer";
+import { app } from "./component";
 
 /**遊戲主體 */
 class Game {
-  static player: Player;
-  static NPC: Player;
+  /**回合數 */
   static turn: number = 1;
+  static player: Player;
+  static computer: Player;
 
   /** 遊戲開始 */
   static Start(player: Player): void {
-    const computer = NPC.create();
+    // 移除選擇職業按紐
+    app.stage.removeChildAt(4);
     Game.player = player;
-    Game.NPC = computer;
+    Game.computer = Computer.create();
+    new SetPlayerSprite();
   }
 
   /**回合交互行動 */
   static async battle(): Promise<void> {
+    console.log("-------------------");
+    if (this.whoWin(this.player, this.computer)) {
+      // 如果有結果 -> return
+      return;
+    }
     const attInfo = new BattleInfo();
     const defInfo = new BattleInfo();
-    console.log("-------------------");
     switch (this.turn % 2) {
+      // 玩家的回合
       case 1:
         console.log(`${this.player.name[0]}的回合`);
-        this.player.action(attInfo, defInfo);
-        this.NPC.action(defInfo, attInfo);
-        await showAttack("玩家");
-        this.calculate(this.player, this.NPC, attInfo, defInfo);
+        await this.player.action(attInfo, defInfo);
+        await this.computer.action(defInfo, attInfo);
+        await ShowInfo.init(this.player, this.computer, attInfo, defInfo);
+        this.calculate(this.player, this.computer, attInfo, defInfo);
         break;
+      // 電腦的回合
       case 0:
-        console.log(`${this.NPC.name[0]}的回合`);
-        this.NPC.action(attInfo, defInfo);
-        this.player.action(defInfo, attInfo);
-        await showAttack("電腦");
-        this.calculate(this.NPC, this.player, attInfo, defInfo);
+        console.log(`${this.computer.name[0]}的回合`);
+        await this.computer.action(attInfo, defInfo);
+        await this.player.action(defInfo, attInfo);
+        await ShowInfo.init(this.computer, this.player, attInfo, defInfo);
+        this.calculate(this.computer, this.player, attInfo, defInfo);
         break;
-    }
-    console.log(this.player.roleInfo);
-    console.log(this.NPC.roleInfo);
-
-    const isWin = await this.whoWin(this.player, this.NPC);
-    if (!isWin) {
-      this.battle(); // 如果還沒贏 -> 繼續戰鬥
     }
     this.turn++;
+    this.battle();
   }
 
-  /**計算結果 */
-  static async calculate(
+  /**計算結果，扣除血量 */
+  private static calculate(
     attacker: Player,
     defenser: Player,
     attInfo: Info,
     defInfo: Info
-  ): Promise<void> {
+  ): void {
     let attDamage = 0;
     let defDamage = 0;
     let totalHeal = 0;
@@ -79,18 +84,18 @@ class Game {
   }
 
   /**當其中一方血量歸零，顯示結果 */
-  static async whoWin(player: Player, NPC: Player): Promise<boolean> {
+  private static whoWin(player: Player, computer: Player): boolean {
     if (player.roleInfo.HP <= 0) {
-      await showDeath("玩家");
-      console.log(`%c ${NPC.name[0]} 勝利 `, style.FDF);
-      console.log(`%c ${NPC.name} > ${player.name} `, style.CCC);
+      console.log(`%c ${computer.name[0]} 勝利 `, style.FDF);
+      console.log(`%c ${computer.name} > ${player.name} `, style.CCC);
       console.log(this.turn);
+      ShowInfo.death(player.name[0]);
       return true;
-    } else if (NPC.roleInfo.HP <= 0) {
-      await showDeath("電腦");
+    } else if (computer.roleInfo.HP <= 0) {
       console.log(`%c ${player.name[0]} 勝利 `, style.FDF);
-      console.log(`%c ${player.name} > ${NPC.name} `, style.CCC);
+      console.log(`%c ${player.name} > ${computer.name} `, style.CCC);
       console.log(this.turn);
+      ShowInfo.death(computer.name[0]);
       return true;
     }
     return false;

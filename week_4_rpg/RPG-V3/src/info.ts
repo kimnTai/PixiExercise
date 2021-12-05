@@ -5,6 +5,8 @@ abstract class Info {
   damage!: number[];
   defDamage!: number[];
   heal!: number[];
+  state!: State[];
+  skill!: any[];
   debuff!: State[];
   buff!: number;
   text!: BattleText;
@@ -15,6 +17,8 @@ class BattleInfo implements Info {
   damage: number[] = [];
   defDamage: number[] = [];
   heal: number[] = [];
+  state: State[] = [];
+  skill: any[] = [];
   debuff: State[] = [];
   buff: number = 1;
   text: BattleText = {};

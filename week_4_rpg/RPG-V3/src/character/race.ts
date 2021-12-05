@@ -1,12 +1,12 @@
 import { Player } from "./hero";
 import { Info } from "../info";
-import { Buff, menu, RaceSkill, State } from "../type";
+import { Buff, menu, Skill, State } from "../type";
 import { probability } from "../utils/decorator";
 import { BaseDecorator } from "./BaseDecorator";
 
 /**人族實作類 */
 class Human extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info) {
+  async action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
 
     this.player.action(myInfo, otherInfo);
@@ -22,7 +22,7 @@ class Human extends BaseDecorator {
       return;
     }
     myInfo.buff = Buff.奮力一搏;
-    myInfo.text.raceSkill = `${this.player.name[0]} : ${RaceSkill.奮力一搏}發動`;
+    myInfo.text.raceSkill = `${this.player.name[0]} : ${Skill.奮力一搏}發動`;
   }
 
   constructor(player: Player) {
@@ -33,7 +33,7 @@ class Human extends BaseDecorator {
 
 /**矮人實作類 */
 class Dwarf extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info) {
+  async action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
     this.player.action(myInfo, otherInfo);
   }
@@ -49,9 +49,9 @@ class Dwarf extends BaseDecorator {
     }
     const heal = this.roleInfo.MaxHP * 0.05;
     myInfo.heal.push(heal);
-    myInfo.text.raceSkill = `${this.player.name[0]} : ${RaceSkill.生命力}發動，回復了 ${heal} 點生命值`;
+    myInfo.text.raceSkill = `${this.player.name[0]} : ${Skill.生命力}發動，回復了 ${heal} 點生命值`;
     console.log(
-      `${this.player.name[0]} : ${RaceSkill.生命力}發動，回復了 ${heal} 點生命值`
+      `${this.player.name[0]} : ${Skill.生命力}發動，回復了 ${heal} 點生命值`
     );
   }
 
@@ -63,7 +63,7 @@ class Dwarf extends BaseDecorator {
 
 /**妖精實作類 */
 class Elves extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info) {
+  async action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
     this.player.action(myInfo, otherInfo);
   }
@@ -72,7 +72,7 @@ class Elves extends BaseDecorator {
   @probability(0.1)
   private raceSkill(myInfo: Info, otherInfo: Info): void {
     myInfo.debuff.push(State.混亂);
-    myInfo.text.raceSkill = `${this.player.name[0]} : ${RaceSkill.魅惑}發動`;
+    myInfo.text.raceSkill = `${this.player.name[0]} : ${Skill.魅惑}發動`;
   }
 
   constructor(player: Player) {

@@ -16,12 +16,14 @@ function pixiInit(): void {
   document.querySelector("#app")?.appendChild(app.view);
   // 加載
   app.loader
-    .add("attack.png", "../img/attack.png")
-    .add("attack_black.png", "../img/attack_black.png")
-    .add("background.png", "../img/background.png")
-    .add("Knight.png", "../img/Knight.png")
-    .add("Thieves.png", "../img/Thieves.png")
-    .add("Wizard.png", "../img/Wizard.png")
+    .add("attack.png", "../../img/attack.png")
+    .add("attack_black.png", "../../img/attack_black.png")
+    .add("background.png", "../../img/background.png")
+    .add("Knight.png", "../../img/Knight.png")
+    .add("Thieves.png", "../../img/Thieves.png")
+    .add("Wizard.png", "../../img/Wizard.png")
+    .add("FireBall.png", "../../img/FireBall.png")
+    .add("Shield.png", "../../img/Shield.png")
     .load(background)
     .load(attButton)
     .load(logText)

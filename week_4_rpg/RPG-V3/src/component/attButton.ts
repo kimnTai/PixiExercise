@@ -1,4 +1,4 @@
-import { Container, Sprite, Text } from "pixi.js-legacy";
+import { Container, Sprite, Text, Texture } from "pixi.js-legacy";
 import { Game } from "../game";
 import { app } from ".";
 
@@ -16,13 +16,25 @@ function attButton(): void {
   container.addChild(sprite, text);
   container.interactive = true;
   container.addListener("click", () => {
-    // 每 35 毫秒自動攻擊
-    // autoAtt = window.setInterval(() => {
-    // }, 35);
     Game.battle();
+    changeButtonImage();
   });
   container.position.set(500, 200);
   app.stage.addChild(container);
 }
 
-export { attButton };
+/**交換攻擊按紐圖片 */
+function changeButtonImage() {
+  const attBtn = app.stage.getChildByName("攻擊按鈕") as Container;
+  const attackBlack = Texture.from("attack_black.png");
+  const attack = Texture.from("attack.png");
+  if (attBtn.interactive) {
+    attBtn.interactive = false;
+    (attBtn.children[0] as Sprite).texture = attackBlack;
+  } else {
+    attBtn.interactive = true;
+    (attBtn.children[0] as Sprite).texture = attack;
+  }
+}
+
+export { attButton, changeButtonImage };

@@ -1,4 +1,3 @@
-import { showDizzy } from "../component/show_event";
 import { Info } from "../info";
 import { RoleInfo, State } from "../type";
 
@@ -11,14 +10,14 @@ interface Player {
   roleInfo: RoleInfo;
 
   /**可不可以行動 */
-  isAction(): Promise<boolean>;
+  isAction(myInfo: Info): Promise<boolean>;
 
   /**
    * 玩家動作
    * @param Info - 自身資訊
    * @param Info - 對方資訊
    */
-  action(myInfo: Info, otherInfo: Info): void;
+  action(myInfo: Info, otherInfo: Info): Promise<void>;
 }
 
 /**英雄實作類*/
@@ -26,10 +25,11 @@ class Hero implements Player {
   name: string[] = [];
   roleInfo!: RoleInfo;
 
-  action(myInfo: Info, otherInfo: Info): void {}
+  async action(myInfo: Info, otherInfo: Info): Promise<void> {}
 
   /**可不可以行動 */
-  isAction(): Promise<boolean> {
+  isAction(myInfo: Info): Promise<boolean> {
+    myInfo.state = [...this.roleInfo.state];
     return new Promise((resolve) => {
       const state = this.roleInfo.state;
       state.find((item, index, array) => {

@@ -2,19 +2,18 @@ import { probability } from "../utils/decorator";
 import { Player } from "./hero";
 import { BaseDecorator } from "./BaseDecorator";
 import { Info } from "../info";
-import { menu, State } from "../type";
+import { menu, Skill, State } from "../type";
 
 /**騎士 - 具體裝飾者角色 */
 class Knight extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info): void {
-    this.isAction().then((res) => {
-      if (res) {
-        myInfo.damage.push(this.attack());
-        this.proSkill(myInfo, otherInfo);
-        this.baseSkill(myInfo, otherInfo);
-        this.player.action(myInfo, otherInfo);
-      }
-    });
+  async action(myInfo: Info, otherInfo: Info): Promise<void> {
+    const res = await this.isAction(myInfo);
+    if (res) {
+      myInfo.damage.push(this.attack());
+      this.proSkill(myInfo, otherInfo);
+      this.baseSkill(myInfo, otherInfo);
+      this.player.action(myInfo, otherInfo);
+    }
   }
 
   /**普通攻擊 */
@@ -27,6 +26,7 @@ class Knight extends BaseDecorator {
   private baseSkill(myInfo: Info, otherInfo: Info): void {
     otherInfo.damage.shift();
     myInfo.defDamage.push(this.attack());
+    myInfo.skill.push(Skill.反擊);
   }
 
   /**重擊:20% 觸發，造成 1.5 倍傷害 */
@@ -46,14 +46,14 @@ class Knight extends BaseDecorator {
 
 /**盜賊 - 具體裝飾者角色 */
 class Thieves extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info): void {
-    if (!this.isAction()) {
-      return;
+  async action(myInfo: Info, otherInfo: Info): Promise<void> {
+    const res = await this.isAction(myInfo);
+    if (res) {
+      myInfo.damage.push(this.attack());
+      this.proSkill(myInfo, otherInfo);
+      this.baseSkill(myInfo, otherInfo);
+      this.player.action(myInfo, otherInfo);
     }
-    myInfo.damage.push(this.attack());
-    this.proSkill(myInfo, otherInfo);
-    this.baseSkill(myInfo, otherInfo);
-    this.player.action(myInfo, otherInfo);
   }
 
   /**普通攻擊，攻擊基數 * 0.8 */
@@ -82,15 +82,14 @@ class Thieves extends BaseDecorator {
 
 /**法師 - 具體裝飾者角色 */
 class Wizard extends BaseDecorator {
-  action(myInfo: Info, otherInfo: Info): void {
-    this.isAction().then((res) => {
-      if (res) {
-        myInfo.damage.push(this.attack());
-        this.proSkill(myInfo, otherInfo);
-        this.baseSkill(myInfo, otherInfo);
-        this.player.action(myInfo, otherInfo);
-      }
-    });
+  async action(myInfo: Info, otherInfo: Info): Promise<void> {
+    const res = await this.isAction(myInfo);
+    if (res) {
+      myInfo.damage.push(this.attack());
+      this.proSkill(myInfo, otherInfo);
+      this.baseSkill(myInfo, otherInfo);
+      this.player.action(myInfo, otherInfo);
+    }
   }
 
   /**普通攻擊: 遠距離原始命中率 80%，攻擊基數 * 1.2 */
@@ -115,6 +114,7 @@ class Wizard extends BaseDecorator {
   private proSkill(myInfo: Info, otherInfo: Info): void {
     myInfo.damage.push(this.roleInfo.strength * 2);
     myInfo.debuff.push(State.暈眩);
+    myInfo.skill.push(Skill.火球);
   }
 
   constructor(player: Player) {
