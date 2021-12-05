@@ -1,3 +1,4 @@
+import { showDizzy } from "../component/show_event";
 import { Info } from "../info";
 import { RoleInfo, State } from "../type";
 
@@ -10,7 +11,7 @@ interface Player {
   roleInfo: RoleInfo;
 
   /**可不可以行動 */
-  get isAction(): boolean;
+  isAction(): Promise<boolean>;
 
   /**
    * 玩家動作
@@ -28,21 +29,22 @@ class Hero implements Player {
   action(myInfo: Info, otherInfo: Info): void {}
 
   /**可不可以行動 */
-  get isAction(): boolean {
-    this.roleInfo.state.find((item, index, array) => {
-      switch (item) {
-        // 不知道該怎麼加文字到 myInfo 內，改成用 sessionStorage ？
-        case State.暈眩:
+  isAction(): Promise<boolean> {
+    return new Promise((resolve) => {
+      const state = this.roleInfo.state;
+      state.find((item, index, array) => {
+        if (item === State.暈眩) {
           array.splice(index, 1);
-          return false;
-          break;
-        case State.混亂:
+          resolve(false);
+          return item;
+        } else if (item === State.混亂) {
           array.splice(index, 1);
           this.roleInfo.HP -= this.roleInfo.strength;
-          break;
-      }
+          return item;
+        }
+      });
+      resolve(true);
     });
-    return true;
   }
 
   constructor(name: string) {

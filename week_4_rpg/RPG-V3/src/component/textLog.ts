@@ -63,7 +63,7 @@ let logs: string[] = [" 戰鬥紀錄"];
 function again() {
   logs = [" 戰鬥紀錄\n-------"];
   app.stage.removeChildren(4, 6);
-  PlayerCreate.player = new Hero("玩家");
+  PlayerCreate._player = new Hero("玩家");
   app.loader.load(createRace);
 }
 

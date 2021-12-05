@@ -11,8 +11,8 @@ abstract class BaseDecorator implements Player {
     this.player.action(myInfo, otherInfo);
   }
 
-  get isAction(): boolean {
-    return this.player.isAction;
+  isAction(): Promise<boolean> {
+    return this.player.isAction();
   }
 
   constructor(protected player: Player) {

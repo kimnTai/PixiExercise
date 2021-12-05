@@ -6,14 +6,15 @@ import { menu, State } from "../type";
 
 /**騎士 - 具體裝飾者角色 */
 class Knight extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info): void {
-    if (!this.isAction) {
-      return;
-    }
-    myInfo.damage.push(this.attack());
-    this.proSkill(myInfo, otherInfo);
-    this.baseSkill(myInfo, otherInfo);
-    this.player.action(myInfo, otherInfo);
+  action(myInfo: Info, otherInfo: Info): void {
+    this.isAction().then((res) => {
+      if (res) {
+        myInfo.damage.push(this.attack());
+        this.proSkill(myInfo, otherInfo);
+        this.baseSkill(myInfo, otherInfo);
+        this.player.action(myInfo, otherInfo);
+      }
+    });
   }
 
   /**普通攻擊 */
@@ -45,8 +46,8 @@ class Knight extends BaseDecorator {
 
 /**盜賊 - 具體裝飾者角色 */
 class Thieves extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info): void {
-    if (!this.isAction) {
+  action(myInfo: Info, otherInfo: Info): void {
+    if (!this.isAction()) {
       return;
     }
     myInfo.damage.push(this.attack());
@@ -81,14 +82,15 @@ class Thieves extends BaseDecorator {
 
 /**法師 - 具體裝飾者角色 */
 class Wizard extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info): void {
-    if (!this.isAction) {
-      return;
-    }
-    myInfo.damage.push(this.attack());
-    this.proSkill(myInfo, otherInfo);
-    this.baseSkill(myInfo, otherInfo);
-    this.player.action(myInfo, otherInfo);
+  action(myInfo: Info, otherInfo: Info): void {
+    this.isAction().then((res) => {
+      if (res) {
+        myInfo.damage.push(this.attack());
+        this.proSkill(myInfo, otherInfo);
+        this.baseSkill(myInfo, otherInfo);
+        this.player.action(myInfo, otherInfo);
+      }
+    });
   }
 
   /**普通攻擊: 遠距離原始命中率 80%，攻擊基數 * 1.2 */

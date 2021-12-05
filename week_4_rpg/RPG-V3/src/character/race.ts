@@ -6,7 +6,7 @@ import { BaseDecorator } from "./BaseDecorator";
 
 /**人族實作類 */
 class Human extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info) {
+  action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
 
     this.player.action(myInfo, otherInfo);
@@ -33,7 +33,7 @@ class Human extends BaseDecorator {
 
 /**矮人實作類 */
 class Dwarf extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info) {
+  action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
     this.player.action(myInfo, otherInfo);
   }
@@ -44,7 +44,7 @@ class Dwarf extends BaseDecorator {
 
   /**生命力:血量低於 50% 時，回復 5% 生命  */
   private raceSkill(myInfo: Info, otherInfo: Info): void {
-    if (this.HPpercent > 0.99) {
+    if (this.HPpercent > 0.5) {
       return;
     }
     const heal = this.roleInfo.MaxHP * 0.05;
@@ -63,7 +63,7 @@ class Dwarf extends BaseDecorator {
 
 /**妖精實作類 */
 class Elves extends BaseDecorator {
-  override action(myInfo: Info, otherInfo: Info) {
+  action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
     this.player.action(myInfo, otherInfo);
   }

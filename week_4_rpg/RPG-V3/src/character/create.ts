@@ -42,31 +42,30 @@ class NPC {
 
 class PlayerCreate {
   /**玩家角色實體 */
-  static player: Player = new Hero("玩家");
+  static _player: Player = new Hero("玩家");
   /**玩家角色創建 */
   static create(pixi: Text) {
-    let player = this.player;
     let isCreate = false;
     switch (pixi.text) {
       case menu.人類:
-        player = new Human(player);
+        this._player = new Human(this._player);
         break;
       case menu.矮人:
-        player = new Dwarf(player);
+        this._player = new Dwarf(this._player);
         break;
       case menu.妖精:
-        player = new Elves(player);
+        this._player = new Elves(this._player);
         break;
       case menu.騎士:
-        player = new Knight(player);
+        this._player = new Knight(this._player);
         isCreate = true;
         break;
       case menu.盜賊:
-        player = new Thieves(player);
+        this._player = new Thieves(this._player);
         isCreate = true;
         break;
       case menu.法師:
-        player = new Wizard(player);
+        this._player = new Wizard(this._player);
         isCreate = true;
         break;
     }
@@ -80,7 +79,7 @@ class PlayerCreate {
       //return player;
       pixi.parent.renderable = false;
       app.stage.removeChildAt(4);
-      Game.Start(player);
+      Game.Start(this._player);
       setPlayer(pixi.text); // 設置角色
     }
   }

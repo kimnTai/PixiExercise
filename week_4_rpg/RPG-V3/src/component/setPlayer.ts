@@ -28,6 +28,7 @@ function setPlayer(playerPath: string) {
   computerContainer.name = "電腦";
   // 設置 電腦位置
   computerSprite.anchor.set(0.5, 1);
+  computerSprite.scale.x = -1;
   computerHero.position = playerHero.position;
   computerHP.position = playerHP.position;
   computerContainer.y = playerContainer.y;
