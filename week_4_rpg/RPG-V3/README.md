@@ -1,3 +1,14 @@
+### 使用 Promise 新增特效
+- 加入火球、暈眩
+
+![](https://i.imgur.com/CXPoNGg.gif)
+- 加入格檔
+
+![](https://i.imgur.com/G69t1j4.gif)
+- 加入連擊、閃避
+
+![](https://i.imgur.com/cokJkTn.gif)
+
 ### 需求：
 - 使用裝飾者模式對技能 or 職業進行裝飾
   - 導入 傷害( damageInfo )、防禦( defenseInfo )、結果 ( resultShow )

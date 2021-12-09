@@ -8,7 +8,6 @@ import { BaseDecorator } from "./BaseDecorator";
 class Human extends BaseDecorator {
   async action(myInfo: Info, otherInfo: Info) {
     this.raceSkill(myInfo, otherInfo);
-
     this.player.action(myInfo, otherInfo);
   }
 

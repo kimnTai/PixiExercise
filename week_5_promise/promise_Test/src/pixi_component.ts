@@ -1,4 +1,14 @@
-import { Application, Container, Sprite, Text, Texture } from "pixi.js";
+import {
+  Application,
+  autoDetectRenderer,
+  BaseTexture,
+  Container,
+  Sprite,
+  Text,
+  Texture,
+  Ticker,
+} from "pixi.js";
+import { Rectangle, utils } from "pixi.js-legacy";
 import { showAttack, showDeath } from "./show_event";
 
 const app: Application = new Application({
@@ -19,8 +29,8 @@ function pixiInit(): void {
     .add("Knight.png", "../img/Knight.png")
     .add("Thieves.png", "../img/Thieves.png")
     .add("Wizard.png", "../img/Wizard.png")
+    .add("player.png", "../img/player.png")
     .load(setBackground)
-    .load(setAttSprite)
     .load(setPlayer);
 }
 
@@ -48,37 +58,28 @@ function setBackground(): void {
   app.stage.addChild(background, background_2);
 }
 
-/**攻擊按鈕設置 */
-function setAttSprite(): void {
-  const container = new Container();
-  const sprite = Sprite.from("attack.png");
-  const text = new Text("攻擊", {
-    fontSize: 50,
-    fill: ["#000"],
-  });
-  sprite.anchor.set(0.5);
-  text.anchor.set(0.5);
-  container.addChild(sprite, text);
-  container.interactive = true;
-  container.addListener("click", () => {
-    showAttack(app);
-  });
-  container.x = 500;
-  container.y = 200;
-  app.stage.addChild(container);
-}
-
 /**雙方角色圖像設置 */
 function setPlayer() {
+  const texture = BaseTexture.from("player.png");
+  const rectangle = new Rectangle(48, 48, 48, 48);
+  const test = new Texture(texture,rectangle)
+  const num = 48;
+
   const playerContainer = new Container();
-  const playerSprite = Sprite.from("Knight.png");
+  const playerSprite = Sprite.from(test);
+
+  let NUM = 175 / 48;
+  playerSprite.scale.set(NUM, NUM);
   playerSprite.anchor.set(0.5, 1);
   playerContainer.x = 362;
   playerContainer.y = 325;
 
+  const texture2 = utils.TextureCache["player.png"];
+  const rectangle2 = new Rectangle(96, 96, 48, 48);
+  //texture2.frame = rectangle2;
   playerContainer.addChild(playerSprite);
   const npcContainer = new Container();
-  const npcSprite = Sprite.from("Wizard.png");
+  const npcSprite = Sprite.from(texture2);
   npcSprite.anchor.set(0.5, 1);
   npcContainer.addChild(npcSprite);
   npcContainer.y = 325;

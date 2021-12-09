@@ -33,7 +33,7 @@ class Computer {
         computer = new Wizard(computer);
         break;
     }
-    console.log(`對上：${computer.name}`);
+    console.log(`對上 : ${computer.name}`);
     return computer;
   }
 }
@@ -41,10 +41,11 @@ class Computer {
 class PlayerCreate {
   /**玩家角色實體 */
   static _player: Player = new Hero("玩家");
+
   /**玩家角色創建 */
-  static create(pixi: Text) {
+  static create(textSprite: Text) {
     let isCreate = false;
-    switch (pixi.text) {
+    switch (textSprite.text) {
       case menu.人類:
         this._player = new Human(this._player);
         break;
@@ -68,14 +69,18 @@ class PlayerCreate {
         break;
     }
     // 選擇種族後，文字更改為選擇職業
-    (pixi.parent.children[0] as Text).text = "選擇職業";
-    (pixi.parent.children[1] as Text).text = menu.騎士;
-    (pixi.parent.children[2] as Text).text = menu.盜賊;
-    (pixi.parent.children[3] as Text).text = menu.法師;
+    this.changeText(textSprite);
     // 如果創建完成 - 開始遊戲
     if (isCreate) {
       Game.Start(this._player);
     }
+  }
+  /**文字更改為選擇職業*/
+  private static changeText(text: Text) {
+    (text.parent.children[0] as Text).text = "選擇職業";
+    (text.parent.children[1] as Text).text = menu.騎士;
+    (text.parent.children[2] as Text).text = menu.盜賊;
+    (text.parent.children[3] as Text).text = menu.法師;
   }
 }
 

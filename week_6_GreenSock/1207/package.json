@@ -1,11 +1,10 @@
 {
-  "name": "rpg-v2",
+  "name": "1207",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",

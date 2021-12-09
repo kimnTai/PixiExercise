@@ -1,10 +1,11 @@
-import { Player } from "./character/hero";
-import { Computer } from "./character/create";
+import { Hero, Player } from "./character/hero";
+import { Computer, PlayerCreate } from "./character/create";
 import { BattleInfo, Info } from "./info";
 import { style } from "./type";
-import { ShowInfo } from "./component/showInfo";
 import { SetPlayerSprite } from "./component/setPlayer";
-import { app } from "./component";
+import { ShowInfo } from "./show/showInfo";
+import { ShowEvent } from "./show/showEvent";
+import { app } from "./component/app";
 
 /**遊戲主體 */
 class Game {
@@ -19,7 +20,13 @@ class Game {
     app.stage.removeChildAt(4);
     Game.player = player;
     Game.computer = Computer.create();
-    new SetPlayerSprite();
+    new SetPlayerSprite(app);
+  }
+
+  /**重新開始  */
+  static restart() {
+    PlayerCreate._player = new Hero("玩家");
+    this.turn = 1;
   }
 
   /**回合交互行動 */
@@ -38,7 +45,7 @@ class Game {
         await this.player.action(attInfo, defInfo);
         await this.computer.action(defInfo, attInfo);
         await ShowInfo.init(this.player, this.computer, attInfo, defInfo);
-        this.calculate(this.player, this.computer, attInfo, defInfo);
+        await this.calculate(this.player, this.computer, attInfo, defInfo);
         break;
       // 電腦的回合
       case 0:
@@ -46,20 +53,22 @@ class Game {
         await this.computer.action(attInfo, defInfo);
         await this.player.action(defInfo, attInfo);
         await ShowInfo.init(this.computer, this.player, attInfo, defInfo);
-        this.calculate(this.computer, this.player, attInfo, defInfo);
+        await this.calculate(this.computer, this.player, attInfo, defInfo);
         break;
     }
     this.turn++;
     this.battle();
   }
 
-  /**計算結果，扣除血量 */
-  private static calculate(
+  /**計算結果，扣除血量，並更新到畫面 */
+  private static async calculate(
     attacker: Player,
     defenser: Player,
     attInfo: Info,
     defInfo: Info
-  ): void {
+  ): Promise<void> {
+    const beforeAttackerHP = attacker.roleInfo.HP;
+    const beforeDefenserHP = defenser.roleInfo.HP;
     let attDamage = 0;
     let defDamage = 0;
     let totalHeal = 0;
@@ -81,6 +90,16 @@ class Game {
     attInfo.debuff.forEach((item) => {
       defenser.roleInfo.state.push(item);
     });
+    ShowEvent.updateHP(
+      attacker.name[0],
+      beforeAttackerHP,
+      attacker.roleInfo.HP
+    );
+    await ShowEvent.updateHP(
+      defenser.name[0],
+      beforeDefenserHP,
+      defenser.roleInfo.HP
+    );
   }
 
   /**當其中一方血量歸零，顯示結果 */

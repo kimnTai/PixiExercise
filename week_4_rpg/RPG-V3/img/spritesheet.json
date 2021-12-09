@@ -1,0 +1,155 @@
+{
+	"frames": {
+		"Double.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 100,
+				"h": 81
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 81
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 81
+			}
+		},
+		"FireBall.png": {
+			"frame": {
+				"x": 103,
+				"y": 1,
+				"w": 94,
+				"h": 50
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 50
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 50
+			}
+		},
+		"Shield.png": {
+			"frame": {
+				"x": 103,
+				"y": 53,
+				"w": 95,
+				"h": 100
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 95,
+				"h": 100
+			},
+			"sourceSize": {
+				"w": 95,
+				"h": 100
+			}
+		},
+		"attack.png": {
+			"frame": {
+				"x": 200,
+				"y": 1,
+				"w": 100,
+				"h": 92
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 92
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 92
+			}
+		},
+		"attack_black.png": {
+			"frame": {
+				"x": 1,
+				"y": 95,
+				"w": 100,
+				"h": 92
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 100,
+				"h": 92
+			},
+			"sourceSize": {
+				"w": 100,
+				"h": 92
+			}
+		},
+		"miss.png": {
+			"frame": {
+				"x": 200,
+				"y": 95,
+				"w": 127,
+				"h": 50
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 127,
+				"h": 50
+			},
+			"sourceSize": {
+				"w": 127,
+				"h": 50
+			}
+		},
+		"restart.png": {
+			"frame": {
+				"x": 200,
+				"y": 147,
+				"w": 102,
+				"h": 103
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 102,
+				"h": 103
+			},
+			"sourceSize": {
+				"w": 102,
+				"h": 103
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 328,
+			"h": 251
+		},
+		"scale": "1"
+	}
+}

@@ -65,6 +65,7 @@ class Thieves extends BaseDecorator {
   @probability(0.15)
   private baseSkill(myInfo: Info, otherInfo: Info): void {
     otherInfo.damage = [];
+    myInfo.skill.push(Skill.閃避);
   }
 
   /**連擊:普攻命中時，40% 機率再攻擊一次 */
@@ -72,6 +73,7 @@ class Thieves extends BaseDecorator {
   private proSkill(myInfo: Info, otherInfo: Info): void {
     myInfo.damage.push(this.attack());
     myInfo.text.proSkill = `${this.player.name[0]} : 連擊發動`;
+    myInfo.skill.push(Skill.連擊);
   }
 
   constructor(player: Player) {

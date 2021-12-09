@@ -13,7 +13,7 @@ interface Player {
   isAction(myInfo: Info): Promise<boolean>;
 
   /**
-   * 玩家動作
+   * @description 玩家動作
    * @param Info - 自身資訊
    * @param Info - 對方資訊
    */
