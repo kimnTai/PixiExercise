@@ -1,8 +1,17 @@
 # [目錄](https://hackmd.io/@kimn/SyIwsGHrt)
-RPG GAME
+Game
 ---
-- [11/13 ~ 11/14 - Text 版完成](https://hackmd.io/AqIG3o53SGWiMUCtCZW0BQ)
-- [控制反轉(IOC)、依賴注入(DI)](https://hackmd.io/ERgXW8joT3WA1ARTNrOj1w)
+- [常用設定](https://hackmd.io/S_ldAdswQvyF96XZchugVA)
+- [11/13 ~ 11/14 - RPG text 版完成](https://hackmd.io/AqIG3o53SGWiMUCtCZW0BQ)
+- [11/15 ~ 11/17 - RPG 初版完成](https://hackmd.io/0tNM46ACTAKfMu3Vlodh2Q)
+- [11/19 ~ 11/23 - 爬梯子完成](https://hackmd.io/s8tIQxvHTmGaonlhztI9xQ)
+- [11/24 ~ 11/29 - RPG 重構](https://hackmd.io/S-x2nQAaSZqL59q5kT-ltg)
+- [11/30 - Promise、async/await](https://hackmd.io/jPypjnwiTeqNugMMkZJ8uA)
+- [12/01 - 實作、all( )、race( )](https://hackmd.io/laO4lJlbQ4GEVBqyUcKQxg)
+- [12/03 ~ 12/06 - RPG 加入特效 ](https://hackmd.io/hHPqsiQtRdapJ-D3nlifLQ)
+- [控制反轉( IOC )、依賴注入( DI )](https://hackmd.io/ERgXW8joT3WA1ARTNrOj1w)
+- [WebSocket](https://hackmd.io/EjiELyYwTZ-5PogrixPrxw)
+- [參考資料、問題](https://hackmd.io/CVLrsGDcTL29k9W0da-8WQ)
 
 week_3 Design Pattern
 ---
@@ -15,8 +24,7 @@ week_3 Design Pattern
 - [11/02 - 外觀、組合、享元模式](https://hackmd.io/R3kzkDJSQmeJ8MS4ttAIcA)
 - [11/03 - 行為型模式、模板方法、策略模式](https://hackmd.io/wxtue3q9R7a_d9819JfBWw)
 - [11/04 - 簡報製作、命令模式、責任鏈模式](https://hackmd.io/QeAmtI5gTeuyZiU0uc1wHw)
-- [11/05 ~ 11/12](https://hackmd.io/cngK-1F2TJ2bMcOdkqEqNg)
-- [參考資料、整理、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
+- [參考資料、問題](https://hackmd.io/6gN3gN5XTwKgKFfMLZGU8w)
 
 week_2 TypeScript
 ---
