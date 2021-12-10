@@ -4,6 +4,23 @@ import { app } from "../component/app";
 
 /**各種特效 */
 class ShowEvent {
+  private static speed: number = 1;
+  private static radian = Math.PI / 180;
+  /**二倍速 */
+  static doubleSpeed(): void {
+    switch (this.speed) {
+      case 1:
+        this.speed = 2;
+        break;
+      case 2:
+        this.speed = 4;
+        break;
+      case 4:
+        this.speed = 1;
+        break;
+    }
+    gsap.globalTimeline.timeScale(this.speed);
+  }
   /**更新血量 */
   static updateHP(name: string, before: number, after: number): Promise<void> {
     return new Promise((resolve) => {
@@ -26,47 +43,31 @@ class ShowEvent {
   /**死亡特效 */
   static death(name: string): Promise<string> {
     const container = app.stage.getChildByName(name) as Container;
-    const speed = 2;
-    let counter = 0;
     let sign = 1;
+    if (name == "玩家") {
+      sign = -1;
+    }
     return new Promise((resolve) => {
-      // 玩家死亡 => sign 逆時針方向
-      if (name == "玩家") {
-        sign = -1;
-      }
-      app.ticker.add(p1);
       /**角色轉 90度， */
-      function p1() {
-        container.children[0].angle += speed * sign;
-        counter++;
-        if (counter == 90 / speed) {
-          app.ticker.remove(p1);
-          resolve("已完成");
-        }
-      }
+      gsap.to(container.children[0], {
+        duration: 0.5,
+        rotation: 90 * sign * this.radian,
+        onComplete: resolve,
+      });
     });
   }
   /**暈眩特效 */
   static showDizzy(name: string): Promise<string> {
     const container = app.stage.getChildByName(name) as Container;
-    const speed = 2;
-    let counter = 0;
-    let sign = 1;
     return new Promise((resolve) => {
-      app.ticker.add(p1);
       /**順時針轉30度 -> 逆時針轉60度 -> 順時針轉30度 */
-      function p1() {
-        container.children[0].angle += speed * sign;
-        counter++;
-        if (counter == 30 / speed) {
-          sign *= -1;
-        } else if (counter == 90 / speed) {
-          sign *= -1;
-        } else if (counter == 120 / speed) {
-          app.ticker.remove(p1);
-          resolve("已完成");
-        }
-      }
+      gsap.to(container.children[0], {
+        keyframes: [
+          { duration: 0.25, rotation: 30 * this.radian },
+          { duration: 0.5, rotation: -30 * this.radian },
+          { duration: 0.25, rotation: 0 * this.radian, onComplete: resolve },
+        ],
+      });
     });
   }
   /**普通攻擊特效 */

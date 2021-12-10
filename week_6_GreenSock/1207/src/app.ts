@@ -13,7 +13,7 @@ function createApp(): void {
     height: 400,
   });
   document.querySelector("#app")?.appendChild(app.view);
-  app.loader.add("background.png", "../img/background.png").load(() => {
+  app.loader.load(() => {
     showText(app);
   });
 }

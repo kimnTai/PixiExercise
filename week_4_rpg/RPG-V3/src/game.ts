@@ -17,7 +17,8 @@ class Game {
   /** 遊戲開始 */
   static Start(player: Player): void {
     // 移除選擇職業按紐
-    app.stage.removeChildAt(4);
+    const container = app.stage.getChildByName("選擇種族");
+    app.stage.removeChild(container);
     Game.player = player;
     Game.computer = Computer.create();
     new SetPlayerSprite(app);

@@ -1,19 +1,34 @@
 import { Application, Container, Sprite, Text, Texture } from "pixi.js-legacy";
 import { Game } from "../game";
+import { ShowEvent } from "../show/showEvent";
 import { CreateText } from "./createText";
 
 class CreateButton {
   private container = new Container();
   private attackButton = Sprite.from("attack.png");
   private restartButton = Sprite.from("restart.png");
+  private speedButton = Sprite.from("speed.png");
 
   constructor(private app: Application) {
     this.setRestartButton();
     this.setAttackButton();
+    this.setSpeedButton();
+  }
+
+  /**設置加速按鈕 */
+  private setSpeedButton(): void {
+    this.speedButton.name = "加速按鈕";
+    this.speedButton.position.set(600, 10);
+    this.speedButton.scale.set(0.8);
+    this.speedButton.interactive = true;
+    this.speedButton.addListener("click", () => {
+      ShowEvent.doubleSpeed();
+    });
+    this.app.stage.addChild(this.speedButton);
   }
 
   /**設置重新開始按鈕 */
-  setRestartButton(): void {
+  private setRestartButton(): void {
     this.restartButton.name = "重新開始按鈕";
     this.restartButton.position.set(700, 10);
     this.restartButton.scale.set(0.8);

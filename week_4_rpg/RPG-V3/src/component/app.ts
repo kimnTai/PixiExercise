@@ -18,6 +18,7 @@ function pixiInit(): void {
   app.loader
     .add("background.png", "../img/background.png")
     .add("character.png", "../img/character.png")
+    .add("speed.png", "../img/speed.png")
     .add("../img/spritesheet.json")
     .load(() => {
       background(app);
