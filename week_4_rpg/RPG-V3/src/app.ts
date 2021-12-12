@@ -1,13 +1,15 @@
-import { Application } from "pixi.js";
-import { CreateButton } from "./createButton";
-import { background } from "./background";
-import { CreateText } from "./createText";
+import * as PIXI from "pixi.js";
+import { CreateButton } from "./component/createButton";
+import { background } from "./component/background";
+import { CreateText } from "./component/createText";
+(window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ &&
+  (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI });
 
-let app!: Application;
+let app!: PIXI.Application;
 
 /**PIXI 初始化加載所有內容 */
-function pixiInit(): void {
-  app = new Application({
+function init(): void {
+  app = new PIXI.Application({
     width: 800,
     height: 400,
     antialias: true,
@@ -27,4 +29,5 @@ function pixiInit(): void {
     });
 }
 
-export { app, pixiInit };
+init();
+export { app, init };

@@ -5,7 +5,7 @@ import { style } from "./type";
 import { SetPlayerSprite } from "./component/setPlayer";
 import { ShowInfo } from "./show/showInfo";
 import { ShowEvent } from "./show/showEvent";
-import { app } from "./component/app";
+import { app } from "./app";
 
 /**遊戲主體 */
 class Game {

@@ -1,6 +1,6 @@
 import { Container, Sprite, Text } from "pixi.js";
 import { gsap } from "gsap";
-import { app } from "../component/app";
+import { app } from "../app";
 
 /**各種特效 */
 class ShowEvent {
