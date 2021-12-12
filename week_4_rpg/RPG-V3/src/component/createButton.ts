@@ -38,7 +38,7 @@ class CreateButton {
         "戰鬥紀錄",
         JSON.stringify([" 戰鬥紀錄\n-------"])
       );
-      this.app.stage.removeChildren(1, 6);
+      this.app.stage.removeChildren(1);
       new CreateButton(this.app);
       new CreateText(this.app);
       Game.restart();

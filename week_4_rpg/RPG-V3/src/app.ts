@@ -28,6 +28,6 @@ function init(): void {
       new CreateText(app);
     });
 }
-
 init();
+
 export { app, init };
