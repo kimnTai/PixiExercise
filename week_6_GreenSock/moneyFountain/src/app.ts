@@ -18,6 +18,26 @@ class App {
     });
     this.setup();
     this.addTicker();
+    //this.test();
+  }
+
+  test() {
+    // 160 * 160
+    const money = Sprite.from("../img/money.png");
+    money.position.set(100, 100);
+    money.scale.set(0.3);
+    money.anchor.set(0.5);
+    const side = Sprite.from("../img/side.png");
+    side.scale.set(0.3);
+    side.anchor.set(0.5);
+    side.position.set(200, 100);
+
+    this.app.stage.addChild(money, side);
+    this.app.ticker.add(() => {
+      //money.skew.x += 0.1;
+      money.skew.y += 0.01;
+      side.skew.y += 0.01;
+    });
   }
 
   /**設置 Sprite 到舞台 */

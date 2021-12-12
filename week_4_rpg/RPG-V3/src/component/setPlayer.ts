@@ -24,7 +24,7 @@ class SetPlayerSprite {
     this.playerContainer.name = "玩家";
     // 設置 玩家位置
     playerSprite.anchor.set(0.5, 1);
-    playerSprite.scale.set(-124 / 48, 124 / 48);
+    playerSprite.scale.set(-124 / 96, 124 / 96);
     this.playerHP.position.set(-62, -235);
     this.playerHero.position.set(-22, -205);
     this.playerContainer.position.set(362, 325);
@@ -42,7 +42,7 @@ class SetPlayerSprite {
     this.computerContainer.name = "電腦";
     // 設置 電腦位置
     computerSprite.anchor.set(0.5, 1);
-    computerSprite.scale.set(124 / 48, 124 / 48);
+    computerSprite.scale.set(124 / 96, 124 / 96);
     computerHero.position = this.playerHero.position;
     this.computerHP.position = this.playerHP.position;
     this.computerContainer.y = this.playerContainer.y;
@@ -56,7 +56,7 @@ class SetPlayerSprite {
   /**圖片路徑判斷 */
   private switchPath(path: string): Texture {
     const baseTexture = BaseTexture.from("character.png");
-    const size = 48;
+    const size = 96;
     let rectangle!: Rectangle;
     switch (path) {
       case menu.騎士:
