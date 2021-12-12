@@ -9,10 +9,11 @@ class Money extends Sprite {
     this.skew.set(Math.random(), Math.random());
     this.rotation = Math.random() * Math.PI * 2;
   }
+  /** 重力設置 (默認 9.8 / 30) */
   gravity = 9.8 / 30;
   /** X 方向速度 */
   speedX: number = 1;
-  // Y 方向終端速度
+  /** Y 方向終端速度 */
   endSpeedY: number;
   /**默認方向垂直向上 */
   private _direction: number = 1.57;

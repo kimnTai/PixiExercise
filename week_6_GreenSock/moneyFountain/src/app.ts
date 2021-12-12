@@ -5,66 +5,51 @@ import { Money } from "./Money";
 (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ &&
   (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI });
 
-class App {
-  private app = new Application({
-    width: 1280 / 1.5,
-    height: 720 / 1.5,
-  });
+class App extends Application {
   private container = new Container();
   constructor() {
-    document.querySelector("#app")?.appendChild(this.app.view);
+    super({
+      width: 1280,
+      height: 720,
+    });
+    document.querySelector("#app")?.appendChild(this.view);
     document.querySelector("button").addEventListener("click", () => {
       this.restart();
     });
+    this.setBackground();
     this.setup();
-    this.addTicker();
-    //this.test();
+    this.addShow();
   }
 
-  test() {
-    // 160 * 160
-    const money = Sprite.from("../img/money.png");
-    money.position.set(100, 100);
-    money.scale.set(0.3);
-    money.anchor.set(0.5);
-    const side = Sprite.from("../img/side.png");
-    side.scale.set(0.3);
-    side.anchor.set(0.5);
-    side.position.set(200, 100);
-
-    this.app.stage.addChild(money, side);
-    this.app.ticker.add(() => {
-      //money.skew.x += 0.1;
-      money.skew.y += 0.01;
-      side.skew.y += 0.01;
-    });
+  setBackground() {
+    const bg = Sprite.from("../img/bg_final.png");
+    bg.scale.set(this.screen.width / 1920);
+    this.stage.addChild(bg);
   }
 
   /**設置 Sprite 到舞台 */
   setup(): void {
     for (let i = 0; i < 180; i++) {
       const money = new Money();
-
       money.scale.set(0.2);
-      // X 方向 4 - 12 之間的隨機速度
-      money.speedX = (6 + Math.random() * 6) * -1;
-      // 向上初速度 30
-      money.speedY = 18 * -1;
+
+      // 重力設置 (默認 9.8 / 30)
+      money.gravity = 9.8 / 30;
+      // X 方向 6 - 12 之間的隨機速度
+      money.speedX = 6 + Math.random() * 6;
+      // 向上初速度 20
+      money.speedY = 20 * -1;
       // 張角 90度
       money.direction = 100;
-      money.skew;
       // 設置在螢幕中心下方
-      money.position.set(
-        this.app.screen.width / 2,
-        this.app.screen.height + 50
-      );
+      money.position.set(this.screen.width / 2, this.screen.height + 50);
       this.container.addChild(money);
     }
-    this.app.stage.addChild(this.container);
+    this.stage.addChild(this.container);
   }
 
   /**增加 ticker */
-  addTicker(): void {
+  addShow(): void {
     // 計數器
     let count = 0;
     const container = this.container;
@@ -72,7 +57,7 @@ class App {
     const angle = (Math.PI / 180) * 6;
     gsap.ticker.add(fn);
     function fn() {
-      for (let i = 0; i < count; i++) {
+      for (let i = 0; i < Math.ceil(count); i++) {
         const money = container.children[i] as Money;
         money.y += money.computeY;
         money.x += money.computeX;
@@ -87,7 +72,7 @@ class App {
         toFilter(money);
       }
       if (count < container.children.length) {
-        count++;
+        count += 0.5;
       }
     }
 
@@ -113,10 +98,10 @@ class App {
 
   /**重新開始 */
   restart(): void {
-    this.app.stage.removeChildren(0);
+    this.stage.removeChildren(1);
     this.container = new Container();
     this.setup();
-    this.addTicker();
+    this.addShow();
   }
 }
 
