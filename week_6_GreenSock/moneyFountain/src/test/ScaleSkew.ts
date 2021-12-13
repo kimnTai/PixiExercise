@@ -1,5 +1,5 @@
 import { Application, Text } from "pixi.js-legacy";
-import { Money } from "../Money";
+import { Money } from "../V1/Money";
 
 export function ScaleSkew(app: Application): void {
   const sprite = new Money();

@@ -1,5 +1,5 @@
 import { Application, filters } from "pixi.js-legacy";
-import { Money } from "../Money";
+import { Money } from "../V1/Money";
 
 function test(app: Application): void {
   const money = new Money();
