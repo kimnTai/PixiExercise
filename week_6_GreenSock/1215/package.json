@@ -1,0 +1,21 @@
+{
+  "name": "1215",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^2.6.14"
+  },
+  "dependencies": {
+    "gsap": "^3.8.0",
+    "pixi-projection": "^0.4.3",
+    "pixi-spine": "^3.0.13",
+    "pixi.js-legacy": "^6.2.0"
+  }
+}

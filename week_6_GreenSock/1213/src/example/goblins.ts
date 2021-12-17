@@ -1,7 +1,7 @@
 import { Spine } from "pixi-spine";
-import { app } from "./app";
+import { app } from "../app";
 
-function loadGoblins(loader: any, res: any): void {
+function goblins(loader: any, res: any): void {
   const goblin = new Spine(res.goblins.spineData);
   goblin.interactive = true;
   // 設置 skin

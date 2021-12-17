@@ -1,8 +1,8 @@
 import * as PIXI from "pixi.js-legacy";
 import { Spine } from "pixi-spine";
-import { app } from "./app";
+import { app } from "../app";
 
-function loadDragon(loader: PIXI.Loader, res: any) {
+function dragon(loader: PIXI.Loader, res: any) {
   // 實例化脊椎動畫
   const dragon = new Spine(res.dragon.spineData);
   // 設置動畫播放

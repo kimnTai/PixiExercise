@@ -21,7 +21,7 @@ class App extends Application {
     this.addShow();
   }
 
-  setBackground() {
+  setBackground(): void {
     const bg = Sprite.from("../img/bg_final.png");
     bg.scale.set(this.screen.width / 1920);
     this.stage.addChild(bg);

@@ -1,6 +1,6 @@
 import { Spine } from "pixi-spine";
 import * as PIXI from "pixi.js-legacy";
-import { app } from "./app";
+import { app } from "../app";
 
 export function spineboyPro(loader: PIXI.Loader, res: any): void {
   const spineBoyPro = new Spine(res.spineboypro.spineData);

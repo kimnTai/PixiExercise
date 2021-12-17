@@ -3,6 +3,7 @@ import { Spine } from "pixi-spine";
 class Coin extends Spine {
   constructor(res: any) {
     super(res);
+
     this.rotation = Math.random() * Math.PI * 2;
   }
   /** 重力設置 (默認 9.8 / 30) */
