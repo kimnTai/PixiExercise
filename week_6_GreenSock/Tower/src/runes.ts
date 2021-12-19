@@ -1,7 +1,7 @@
 import { Sprite } from "pixi.js-legacy";
 
 class Runes extends Sprite {
-  removeGround!: number;
+  removeGroundId!: number;
 }
 
 export { Runes };

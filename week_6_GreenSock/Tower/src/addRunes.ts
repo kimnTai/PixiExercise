@@ -2,6 +2,7 @@ import { Application, Container } from "pixi.js-legacy";
 import { Runes } from "./runes";
 import { gsap } from "gsap";
 
+/**新增 */
 export function addRunes(app: Application) {
   const container = app.stage.getChildByName("盤面") as Container;
   const row = container.children as Container[];

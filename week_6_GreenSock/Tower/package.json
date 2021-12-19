@@ -1,7 +1,6 @@
 {
-  "name": "candycrush",
+  "name": "tower",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -16,5 +15,6 @@
   "dependencies": {
     "gsap": "^3.8.0",
     "pixi.js-legacy": "^6.2.0"
-  }
+  },
+  "description": ""
 }
