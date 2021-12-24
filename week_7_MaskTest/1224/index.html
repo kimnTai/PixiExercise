@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- CSS only -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+   <title>MaskTest</title>
+   <style>
+      div#stats {
+         position: fixed;
+         top: 0;
+         right: 0;
+         z-index: 500;
+         width: max(200px, 10vw, 10vh);
+         height: max(100px, 6vh, 6vw);
+         opacity: 0.8;
+         user-select: none;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="app" class="">
+   </div>
+   <div class="container">
+      <button id='play' class="btn btn-danger">PLAY</button>
+      <button id='rest' class="btn btn-danger">重新</button>
+      <button id='remove' class="btn btn-danger">刪除全部</button>
+   </div>
+   <script type="module" src="./src/app.ts"></script>
+</body>
+
+</html>

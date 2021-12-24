@@ -1,38 +1,46 @@
 import * as PIXI from "pixi.js-legacy";
-import { Application } from "pixi.js-legacy";
 import { removeRunes } from "./removeRunes";
-import { moveRunes } from "./moveRunes";
-import { addRunes } from "./addRunes";
-import { setGame, setRunes } from "./setGame";
-
+import { showFallRunes } from "./showFall/showFallTimeline";
+import { addFallRunes } from "./addFallRunes";
+import { gameInit, setRunes } from "./setGame";
+import { GameMusic } from "./GameMusic";
+import { showFallTicker } from "./showFall/showFallTicker";
 (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ &&
   (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI });
 
-export const app = new Application({
+export const app = new PIXI.Application({
   width: 768,
-  height: 640,
+  height: 1024 + 128 * 2,
 });
 document.querySelector("#app")?.appendChild(app.view);
-app.loader.add("../img/spritesheet.json");
-setGame(app);
+app.loader
+  .add("../img/spritesheet.json")
+  .add("background", "../img/avg_16.png");
+gameInit(app);
 
-async function play(): Promise<void> {
+async function playGame(): Promise<void> {
   const res = await removeRunes(app);
   if (res) {
-    addRunes(app);
-    await moveRunes(app);
-    play();
+    addFallRunes(app);
+    await showFallTicker(app);
+    playGame();
   }
 }
 
 // 開始
 document.querySelector("#play")?.addEventListener("click", () => {
   console.log("開始");
-  play();
+  playGame();
 });
 
 // 重新
 document.querySelector("#rest")?.addEventListener("click", () => {
-  app.stage.removeChildren(1);
+  app.stage.removeChildren(2);
   setRunes(app);
+  sessionStorage.setItem("combo", `1`);
+});
+
+// 音樂播放
+document.querySelector("#music")?.addEventListener("click", () => {
+  GameMusic.backgroundMusic.play();
 });
