@@ -5,11 +5,11 @@ import { IMG, SIZE } from "./tools/enum";
 function testSpriteMask(app: PIXI.Application, loopNum: number = 10): void {
   for (let i = 0; i < loopNum; i++) {
     const background: PIXI.Sprite = PIXI.Sprite.from(IMG.背景);
-    const spriteMask: PIXI.Sprite = createSprite(IMG.不規則銳邊);
+    const spriteMask: PIXI.Sprite = createSprite(IMG.不規則漸層);
     background.name = "背景";
     background.mask = spriteMask;
     app.stage.addChild(spriteMask, background);
-  }
+  } 
 }
 
 function createSprite(name: string): PIXI.Sprite {
