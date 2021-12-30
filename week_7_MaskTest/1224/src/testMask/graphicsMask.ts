@@ -1,12 +1,13 @@
 import * as PIXI from "pixi.js-legacy";
-import { IMG, SHAPE, SIZE } from "./tools/enum";
+import { Application } from "pixi.js-legacy";
+import { IMG, SHAPE, SIZE } from "../tools/enum";
 
 /**Graphics 遮罩測試 */
 function testGraphicsMask(app: PIXI.Application, loopNum: number = 10): void {
   for (let i = 0; i < loopNum; i++) {
-    const background: PIXI.Sprite = PIXI.Sprite.from(IMG.背景);
+    const background: PIXI.Sprite = PIXI.Sprite.from("背景");
     const graphicsMask: PIXI.Graphics = createGraphics(SHAPE.Circle);
-    background.mask = graphicsMask;
+    background.mask = new PIXI.MaskData(graphicsMask);
     background.name = "背景";
     app.stage.addChild(background, graphicsMask);
   }
@@ -14,20 +15,28 @@ function testGraphicsMask(app: PIXI.Application, loopNum: number = 10): void {
 
 function createGraphics(name: string): PIXI.Graphics {
   const graphics = new PIXI.Graphics();
-  const x = Math.random() * SIZE.width;
-  const y = Math.random() * SIZE.height;
+
   graphics.beginFill();
   switch (name) {
     case "Rect":
-      graphics.drawRect(x, y, 192, 108);
+      graphics.drawRect(0, 0, 1300, 700);
       break;
     case "Circle":
-      graphics.drawCircle(x, y, 81);
+      graphics.drawCircle(1920 / 2, 1080 / 2, 538.34);
       break;
     case "Ellipse":
-      graphics.drawEllipse(x, y, 162, 40.5);
+      graphics.drawEllipse(0, 0, 162, 40.5);
+      break;
+    case "Polygon":
+      const path = [10, 0, 110, 90, 190, 50, 140, 200, 0, 150];
+      const newPath = path.map((item, index) => {
+        return item;
+      });
+      graphics.drawPolygon(newPath);
       break;
   }
+  graphics.endFill();
+
   return graphics;
 }
 

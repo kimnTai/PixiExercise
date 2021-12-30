@@ -1,13 +1,13 @@
 import * as PIXI from "pixi.js-legacy";
 import { Container } from "pixi.js-legacy";
-import { IMG, SHAPE, SIZE } from "../tools/enum";
+import { IMG, SHAPE, SIZE } from "../../tools/enum";
 
 /**Graphics 遮罩容器版 - 測試  */
 function graphicsMaskContainer(
   app: PIXI.Application,
   loopNum: number = 10
 ): void {
-  const background: PIXI.Sprite = PIXI.Sprite.from(IMG.背景);
+  const background: PIXI.Sprite = PIXI.Sprite.from("背景");
   const container: PIXI.Container = createGraphicsContainer(
     SHAPE.Circle,
     loopNum

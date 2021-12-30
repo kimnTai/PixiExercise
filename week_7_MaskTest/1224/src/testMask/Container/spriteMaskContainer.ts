@@ -1,16 +1,17 @@
 import * as PIXI from "pixi.js-legacy";
 import { Container } from "pixi.js-legacy";
-import { IMG, SIZE } from "../tools/enum";
+import { IMG, SIZE } from "../../tools/enum";
 
 /**Sprite 遮罩測試 */
 function spriteMaskContainer(
   app: PIXI.Application,
   loopNum: number = 10
 ): void {
-  const background: PIXI.Sprite = PIXI.Sprite.from(IMG.背景);
+  const background: PIXI.Sprite = PIXI.Sprite.from("背景");
   const spriteContainer: PIXI.Container = createSprite(IMG.不規則漸層, loopNum);
+
   background.name = "背景";
-  background.mask = spriteContainer;
+  background.mask = new PIXI.MaskData(spriteContainer);
   app.stage.addChild(spriteContainer, background);
 }
 
@@ -28,3 +29,5 @@ function createSprite(name: string, loopNum: number): PIXI.Container {
   }
   return container;
 }
+
+export { spriteMaskContainer };
