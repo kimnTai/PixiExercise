@@ -40,7 +40,7 @@
 				"h": 73
 			}
 		},
-		"highwin_bell.png": {
+		"highWin_bell.png": {
 			"frame": {
 				"x": 1,
 				"y": 76,
@@ -60,7 +60,7 @@
 				"h": 150
 			}
 		},
-		"highwin_cherry.png": {
+		"highWin_cherry.png": {
 			"frame": {
 				"x": 153,
 				"y": 76,
@@ -80,7 +80,7 @@
 				"h": 150
 			}
 		},
-		"highwin_diamond.png": {
+		"highWin_diamond.png": {
 			"frame": {
 				"x": 305,
 				"y": 76,
@@ -100,7 +100,7 @@
 				"h": 150
 			}
 		},
-		"highwin_lemon.png": {
+		"highWin_lemon.png": {
 			"frame": {
 				"x": 1,
 				"y": 228,
@@ -120,7 +120,7 @@
 				"h": 150
 			}
 		},
-		"highwin_seven.png": {
+		"highWin_seven.png": {
 			"frame": {
 				"x": 153,
 				"y": 228,
@@ -140,7 +140,7 @@
 				"h": 150
 			}
 		},
-		"lowwin_club.png": {
+		"lowWin_club.png": {
 			"frame": {
 				"x": 305,
 				"y": 228,
@@ -160,7 +160,7 @@
 				"h": 150
 			}
 		},
-		"lowwin_diamond.png": {
+		"lowWin_diamond.png": {
 			"frame": {
 				"x": 1,
 				"y": 380,
@@ -180,7 +180,7 @@
 				"h": 150
 			}
 		},
-		"lowwin_heart.png": {
+		"lowWin_heart.png": {
 			"frame": {
 				"x": 153,
 				"y": 380,
@@ -200,7 +200,7 @@
 				"h": 150
 			}
 		},
-		"lowwin_spade.png": {
+		"lowWin_spade.png": {
 			"frame": {
 				"x": 305,
 				"y": 380,
@@ -220,7 +220,7 @@
 				"h": 150
 			}
 		},
-		"lowwin_star.png": {
+		"lowWin_star.png": {
 			"frame": {
 				"x": 475,
 				"y": 1,
@@ -264,7 +264,7 @@
 	"meta": {
 		"app": "http://www.codeandweb.com/texturepacker",
 		"version": "1.0",
-		"image": "spritesheet.png",
+		"image": "spritesheet.webp",
 		"format": "RGBA8888",
 		"size": {
 			"w": 626,
