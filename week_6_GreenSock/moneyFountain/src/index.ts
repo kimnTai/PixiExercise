@@ -1,8 +1,7 @@
 import * as PIXI from "pixi.js-legacy";
-import { App } from "./app";
+import App from "./app";
 
 (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ &&
   (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI });
 
-const app = new App();
-app.init();
+new App();

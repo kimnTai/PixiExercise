@@ -1,22 +1,22 @@
-import { Application, Container, Sprite } from "pixi.js-legacy";
+import { Dict } from "@pixi/utils";
+import { Application, Container, LoaderResource, Sprite, TickerCallback } from "pixi.js-legacy";
 import { Coin } from "./Coin";
 
 class App extends Application {
   private container = new Container();
+  private resources: Dict<LoaderResource>;
+
   constructor() {
-    super({
-      width: 1280,
-      height: 720,
-    });
+    super({ width: 1280, height: 720 });
     document.querySelector("#app")?.appendChild(this.view);
+    this.init();
   }
 
   init(): void {
-    this.loader
-      .add("coin", "../export/coin-pro.json")
-      .load((loader, resources) => {
-        this.createCoin(resources);
-      });
+    this.loader.add("coin", "../export/coin-pro.json").load((loader, resources) => {
+      this.resources = resources;
+      this.createCoin();
+    });
     this.setBackground();
     this.addShow();
   }
@@ -27,9 +27,11 @@ class App extends Application {
     this.stage.addChild(bg);
   }
 
-  createCoin(res: any): void {
-    for (let i = 0; i < 15; i++) {
-      const coin = new Coin(res.coin.spineData);
+  createCoin(): void {
+    const { resources, screen, container, stage } = this;
+    const max = 15;
+    for (let i = 0; i < max; i++) {
+      const coin = new Coin(resources["coin"].spineData);
       coin.scale.set(0.2);
       coin.state.setAnimation(0, "animation", true);
       // 旋轉速度
@@ -43,20 +45,18 @@ class App extends Application {
       // 張角 90度
       coin.direction = 100;
       // 設置在螢幕中心下方
-      coin.position.set(this.screen.width / 2, this.screen.height + 50);
-      this.container.addChild(coin);
+      coin.position.set(screen.width / 2, screen.height + 50);
+      container.addChild(coin);
     }
-    this.stage.addChild(this.container);
+    stage.addChild(container);
   }
 
   /**增加 ticker */
   addShow(): void {
+    const { container, ticker } = this;
     // 計數器
     let count = 0;
-    const container = this.container;
-    this.ticker.add(fn);
-
-    function fn(time: number) {
+    const fallDown = (time: number) => {
       for (let i = 0; i < Math.ceil(count); i++) {
         const coin = container.children[i] as Coin;
         // 重力設置 (默認 9.8 / 30)
@@ -68,16 +68,27 @@ class App extends Application {
       if (count < container.children.length) {
         count += 0.5;
       }
-    }
-    setTimeout(() => {
-      this.ticker.remove(fn);
-      this.container.removeChildren(1);
-      this.loader.load((loader, resources) => {
-        this.createCoin(resources);
-      });
-      this.addShow();
-    }, 4500);
+    };
+    ticker.add(fallDown);
+    this.reSet(fallDown);
+  }
+
+  async reSet(fallDown: TickerCallback<number>): Promise<void> {
+    const { ticker, container } = this;
+    await this.sleep(4500);
+    ticker.remove(fallDown);
+    container.removeChildren(1);
+    this.createCoin();
+    this.addShow();
+  }
+
+  sleep(time: number): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, time);
+    });
   }
 }
 
-export { App };
+export default App;
