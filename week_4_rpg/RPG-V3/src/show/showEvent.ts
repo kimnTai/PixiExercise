@@ -24,9 +24,7 @@ class ShowEvent {
   /**更新血量 */
   static updateHP(name: string, before: number, after: number): Promise<void> {
     return new Promise((resolve) => {
-      if (before == after) {
-        resolve;
-      }
+      if (before == after) resolve();
       const container = app.stage.getChildByName(name) as Container;
       const HPtext = container.children[2] as Text;
       const counter = { score: before };
@@ -36,7 +34,9 @@ class ShowEvent {
         onUpdate(): void {
           HPtext.text = `${name} : ${counter.score.toFixed(0)}`;
         },
-        onComplete: resolve,
+        onComplete: () => {
+          resolve();
+        },
       });
     });
   }
