@@ -6,20 +6,11 @@ import { Howl } from "howler";
  */
 class GameMusic {
   /**背景音樂 */
-  static backgroundMusic = new Howl({
-    src: [`../music/BATTLE.mp3`],
-  });
+  static backgroundMusic = new Howl({ src: [`../music/BATTLE.mp3`] });
   /**消除 Combo 音效 */
   static comboPlay(comboNumber: number, removeCount?: number): void {
-    if (comboNumber > 10) {
-      comboNumber = 10;
-    }
-    const srcArray = [];
-    srcArray.push(`../music/sound_combo${comboNumber}.mp3`);
-    const sound = new Howl({
-      src: srcArray,
-    });
-    sound.play();
+    if (comboNumber > 10) comboNumber = 10;
+    new Howl({ src: [`../music/sound_combo${comboNumber}.mp3`] }).play();
   }
 }
 
