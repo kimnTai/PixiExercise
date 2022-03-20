@@ -13,6 +13,8 @@
     "vite": "^2.8.1"
   },
   "dependencies": {
+    "gsap": "^3.9.1",
+    "pixi-spine": "^3.0.13",
     "pixi.js-legacy": "^6.2.2"
   }
 }

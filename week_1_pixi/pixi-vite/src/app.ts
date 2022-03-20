@@ -1,87 +1,115 @@
-import { Application, Graphics, TextStyle, Text, Container, Sprite } from "pixi.js";
+import { Dict } from "@pixi/utils";
+import gsap from "gsap";
+import { Spine } from "pixi-spine";
+import * as PIXI from "pixi.js";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 const style = {
-  width: 600,
+  width: 1200,
   height: 600,
   antialias: true,
   resolution: 1,
-  backgroundColor: 0x08294a,
+  backgroundColor: 0x282c34,
 };
 
-export default class App extends Application {
+class App extends PIXI.Application {
+  _resources: Dict<PIXI.LoaderResource>;
+  _pointsArray: PIXI.Point[][] = [];
+
   constructor() {
     super(style);
-    this.init().then(() => {
-      this.createSprite();
-      this.createButton();
-      this.createTop();
-    });
+    this._init();
   }
 
-  init(): Promise<unknown> {
-    return new Promise((resolve) => {
+  async _init(): Promise<void> {
+    await new Promise((resolve) => {
       document.querySelector("#app").appendChild(this.view);
       this.loader
-        .add("one", "../img/one.png")
-        .add("two", "../img/two.png")
-        .add("three", "../img/three.png")
-        .add("four", "../img/four.png")
+        .add("red", "../img/pic_main_line_1.png")
+        .add("yellow", "../img/pic_main_line_6.png")
+        .add("blue", "../img/pic_main_line_5.png")
+        .add("coin", "../export/coin-pro.json")
+        .add("mask", "../img/pic_mg_reelMaskSmall.png")
+        .load((loader, resources) => {
+          this._resources = resources;
+        })
         .load(resolve);
     });
-  }
-
-  /**底部按鈕 */
-  createButton(): void {
-    const style = new TextStyle({
-      fontSize: 36,
-      fill: ["#ffffff", "#ffdd00"],
-    });
-    const text = new Text("開始 !", style);
-    text.anchor.set(0.5, 0.5);
-    text.position.set(this.screen.width / 2, 540);
-    const button = new Graphics();
-    button.beginFill(0, 1);
-    button.drawRect(0, 480, this.screen.width, 120);
-    button.interactive = true;
-    button.addListener("click", () => {
-      console.log("test");
-    });
-    this.stage.addChild(button, text);
-  }
-
-  createSprite(): void {
-    const textures = ["one", "two", "three", "four"];
-    // 5行
-    for (let j = 0; j < 5; j++) {
-      const container = new Container();
-      // 6 列
-      for (let i = 0; i < 6; i++) {
-        const random = Math.floor(Math.random() * 4);
-        const sprite = Sprite.from(textures[random]);
-        // 圖片大小 200px 縮成 100px
-        sprite.scale.set(100 / 200, 100 / 200);
-        sprite.anchor.set(0.5, 0.5);
-        // 600 / 5 = 120px，置中 60px
-        sprite.x += 120 * j + 60;
-        sprite.y += 120 * i + 60 - 120;
-        container.addChild(sprite);
-      }
-      this.stage.addChild(container);
+    for (let i = 0; i < 4; i++) {
+      this.stage.addChild(this._createLine());
     }
+    this._startShow();
   }
 
-  createTop(): void {
-    const style = new TextStyle({
-      fontSize: 36,
-      fill: ["#ffffff", "#ffdd00"],
-    });
-    const text = new Text("角子老虎機 !", style);
-    text.anchor.set(0.5, 0.5);
-    text.position.set(this.screen.width / 2, 60);
-    const top = new Graphics();
-    top.beginFill(0, 1);
-    top.drawRect(0, 0, this.screen.width, 120);
+  _createLine(): PIXI.Container {
+    const box = new PIXI.Container();
+    const points = this._createPoints();
+    this._pointsArray.push(points);
+    const yellow = this._createLineBox(points, "blue");
+    const red = this._createLineBox(points, "red");
+    box.addChild(yellow, red);
+    return box;
+  }
 
-    this.stage.addChild(top, text);
+  _createLineBox(points: PIXI.Point[], style: string): PIXI.Container {
+    const container = new PIXI.Container();
+    for (let i = 0; i < points.length - 1; i++) {
+      const { x, y } = points[i + 1];
+
+      const rope = new PIXI.SimpleRope(PIXI.Texture.from(style), [
+        points[i],
+        new PIXI.Point(x + 2, y),
+      ]);
+      container.addChild(rope);
+    }
+    return container;
+  }
+
+  _createPoints(): PIXI.Point[] {
+    const ropeLength = this.view.width / 6;
+    const points = [];
+    for (let i = 0; i <= 6; i++) {
+      const index = Math.floor(Math.random() * 3);
+      points.push(new PIXI.Point(i * ropeLength, [100, 300, 500][index]));
+    }
+    return points;
+  }
+
+  async _startShow(): Promise<void> {
+    const array = [...this.stage.children].reverse() as PIXI.Container[];
+    const pointsArray = [...this._pointsArray].reverse();
+    for (let i = 0; i < array.length; i++) {
+      const container = array[i];
+      const red = container.children[1];
+      const mask = PIXI.Sprite.from("mask");
+      mask.scale.y = 1.5;
+      mask.anchor.y = 0.5;
+      red.mask = mask;
+      const coin = this._createSpine();
+      const { x, y } = pointsArray[i][0];
+      coin.position.set(x, y);
+      mask.position.set(x, y);
+      container.addChild(mask, coin);
+      const duration = 3;
+      gsap.registerPlugin(MotionPathPlugin);
+      await gsap.to([coin, mask], {
+        motionPath: { path: pointsArray[i], curviness: 0 },
+        duration,
+        ease: "none",
+      });
+      container.removeChild(red, mask);
+      container.visible = false;
+    }
+    array.forEach((item) => (item.visible = true));
+  }
+
+  _createSpine(): Spine {
+    const coin = new Spine(this._resources["coin"].spineData);
+    coin.scale.set(0.2);
+    coin.state.setAnimation(0, "animation", true);
+    coin.state.timeScale = 3;
+    return coin;
   }
 }
+
+export default App;
