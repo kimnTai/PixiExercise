@@ -15,4 +15,4 @@ const rope = new PIXI.Rope(PIXI.Texture.fromImage("./pic_main_line_1.png"), poin
 rope.mask = mask;
 app.stage.addChild(rope, mask);
 
-const a = 0;
+const a = 1;
