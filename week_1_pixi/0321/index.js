@@ -12,5 +12,7 @@ for (let i = 0; i < 20; i++) {
 }
 const mask = new PIXI.Sprite.fromImage("./pic_mg_reelMask0.png");
 const rope = new PIXI.Rope(PIXI.Texture.fromImage("./pic_main_line_1.png"), points);
-rope.mask = mask
+rope.mask = mask;
 app.stage.addChild(rope, mask);
+
+const a = 0;
