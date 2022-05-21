@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { Spine } from "pixi-spine";
 import * as PIXI from "pixi.js";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
-import pointValues from "./pointValues";
+
 gsap.registerPlugin(MotionPathPlugin);
 
 class App extends PIXI.Application {
@@ -13,7 +13,7 @@ class App extends PIXI.Application {
     constructor() {
         super({
             width: 1200,
-            height: 1000,
+            height: 600,
             antialias: true,
             resolution: 1,
         });
@@ -51,18 +51,19 @@ class App extends PIXI.Application {
 
     _createLineBox(pointsA: PIXI.Point[], style: string): PIXI.Container {
         const [{ x, y }] = this._pointsArray[0];
-        const points = Array.from({ length: 100 }, () => ({ x, y } as PIXI.Point));
+        const point = Array.from({ length: 100 }, () => ({ x, y } as PIXI.Point));
         const container = new PIXI.Container();
-        const rope = new PIXI.SimpleRope(PIXI.Texture.from(style), points);
+        const rope = new PIXI.SimpleRope(PIXI.Texture.from(style), point);
         container.addChild(rope);
-        this.showA(points);
+        this.showA(rope);
         return container;
     }
 
-    showA(points: PIXI.Point[]) {
+    showA(rope: PIXI.SimpleRope) {
+        const { points } = rope.geometry as any;
         const duration = 1;
         gsap.to(points, {
-            motionPath: { path: this._pointsArray[0], curviness: 0.5 },
+            motionPath: { path: this._pointsArray[0], curviness: 0.5, autoRotate: true, alignOrigin: [0.5, 0.5] },
             duration,
             ease: "none",
             stagger: 0.01 * duration,
