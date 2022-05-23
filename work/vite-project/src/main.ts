@@ -6,7 +6,7 @@ document.querySelector("#app")?.appendChild(app.view);
 
 app.loader
     .add("line", "../img/FX_Line-2.png")
-    .add("line1", "../img/pic_main_line_1.png")
+    .add("line1", "../img/pic_main_line_11.png")
     .add("rope2", "../img/rope2.png")
     .load(() => {
         const values = Array.from({ length: 7 }, (_, i) => {
@@ -25,7 +25,6 @@ app.loader
             bezier: values,
         };
         const texture = PIXI.Texture.from("line1");
-        const rope2 = new PIXI.extras.TilingSprite(PIXI.Texture.from("rope2"), 1920);
         const value2 = [
             { x: 0, y: 500 },
             { x: 200, y: 100 },
@@ -35,7 +34,7 @@ app.loader
             { x: 1000, y: 100 },
             { x: 1200, y: 500 },
         ];
-        const limit = 500;
+        const limit = 50;
         const value2Length = value2.length;
         for (let i = 0; i < value2Length - 1; i++) {
             const v0 = value2[i];
