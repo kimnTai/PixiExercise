@@ -6,7 +6,7 @@ document.querySelector("#app")?.appendChild(app.view);
 
 app.loader
     .add("line", "../img/FX_Line-2.png")
-    .add("line1", "../img/pic_main_line_1.png")
+    .add("line1", "../img/pic_main_line_11.png")
     .add("rope2", "../img/rope2.png")
     .load(() => {
         const values = Array.from({ length: 7 }, (_, i) => {
@@ -25,7 +25,6 @@ app.loader
             bezier: values,
         };
         const texture = PIXI.Texture.from("line1");
-        const rope2 = new PIXI.extras.TilingSprite(PIXI.Texture.from("rope2"), 1920);
         const value2 = [
             { x: 0, y: 500 },
             { x: 200, y: 100 },
@@ -35,7 +34,7 @@ app.loader
             { x: 1000, y: 100 },
             { x: 1200, y: 500 },
         ];
-        const limit = 500;
+        const limit = 50;
         const value2Length = value2.length;
         for (let i = 0; i < value2Length - 1; i++) {
             const v0 = value2[i];
@@ -80,5 +79,42 @@ function createText(values: { x: number; y: number }[]): void {
         container.addChild(basicText);
         return basicText;
     });
-    app.stage.addChild(container);
+
+    // TweenMax.staggerTo(rope.points, 1, vars, 0.01);
+    // TweenMax.staggerTo(textArray, 1, vars, 0.05);
+
+    // app.stage.addChild(rope);
+    // app.stage.addChild(graphics);
+    // app.stage.addChild(container);
+
+    function createBox(color: number, w: number, h: number, name: string) {
+        const boxContainer = new PIXI.Container();
+        boxContainer.name = name;
+        const box = new PIXI.Graphics();
+        box.beginFill(color);
+        box.drawRect(0, 0, 100, 100);
+        box.endFill();
+
+        const infoStyle = new PIXI.TextStyle({ fontSize: 12, fill: 0xffffff });
+        const info = new PIXI.Text(name, infoStyle);
+        info.x = 5;
+        info.y = 5;
+        boxContainer.addChild(box);
+        boxContainer.addChild(info);
+        return boxContainer;
+    }
+
+    const box1 = createBox(0xff0000, 100, 100, "box1");
+    const box2 = createBox(0xff9900, 100, 100, "box2");
+
+    box1.x = 20;
+    box1.y = 20;
+    box2.x = 70;
+    box2.y = 90;
+
+    app.stage.addChild(box1);
+    app.stage.addChild(box2);
+    app.stage.children.forEach((child, index) => {
+        console.log(index, child.name, (<any>child).zIndex);
+    });
 }
