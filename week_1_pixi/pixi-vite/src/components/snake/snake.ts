@@ -35,7 +35,7 @@ for (let i = 0; i < 80; i = i + 1) {
     ropePoints.push(pointValues[i]);
 }
 const imgSrc = PIXI.Texture.from("http://scottmcdonnell.github.io/pixi-examples/_assets/snake.png");
-const strip = new PIXI.SimpleRope(imgSrc, ropePoints);
+const strip = new PIXI.SimpleRope(imgSrc, ropePoints as PIXI.Point[]);
 strip.x = -459;
 
 const snakeContainer = new PIXI.Container();
