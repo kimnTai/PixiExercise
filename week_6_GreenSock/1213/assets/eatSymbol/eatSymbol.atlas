@@ -1,0 +1,48 @@
+
+eatSymbol.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fin01
+  rotate: false
+  xy: 936, 313
+  size: 139, 152
+  orig: 139, 152
+  offset: 0, 0
+  index: -1
+fin02
+  rotate: true
+  xy: 989, 223
+  size: 88, 59
+  orig: 88, 59
+  offset: 0, 0
+  index: -1
+shark
+  rotate: false
+  xy: 2, 51
+  size: 932, 414
+  orig: 932, 414
+  offset: 0, 0
+  index: -1
+tongue
+  rotate: false
+  xy: 1077, 420
+  size: 154, 45
+  orig: 154, 45
+  offset: 0, 0
+  index: -1
+top tooth
+  rotate: false
+  xy: 2, 2
+  size: 234, 47
+  orig: 234, 47
+  offset: 0, 0
+  index: -1
+under tooth
+  rotate: true
+  xy: 936, 91
+  size: 220, 51
+  orig: 220, 51
+  offset: 0, 0
+  index: -1

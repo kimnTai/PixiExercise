@@ -1,0 +1,237 @@
+
+extraCreditCollect.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+035A_squence/035A_0000
+  rotate: false
+  xy: 402, 925
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0001
+  rotate: false
+  xy: 802, 1323
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0002
+  rotate: false
+  xy: 1202, 1721
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0003
+  rotate: false
+  xy: 2, 129
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0004
+  rotate: false
+  xy: 402, 673
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0005
+  rotate: false
+  xy: 1454, 1721
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+035A_squence/035A_0006
+  rotate: false
+  xy: 402, 421
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0030
+  rotate: false
+  xy: 802, 1196
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0032
+  rotate: true
+  xy: 1054, 1418
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0034
+  rotate: false
+  xy: 1202, 1594
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0035
+  rotate: false
+  xy: 2, 2
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0036
+  rotate: true
+  xy: 254, 224
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0038
+  rotate: false
+  xy: 1706, 1846
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0040
+  rotate: true
+  xy: 654, 655
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0042
+  rotate: false
+  xy: 1359, 1594
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0044
+  rotate: false
+  xy: 1863, 1846
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0046
+  rotate: true
+  xy: 654, 498
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0047
+  rotate: false
+  xy: 1516, 1594
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0048
+  rotate: false
+  xy: 1706, 1719
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0050
+  rotate: false
+  xy: 1863, 1719
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0052
+  rotate: false
+  xy: 1673, 1592
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0054
+  rotate: false
+  xy: 1830, 1592
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0056
+  rotate: false
+  xy: 959, 1196
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0058
+  rotate: false
+  xy: 159, 2
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+ani_coin/ani_coin_0059
+  rotate: false
+  xy: 654, 371
+  size: 155, 125
+  orig: 155, 125
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_1
+  rotate: false
+  xy: 2, 1575
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_11
+  rotate: false
+  xy: 402, 1575
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_15
+  rotate: false
+  xy: 2, 779
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_20
+  rotate: false
+  xy: 402, 1177
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_25
+  rotate: false
+  xy: 802, 1575
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_28
+  rotate: false
+  xy: 2, 381
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+coin_v1/B0301-testAnimation_5
+  rotate: false
+  xy: 2, 1177
+  size: 398, 396
+  orig: 398, 396
+  offset: 0, 0
+  index: -1
+s2_money_fx
+  rotate: true
+  xy: 654, 812
+  size: 363, 136
+  orig: 363, 136
+  offset: 0, 0
+  index: -1

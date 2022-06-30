@@ -1,0 +1,230 @@
+
+btn_stop.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+crown_yellow
+  rotate: false
+  xy: 2, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_01
+  rotate: false
+  xy: 2, 548
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_02
+  rotate: false
+  xy: 254, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_03
+  rotate: false
+  xy: 2, 326
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_04
+  rotate: false
+  xy: 254, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_05
+  rotate: false
+  xy: 506, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_06
+  rotate: false
+  xy: 2, 104
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_07
+  rotate: false
+  xy: 254, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_08
+  rotate: false
+  xy: 506, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_09
+  rotate: false
+  xy: 758, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_10
+  rotate: false
+  xy: 254, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_11
+  rotate: false
+  xy: 506, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_12
+  rotate: false
+  xy: 758, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_13
+  rotate: false
+  xy: 1010, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_14
+  rotate: false
+  xy: 506, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_15
+  rotate: false
+  xy: 758, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_16
+  rotate: false
+  xy: 1010, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_17
+  rotate: false
+  xy: 1262, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_18
+  rotate: false
+  xy: 758, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_19
+  rotate: false
+  xy: 1010, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_20
+  rotate: false
+  xy: 1262, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_21
+  rotate: false
+  xy: 1514, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_22
+  rotate: false
+  xy: 1010, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_23
+  rotate: false
+  xy: 1262, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_24
+  rotate: false
+  xy: 1514, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_25
+  rotate: false
+  xy: 1766, 800
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_26
+  rotate: false
+  xy: 1262, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_27
+  rotate: false
+  xy: 1514, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_28
+  rotate: false
+  xy: 1766, 578
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_29
+  rotate: false
+  xy: 1514, 134
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+fx_sparkle/fx_sparkle_30
+  rotate: false
+  xy: 1766, 356
+  size: 250, 220
+  orig: 250, 220
+  offset: 0, 0
+  index: -1
+light
+  rotate: false
+  xy: 2, 770
+  size: 250, 250
+  orig: 250, 250
+  offset: 0, 0
+  index: -1
