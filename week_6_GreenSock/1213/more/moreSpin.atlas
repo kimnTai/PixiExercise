@@ -1,0 +1,363 @@
+
+moreSpin.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+FX_A_2/Effect_particle_B_0001
+  rotate: false
+  xy: 938, 950
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0002
+  rotate: false
+  xy: 1250, 1262
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0003
+  rotate: false
+  xy: 1562, 1574
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0004
+  rotate: false
+  xy: 626, 326
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0005
+  rotate: false
+  xy: 938, 788
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0006
+  rotate: false
+  xy: 1724, 1574
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0007
+  rotate: false
+  xy: 1886, 1574
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0008
+  rotate: false
+  xy: 626, 164
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0009
+  rotate: false
+  xy: 626, 2
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0010
+  rotate: false
+  xy: 938, 626
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0011
+  rotate: false
+  xy: 1100, 950
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0012
+  rotate: false
+  xy: 1100, 788
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0013
+  rotate: false
+  xy: 1100, 626
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0014
+  rotate: false
+  xy: 1412, 1262
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0015
+  rotate: false
+  xy: 788, 326
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0016
+  rotate: false
+  xy: 788, 164
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0017
+  rotate: false
+  xy: 788, 2
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0018
+  rotate: false
+  xy: 1350, 1100
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0019
+  rotate: false
+  xy: 1262, 938
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0020
+  rotate: false
+  xy: 1262, 776
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0021
+  rotate: false
+  xy: 1262, 614
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0022
+  rotate: false
+  xy: 1424, 938
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_A_2/Effect_particle_B_0023
+  rotate: false
+  xy: 1424, 776
+  size: 160, 160
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0001
+  rotate: false
+  xy: 2, 1574
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0002
+  rotate: false
+  xy: 2, 1262
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0003
+  rotate: false
+  xy: 314, 1574
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0004
+  rotate: false
+  xy: 2, 950
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0005
+  rotate: false
+  xy: 314, 1262
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0006
+  rotate: false
+  xy: 2, 638
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0007
+  rotate: false
+  xy: 314, 950
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0008
+  rotate: false
+  xy: 2, 326
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0009
+  rotate: false
+  xy: 314, 638
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0010
+  rotate: false
+  xy: 2, 14
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0011
+  rotate: false
+  xy: 314, 326
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0012
+  rotate: false
+  xy: 314, 14
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0013
+  rotate: false
+  xy: 708, 1736
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0014
+  rotate: false
+  xy: 1020, 1736
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0015
+  rotate: false
+  xy: 1332, 1736
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0016
+  rotate: false
+  xy: 1644, 1736
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0017
+  rotate: false
+  xy: 626, 1424
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0018
+  rotate: false
+  xy: 626, 1112
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0019
+  rotate: false
+  xy: 938, 1424
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0020
+  rotate: false
+  xy: 626, 800
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0021
+  rotate: false
+  xy: 938, 1112
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0022
+  rotate: false
+  xy: 1250, 1424
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+FX_B/ring_02_0023
+  rotate: false
+  xy: 626, 488
+  size: 310, 310
+  orig: 310, 310
+  offset: 0, 0
+  index: -1
+Star_01
+  rotate: false
+  xy: 1956, 1964
+  size: 81, 82
+  orig: 81, 82
+  offset: 0, 0
+  index: -1
+freegame
+  rotate: false
+  xy: 2, 1886
+  size: 704, 160
+  orig: 704, 160
+  offset: 0, 0
+  index: -1
+num/0
+  rotate: false
+  xy: 1250, 1126
+  size: 98, 134
+  orig: 98, 134
+  offset: 0, 0
+  index: -1
+num/1
+  rotate: false
+  xy: 626, 1750
+  size: 70, 134
+  orig: 70, 134
+  offset: 0, 0
+  index: -1
+num/plus
+  rotate: false
+  xy: 1562, 1438
+  size: 98, 134
+  orig: 98, 134
+  offset: 0, 0
+  index: -1
