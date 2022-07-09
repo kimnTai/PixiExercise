@@ -22,7 +22,7 @@ export default class BetLine extends PIXI.Container {
                 return box[+value].length - 1;
             });
             const max = Math.max(..._array);
-            return max * (max % 2 === 1 ? 1 : -1) * 6;
+            return max * 12;
         });
     }
 
@@ -30,7 +30,7 @@ export default class BetLine extends PIXI.Container {
         const intervalX = 200;
         const intervalY = 200;
         return lineList.map((lineGrids, i) => {
-            const fixY = fixYArray[i];
+            const fixY = fixYArray[i] - Math.max(...fixYArray) / 2;
             // 路徑座標
             const pointArray = lineGrids.map((item) => {
                 const grid = Number(item) - 1;
