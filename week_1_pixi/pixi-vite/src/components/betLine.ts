@@ -15,13 +15,15 @@ export default class BetLine extends PIXI.Container {
     }
 
     calculateFix(line: string[][]): number[] {
-        const box = Array.from({ length: Math.max(...line.flat().map(Number)) + 1 }, () => []);
+        const hashTable = new Map();
         return [...line].map((array) => {
-            const _array = array.map((value) => {
-                box[+value].push(value);
-                return box[+value].length - 1;
+            array.forEach((value) => {
+                if (!hashTable.has(value)) {
+                    return hashTable.set(value, 1);
+                }
+                hashTable.set(value, hashTable.get(value) + 1);
             });
-            const max = Math.max(..._array);
+            const max = Math.max(...hashTable.values());
             return max * 12;
         });
     }
