@@ -1,31 +1,27 @@
 import * as PIXI from "pixi.js";
-import Dragger from "./dragger";
+import("pixi-spine");
 
-const app = new PIXI.Application({ width: 1200, height: 600, backgroundColor: 0x1099bb });
+const app = new PIXI.Application({ width: 1300, height: 700, backgroundColor: 0x1099bb });
 document.querySelector("#app")?.appendChild(app.view);
 
-app.loader.load(setup);
+app.loader
+    .add("sprite", "../img/AnyConv.com__iP4_BGtile.webp")
+    .add("mask", "../img/pic_mg_reelMaskSmall.png")
+    .add("aaa", "../demo/spineboy-pro.skel")
+    .add("effect", "../demo/02_skel/effect_style136.skel")
+    .add("effect2", "../demo/01_json/effect_style136.json")
+    .load(setup);
 
-function setup() {
-    const graphics = new Dragger();
+async function setup({ resources }: any) {
+    await import("pixi-spine");
+    await import("pixi-heaven");
 
-    app.stage.addChild(graphics);
+    //new PIXI.spine.core.TextureAtlas(resources.effect.data);
+
+    //const t = new PIXI.spine.Spine(resources.effect2.data);
+    const container = new PIXI.Container();
+    const t = new PIXI.heaven.Sprite(PIXI.Texture.from("sprite"));
+    app.stage.addChild(t);
 }
 
-function debounce(callback: Function, delay = 1000) {
-    let timeout = 0;
-    return (...args: any) => {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => callback(...args), delay);
-    };
-}
-
-function throotle(callback: Function, delay = 1000) {
-    let shouldWait = false;
-    return (...args: any) => {
-        if (shouldWait) return;
-        callback(...args);
-        shouldWait = true;
-        setTimeout(() => (shouldWait = false), delay);
-    };
-}
+export default {};

@@ -1,0 +1,104 @@
+
+effect_style136.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01_pic/Line_013-5
+  rotate: true
+  xy: 1954, 894
+  size: 128, 72
+  orig: 128, 72
+  offset: 0, 0
+  index: -1
+01_pic/coin1
+  rotate: false
+  xy: 1027, 141
+  size: 154, 158
+  orig: 154, 158
+  offset: 0, 0
+  index: -1
+01_pic/coin2
+  rotate: false
+  xy: 1329, 814
+  size: 232, 208
+  orig: 232, 208
+  offset: 0, 0
+  index: -1
+01_pic/coin3
+  rotate: false
+  xy: 1027, 301
+  size: 192, 161
+  orig: 192, 161
+  offset: 0, 0
+  index: -1
+01_pic/coin4
+  rotate: false
+  xy: 516, 2
+  size: 155, 136
+  orig: 155, 136
+  offset: 0, 0
+  index: -1
+01_pic/coin5
+  rotate: true
+  xy: 1781, 883
+  size: 139, 171
+  orig: 139, 171
+  offset: 0, 0
+  index: -1
+01_pic/coin6
+  rotate: false
+  xy: 1563, 819
+  size: 151, 89
+  orig: 151, 89
+  offset: 0, 0
+  index: -1
+01_pic/coin7
+  rotate: false
+  xy: 673, 15
+  size: 129, 123
+  orig: 129, 123
+  offset: 0, 0
+  index: -1
+01_pic/coin8
+  rotate: true
+  xy: 1329, 753
+  size: 59, 224
+  orig: 59, 224
+  offset: 0, 0
+  index: -1
+01_pic/coin9
+  rotate: false
+  xy: 1563, 910
+  size: 216, 112
+  orig: 216, 112
+  offset: 0, 0
+  index: -1
+01_pic/glow_ball
+  rotate: false
+  xy: 1027, 464
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+01_pic/light_line_a
+  rotate: false
+  xy: 2, 140
+  size: 1023, 882
+  orig: 1023, 882
+  offset: 0, 0
+  index: -1
+01_pic/light_point_0
+  rotate: false
+  xy: 1027, 722
+  size: 300, 300
+  orig: 300, 300
+  offset: 0, 0
+  index: -1
+01_pic/line_a
+  rotate: true
+  xy: 2, 43
+  size: 95, 512
+  orig: 95, 512
+  offset: 0, 0
+  index: -1
