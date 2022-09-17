@@ -1,27 +1,45 @@
 import * as PIXI from "pixi.js";
-import("pixi-spine");
+import { Power0, TimelineMax, TweenMax } from "gsap";
 
-const app = new PIXI.Application({ width: 1300, height: 700, backgroundColor: 0x1099bb });
+const app = new PIXI.Application({ width: 900, height: 500, backgroundColor: 0x1099bb });
 document.querySelector("#app")?.appendChild(app.view);
 
-app.loader
-    .add("sprite", "../img/AnyConv.com__iP4_BGtile.webp")
-    .add("mask", "../img/pic_mg_reelMaskSmall.png")
-    .add("aaa", "../demo/spineboy-pro.skel")
-    .add("effect", "../demo/02_skel/effect_style136.skel")
-    .add("effect2", "../demo/01_json/effect_style136.json")
-    .load(setup);
+app.loader.add("bunny", "../img/bunny.png").load(setup);
 
-async function setup({ resources }: any) {
-    await import("pixi-spine");
-    await import("pixi-heaven");
-
-    //new PIXI.spine.core.TextureAtlas(resources.effect.data);
-
-    //const t = new PIXI.spine.Spine(resources.effect2.data);
-    const container = new PIXI.Container();
-    const t = new PIXI.heaven.Sprite(PIXI.Texture.from("sprite"));
-    app.stage.addChild(t);
+async function setup() {
+    const text = new PIXI.Text("0");
+    text.position.set(800, 0);
+    app.stage.addChild(text);
+    let luckyTreeSymbol = 0;
+    const list: Function[] = [];
+    document.querySelector(".event")?.addEventListener("pointerup", () => {
+        luckyTreeSymbol += Number(document.querySelector("input")?.value);
+        list.push(() => {
+            const counter = { score: +text.text };
+            const time = (luckyTreeSymbol - +text.text) * 0.1;
+            TweenMax.to(counter, time > 0.5 ? 0.5 : time, {
+                ease: Power0.easeNone,
+                delay: 0.3,
+                score: luckyTreeSymbol,
+                onUpdate: () => {
+                    Number(text.text) < ~~counter.score && (text.text = `${~~counter.score}`);
+                },
+                onComplete: () => {
+                    console.log(luckyTreeSymbol);
+                    //text.text = `${luckyTreeSymbol}`;
+                },
+            });
+        });
+    });
+    document.querySelector(".start")?.addEventListener("pointerup", () => {
+        list.forEach((v) => v());
+        list.length = 0;
+    });
+    Array.from({ length: 5 }, (_, i) => {
+        app.stage.addChild(PIXI.Sprite.from("bunny")).x = i * 50;
+    });
+    new PIXI.Container().on("addEvent", () => {});
+    //TweenMax.to({}, 1);
 }
 
 export default {};
