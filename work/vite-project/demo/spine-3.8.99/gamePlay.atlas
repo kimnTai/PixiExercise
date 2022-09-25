@@ -1,0 +1,1649 @@
+
+gamePlay.png
+size: 2017,1763
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Common_coverWhite
+  rotate: false
+  xy: 1961, 551
+  size: 36, 22
+  orig: 36, 22
+  offset: 0, 0
+  index: -1
+Common_feather
+  rotate: true
+  xy: 1744, 806
+  size: 290, 42
+  orig: 292, 44
+  offset: 1, 1
+  index: -1
+Common_lose
+  rotate: false
+  xy: 214, 974
+  size: 315, 121
+  orig: 317, 123
+  offset: 1, 1
+  index: -1
+Common_tie
+  rotate: true
+  xy: 1435, 1095
+  size: 227, 124
+  orig: 317, 126
+  offset: 46, 0
+  index: -1
+Common_win
+  rotate: true
+  xy: 1619, 816
+  size: 280, 123
+  orig: 282, 125
+  offset: 1, 1
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_20
+  rotate: false
+  xy: 863, 1097
+  size: 305, 220
+  orig: 356, 220
+  offset: 51, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_22
+  rotate: false
+  xy: 214, 1097
+  size: 335, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_24
+  rotate: false
+  xy: 2, 28
+  size: 270, 220
+  orig: 356, 220
+  offset: 48, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_26
+  rotate: false
+  xy: 1170, 1097
+  size: 263, 220
+  orig: 356, 220
+  offset: 48, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_28
+  rotate: false
+  xy: 1021, 1319
+  size: 309, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_30
+  rotate: false
+  xy: 1332, 1324
+  size: 310, 215
+  orig: 356, 220
+  offset: 46, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_32
+  rotate: false
+  xy: 2, 1319
+  size: 351, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_34
+  rotate: false
+  xy: 1644, 1320
+  size: 293, 219
+  orig: 356, 220
+  offset: 24, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_36
+  rotate: false
+  xy: 1681, 1541
+  size: 297, 220
+  orig: 356, 220
+  offset: 19, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_38
+  rotate: false
+  xy: 551, 1097
+  size: 310, 220
+  orig: 356, 220
+  offset: 18, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_40
+  rotate: false
+  xy: 1372, 1541
+  size: 307, 220
+  orig: 356, 220
+  offset: 40, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_42
+  rotate: false
+  xy: 702, 1319
+  size: 317, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_44
+  rotate: false
+  xy: 1561, 1098
+  size: 280, 220
+  orig: 356, 220
+  offset: 34, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_46
+  rotate: false
+  xy: 824, 875
+  size: 288, 220
+  orig: 356, 220
+  offset: 27, 0
+  index: -1
+Fight_roosterFightLoop/Fight_roosterFightLoop_48
+  rotate: false
+  xy: 1055, 1541
+  size: 315, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_00
+  rotate: true
+  xy: 2, 250
+  size: 351, 178
+  orig: 356, 220
+  offset: 5, 17
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_02
+  rotate: true
+  xy: 2, 603
+  size: 356, 190
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_04
+  rotate: true
+  xy: 2, 961
+  size: 356, 210
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_06
+  rotate: false
+  xy: 355, 1319
+  size: 345, 220
+  orig: 356, 220
+  offset: 11, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_08
+  rotate: false
+  xy: 709, 1541
+  size: 344, 220
+  orig: 356, 220
+  offset: 12, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_10
+  rotate: false
+  xy: 2, 1541
+  size: 356, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_12
+  rotate: false
+  xy: 531, 875
+  size: 291, 220
+  orig: 356, 220
+  offset: 28, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_14
+  rotate: false
+  xy: 1114, 875
+  size: 284, 220
+  orig: 356, 220
+  offset: 34, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_16
+  rotate: true
+  xy: 1400, 810
+  size: 283, 217
+  orig: 356, 220
+  offset: 35, 0
+  index: -1
+Fight_roosterFightStart/Fight_roosterFightStart_18
+  rotate: false
+  xy: 360, 1541
+  size: 347, 220
+  orig: 356, 220
+  offset: 0, 0
+  index: -1
+VSG_S
+  rotate: false
+  xy: 1788, 870
+  size: 180, 167
+  orig: 180, 167
+  offset: 0, 0
+  index: -1
+VSG_V
+  rotate: false
+  xy: 182, 256
+  size: 117, 163
+  orig: 117, 163
+  offset: 0, 0
+  index: -1
+WOL_win_crossLight
+  rotate: true
+  xy: 1559, 252
+  size: 23, 22
+  orig: 23, 22
+  offset: 0, 0
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_00
+  rotate: false
+  xy: 1619, 47
+  size: 58, 51
+  orig: 118, 172
+  offset: 60, 28
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_02
+  rotate: false
+  xy: 1739, 70
+  size: 58, 50
+  orig: 118, 172
+  offset: 58, 27
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_04
+  rotate: true
+  xy: 1788, 1039
+  size: 57, 50
+  orig: 118, 172
+  offset: 55, 25
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_06
+  rotate: false
+  xy: 908, 2
+  size: 62, 52
+  orig: 118, 172
+  offset: 49, 21
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_08
+  rotate: true
+  xy: 1653, 182
+  size: 68, 55
+  orig: 118, 172
+  offset: 42, 17
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_10
+  rotate: true
+  xy: 764, 61
+  size: 80, 59
+  orig: 118, 172
+  offset: 29, 12
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_12
+  rotate: true
+  xy: 1710, 168
+  size: 87, 62
+  orig: 118, 172
+  offset: 21, 8
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_14
+  rotate: true
+  xy: 1707, 427
+  size: 90, 64
+  orig: 118, 172
+  offset: 17, 4
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_16
+  rotate: false
+  xy: 1774, 122
+  size: 91, 66
+  orig: 118, 172
+  offset: 16, 2
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_18
+  rotate: true
+  xy: 1491, 176
+  size: 92, 66
+  orig: 118, 172
+  offset: 14, 2
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_20
+  rotate: true
+  xy: 1437, 270
+  size: 96, 66
+  orig: 118, 172
+  offset: 11, 5
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_22
+  rotate: true
+  xy: 958, 56
+  size: 107, 55
+  orig: 118, 172
+  offset: 0, 27
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_24
+  rotate: true
+  xy: 599, 67
+  size: 96, 56
+  orig: 118, 172
+  offset: 6, 55
+  index: -1
+WOL_wing/WOL_O_wing_L/WOL_O_wing_L_26
+  rotate: false
+  xy: 1970, 924
+  size: 44, 113
+  orig: 118, 172
+  offset: 59, 55
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_00
+  rotate: true
+  xy: 1707, 519
+  size: 105, 64
+  orig: 224, 218
+  offset: 101, 58
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_02
+  rotate: false
+  xy: 597, 2
+  size: 102, 63
+  orig: 224, 218
+  offset: 100, 57
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_04
+  rotate: false
+  xy: 1559, 183
+  size: 92, 67
+  orig: 224, 218
+  offset: 97, 51
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_06
+  rotate: false
+  xy: 1455, 52
+  size: 80, 77
+  orig: 224, 218
+  offset: 86, 39
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_08
+  rotate: true
+  xy: 1916, 470
+  size: 79, 99
+  orig: 224, 218
+  offset: 70, 15
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_10
+  rotate: false
+  xy: 1337, 3
+  size: 116, 112
+  orig: 224, 218
+  offset: 32, 0
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_12
+  rotate: true
+  xy: 1599, 502
+  size: 126, 106
+  orig: 224, 218
+  offset: 21, 5
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_14
+  rotate: false
+  xy: 1251, 768
+  size: 129, 105
+  orig: 224, 218
+  offset: 18, 5
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_16
+  rotate: true
+  xy: 1912, 257
+  size: 130, 103
+  orig: 224, 218
+  offset: 16, 6
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_18
+  rotate: false
+  xy: 1201, 143
+  size: 134, 100
+  orig: 224, 218
+  offset: 12, 9
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_20
+  rotate: false
+  xy: 1199, 245
+  size: 141, 93
+  orig: 224, 218
+  offset: 4, 19
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_22
+  rotate: false
+  xy: 1194, 340
+  size: 143, 84
+  orig: 224, 218
+  offset: 1, 56
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_24
+  rotate: true
+  xy: 1309, 464
+  size: 117, 79
+  orig: 224, 218
+  offset: 21, 96
+  index: -1
+WOL_wing/WOL_O_wing_R/WOL_O_wing_R_26
+  rotate: true
+  xy: 1589, 389
+  size: 111, 116
+  orig: 224, 218
+  offset: 104, 100
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_00
+  rotate: false
+  xy: 1679, 47
+  size: 58, 51
+  orig: 118, 172
+  offset: 60, 28
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_02
+  rotate: false
+  xy: 1799, 70
+  size: 58, 50
+  orig: 118, 172
+  offset: 58, 27
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_04
+  rotate: true
+  xy: 1844, 11
+  size: 57, 50
+  orig: 118, 172
+  offset: 55, 25
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_06
+  rotate: true
+  xy: 1962, 193
+  size: 62, 52
+  orig: 118, 172
+  offset: 49, 21
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_08
+  rotate: true
+  xy: 1960, 119
+  size: 68, 55
+  orig: 118, 172
+  offset: 42, 17
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_10
+  rotate: true
+  xy: 1648, 100
+  size: 80, 59
+  orig: 118, 172
+  offset: 29, 12
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_12
+  rotate: false
+  xy: 1559, 119
+  size: 87, 62
+  orig: 118, 172
+  offset: 21, 8
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_14
+  rotate: true
+  xy: 1707, 335
+  size: 90, 64
+  orig: 118, 172
+  offset: 17, 4
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_16
+  rotate: false
+  xy: 1867, 121
+  size: 91, 66
+  orig: 118, 172
+  offset: 16, 2
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_18
+  rotate: false
+  xy: 1868, 189
+  size: 92, 66
+  orig: 118, 172
+  offset: 14, 2
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_20
+  rotate: false
+  xy: 1597, 321
+  size: 96, 66
+  orig: 118, 172
+  offset: 11, 5
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_22
+  rotate: false
+  xy: 799, 3
+  size: 107, 55
+  orig: 118, 172
+  offset: 0, 27
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_24
+  rotate: false
+  xy: 701, 2
+  size: 96, 56
+  orig: 118, 172
+  offset: 6, 55
+  index: -1
+WOL_wing/WOL_W_wing_L/WOL_W_wing_L_26
+  rotate: false
+  xy: 1961, 575
+  size: 44, 113
+  orig: 118, 172
+  offset: 59, 55
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_00
+  rotate: false
+  xy: 657, 77
+  size: 105, 64
+  orig: 224, 218
+  offset: 101, 58
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_02
+  rotate: true
+  xy: 1437, 368
+  size: 102, 63
+  orig: 224, 218
+  offset: 100, 57
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_04
+  rotate: false
+  xy: 1774, 190
+  size: 92, 67
+  orig: 224, 218
+  offset: 97, 51
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_06
+  rotate: false
+  xy: 1537, 40
+  size: 80, 77
+  orig: 224, 218
+  offset: 86, 39
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_08
+  rotate: true
+  xy: 1916, 389
+  size: 79, 99
+  orig: 224, 218
+  offset: 70, 15
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_10
+  rotate: false
+  xy: 1390, 472
+  size: 116, 112
+  orig: 224, 218
+  offset: 32, 0
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_12
+  rotate: true
+  xy: 1337, 117
+  size: 126, 106
+  orig: 224, 218
+  offset: 21, 5
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_14
+  rotate: false
+  xy: 1015, 10
+  size: 129, 105
+  orig: 224, 218
+  offset: 18, 5
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_16
+  rotate: false
+  xy: 826, 60
+  size: 130, 103
+  orig: 224, 218
+  offset: 16, 6
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_18
+  rotate: false
+  xy: 1201, 41
+  size: 134, 100
+  orig: 224, 218
+  offset: 12, 9
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_20
+  rotate: false
+  xy: 1773, 456
+  size: 141, 93
+  orig: 224, 218
+  offset: 4, 19
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_22
+  rotate: false
+  xy: 454, 79
+  size: 143, 84
+  orig: 224, 218
+  offset: 1, 56
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_24
+  rotate: true
+  xy: 1508, 467
+  size: 117, 79
+  orig: 224, 218
+  offset: 21, 96
+  index: -1
+WOL_wing/WOL_W_wing_R/WOL_W_wing_R_26
+  rotate: true
+  xy: 1773, 259
+  size: 110, 116
+  orig: 224, 218
+  offset: 105, 100
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_06
+  rotate: true
+  xy: 1980, 1674
+  size: 87, 22
+  orig: 178, 110
+  offset: 44, 68
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_10
+  rotate: false
+  xy: 1197, 3
+  size: 103, 36
+  orig: 178, 110
+  offset: 35, 61
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_14
+  rotate: false
+  xy: 840, 323
+  size: 176, 102
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_18
+  rotate: false
+  xy: 1788, 761
+  size: 178, 107
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_22
+  rotate: true
+  xy: 194, 781
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_26
+  rotate: true
+  xy: 194, 601
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_30
+  rotate: true
+  xy: 182, 421
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_34
+  rotate: false
+  xy: 531, 764
+  size: 178, 109
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_38
+  rotate: false
+  xy: 306, 528
+  size: 178, 108
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_42
+  rotate: false
+  xy: 301, 201
+  size: 178, 106
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_46
+  rotate: true
+  xy: 1206, 583
+  size: 178, 103
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_50
+  rotate: false
+  xy: 294, 421
+  size: 178, 105
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_54
+  rotate: false
+  xy: 306, 862
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_58
+  rotate: false
+  xy: 306, 750
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_62
+  rotate: false
+  xy: 306, 638
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_66
+  rotate: false
+  xy: 711, 763
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_70
+  rotate: false
+  xy: 891, 763
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_74
+  rotate: false
+  xy: 1071, 763
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_78
+  rotate: false
+  xy: 486, 652
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_82
+  rotate: false
+  xy: 666, 652
+  size: 178, 109
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_86
+  rotate: true
+  xy: 1311, 588
+  size: 178, 106
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_feather/Fight_ani_feather_90
+  rotate: true
+  xy: 1599, 630
+  size: 178, 106
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_08
+  rotate: true
+  xy: 1709, 100
+  size: 21, 20
+  orig: 178, 110
+  offset: 17, 55
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_10
+  rotate: false
+  xy: 1018, 332
+  size: 174, 93
+  orig: 178, 110
+  offset: 0, 17
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_12
+  rotate: false
+  xy: 1021, 239
+  size: 176, 91
+  orig: 178, 110
+  offset: 0, 19
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_14
+  rotate: false
+  xy: 1843, 1114
+  size: 172, 92
+  orig: 178, 110
+  offset: 0, 15
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_16
+  rotate: false
+  xy: 1773, 371
+  size: 137, 83
+  orig: 178, 110
+  offset: 16, 15
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_18
+  rotate: true
+  xy: 1502, 373
+  size: 92, 77
+  orig: 178, 110
+  offset: 42, 14
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_20
+  rotate: false
+  xy: 1597, 252
+  size: 94, 67
+  orig: 178, 110
+  offset: 49, 28
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_22
+  rotate: true
+  xy: 1146, 15
+  size: 100, 49
+  orig: 178, 110
+  offset: 43, 50
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_24
+  rotate: true
+  xy: 1505, 277
+  size: 94, 90
+  orig: 178, 110
+  offset: 45, 6
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_26
+  rotate: false
+  xy: 1695, 257
+  size: 76, 76
+  orig: 178, 110
+  offset: 48, 6
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_28
+  rotate: false
+  xy: 274, 2
+  size: 174, 85
+  orig: 178, 110
+  offset: 4, 10
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_30
+  rotate: false
+  xy: 1781, 551
+  size: 178, 96
+  orig: 178, 110
+  offset: 0, 8
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_32
+  rotate: false
+  xy: 486, 433
+  size: 178, 105
+  orig: 178, 110
+  offset: 0, 5
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_34
+  rotate: false
+  xy: 666, 433
+  size: 178, 105
+  orig: 178, 110
+  offset: 0, 5
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_36
+  rotate: true
+  xy: 1206, 426
+  size: 155, 101
+  orig: 178, 110
+  offset: 13, 9
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_38
+  rotate: true
+  xy: 1342, 246
+  size: 105, 93
+  orig: 178, 110
+  offset: 48, 8
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_40
+  rotate: true
+  xy: 1339, 353
+  size: 109, 96
+  orig: 178, 110
+  offset: 69, 14
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_42
+  rotate: false
+  xy: 481, 165
+  size: 175, 42
+  orig: 178, 110
+  offset: 3, 68
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_44
+  rotate: false
+  xy: 846, 651
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_46
+  rotate: false
+  xy: 1026, 651
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_48
+  rotate: false
+  xy: 486, 540
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_50
+  rotate: false
+  xy: 301, 309
+  size: 177, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_52
+  rotate: false
+  xy: 1843, 1208
+  size: 172, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_54
+  rotate: false
+  xy: 666, 540
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_56
+  rotate: false
+  xy: 846, 539
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_58
+  rotate: false
+  xy: 1026, 539
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_60
+  rotate: false
+  xy: 274, 89
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_62
+  rotate: false
+  xy: 1419, 698
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_64
+  rotate: false
+  xy: 1419, 586
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_66
+  rotate: false
+  xy: 1781, 649
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_68
+  rotate: false
+  xy: 846, 427
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_70
+  rotate: false
+  xy: 1026, 427
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_72
+  rotate: false
+  xy: 480, 321
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_74
+  rotate: false
+  xy: 660, 321
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_76
+  rotate: false
+  xy: 481, 209
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_78
+  rotate: false
+  xy: 661, 209
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/Fight_ani_knifeLight/Fight_ani_knifeLight_80
+  rotate: false
+  xy: 841, 211
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+_fx/SPG_ani_line/SPG_ani_line_01
+  rotate: true
+  xy: 1939, 1361
+  size: 178, 48
+  orig: 178, 60
+  offset: 0, 5
+  index: -1
+_fx/SPG_ani_line/SPG_ani_line_02
+  rotate: false
+  xy: 1021, 189
+  size: 178, 48
+  orig: 178, 60
+  offset: 0, 5
+  index: -1
+_fx/SPG_ani_line/SPG_ani_line_03
+  rotate: true
+  xy: 1968, 690
+  size: 178, 47
+  orig: 178, 60
+  offset: 0, 6
+  index: -1
+_fx/SPG_ani_line/SPG_ani_line_04
+  rotate: false
+  xy: 841, 165
+  size: 178, 44
+  orig: 178, 60
+  offset: 0, 6
+  index: -1
+_fx/SPG_ani_line/SPG_ani_line_05
+  rotate: true
+  xy: 486, 794
+  size: 178, 43
+  orig: 178, 60
+  offset: 0, 6
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_1
+  rotate: false
+  xy: 1709, 123
+  size: 63, 43
+  orig: 70, 45
+  offset: 4, 1
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_10
+  rotate: false
+  xy: 1859, 76
+  size: 65, 43
+  orig: 70, 45
+  offset: 1, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_2
+  rotate: true
+  xy: 1799, 3
+  size: 65, 43
+  orig: 70, 45
+  offset: 2, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_3
+  rotate: true
+  xy: 1799, 3
+  size: 65, 43
+  orig: 70, 45
+  offset: 2, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_4
+  rotate: false
+  xy: 1491, 131
+  size: 66, 43
+  orig: 70, 45
+  offset: 1, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_5
+  rotate: false
+  xy: 1455, 8
+  size: 67, 42
+  orig: 70, 45
+  offset: 0, 3
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_6
+  rotate: true
+  xy: 1755, 2
+  size: 66, 42
+  orig: 70, 45
+  offset: 0, 3
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_7
+  rotate: false
+  xy: 1619, 2
+  size: 66, 43
+  orig: 70, 45
+  offset: 0, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_8
+  rotate: false
+  xy: 1619, 2
+  size: 66, 43
+  orig: 70, 45
+  offset: 0, 2
+  index: -1
+_fx/SPG_fire_ani/SPG_fire_ani_9
+  rotate: false
+  xy: 1687, 2
+  size: 66, 43
+  orig: 70, 45
+  offset: 0, 2
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_00
+  rotate: false
+  xy: 1939, 1341
+  size: 29, 18
+  orig: 178, 110
+  offset: 74, 47
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_02
+  rotate: true
+  xy: 1980, 1601
+  size: 71, 27
+  orig: 178, 110
+  offset: 53, 43
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_04
+  rotate: true
+  xy: 1445, 158
+  size: 110, 44
+  orig: 178, 110
+  offset: 34, 33
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_06
+  rotate: false
+  xy: 450, 19
+  size: 145, 58
+  orig: 178, 110
+  offset: 15, 24
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_08
+  rotate: false
+  xy: 658, 143
+  size: 166, 64
+  orig: 178, 110
+  offset: 5, 21
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_10
+  rotate: false
+  xy: 1021, 117
+  size: 178, 70
+  orig: 178, 110
+  offset: 0, 18
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_12
+  rotate: true
+  xy: 1707, 626
+  size: 178, 72
+  orig: 178, 110
+  offset: 0, 19
+  index: -1
+_fx/VSG_ani_particle/VSG_ani_particle_14
+  rotate: false
+  xy: 1843, 1039
+  size: 172, 73
+  orig: 178, 110
+  offset: 6, 19
+  index: -1
+
+gamePlay_B.png
+size: 1489,115
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Common_BG
+  rotate: false
+  xy: 2, 2
+  size: 179, 111
+  orig: 179, 111
+  offset: 0, 0
+  index: -1
+Common_line
+  rotate: false
+  xy: 1423, 38
+  size: 43, 42
+  orig: 43, 42
+  offset: 0, 0
+  index: -1
+Common_shadow
+  rotate: false
+  xy: 1320, 82
+  size: 167, 31
+  orig: 168, 31
+  offset: 0, 0
+  index: -1
+Fight_BG
+  rotate: false
+  xy: 183, 3
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+SPG_BG_B
+  rotate: false
+  xy: 1320, 46
+  size: 101, 34
+  orig: 101, 34
+  offset: 0, 0
+  index: -1
+SPG_BG_R
+  rotate: false
+  xy: 1320, 10
+  size: 101, 34
+  orig: 101, 34
+  offset: 0, 0
+  index: -1
+VSG_BG
+  rotate: false
+  xy: 363, 3
+  size: 178, 110
+  orig: 178, 110
+  offset: 0, 0
+  index: -1
+WOL_win_O_BG
+  rotate: false
+  xy: 543, 2
+  size: 90, 111
+  orig: 90, 111
+  offset: 0, 0
+  index: -1
+WOL_win_W_BG
+  rotate: false
+  xy: 635, 2
+  size: 90, 111
+  orig: 90, 111
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_00
+  rotate: false
+  xy: 802, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_02
+  rotate: false
+  xy: 876, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_04
+  rotate: false
+  xy: 950, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_06
+  rotate: false
+  xy: 1024, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_08
+  rotate: false
+  xy: 1098, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_10
+  rotate: false
+  xy: 1172, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_12
+  rotate: false
+  xy: 727, 3
+  size: 73, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+_fx/Common_ani_Dividing lineV2/Common_ani_Dividing lineV2_14
+  rotate: false
+  xy: 1246, 3
+  size: 72, 110
+  orig: 75, 110
+  offset: 0, 0
+  index: -1
+
+gamePlay_G.png
+size: 1713,269
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+SPG_O_body
+  rotate: false
+  xy: 796, 123
+  size: 281, 144
+  orig: 281, 144
+  offset: 0, 0
+  index: -1
+SPG_O_head
+  rotate: false
+  xy: 316, 97
+  size: 131, 170
+  orig: 161, 170
+  offset: 30, 0
+  index: -1
+SPG_O_wing
+  rotate: true
+  xy: 582, 97
+  size: 170, 105
+  orig: 170, 118
+  offset: 0, 0
+  index: -1
+SPG_W_body
+  rotate: false
+  xy: 1079, 123
+  size: 281, 144
+  orig: 281, 144
+  offset: 0, 0
+  index: -1
+SPG_W_head
+  rotate: false
+  xy: 449, 97
+  size: 131, 170
+  orig: 161, 170
+  offset: 30, 0
+  index: -1
+SPG_W_wing
+  rotate: true
+  xy: 689, 97
+  size: 170, 105
+  orig: 170, 118
+  offset: 0, 0
+  index: -1
+TIE_O_body
+  rotate: true
+  xy: 2, 69
+  size: 198, 77
+  orig: 202, 80
+  offset: 0, 0
+  index: -1
+TIE_O_leg_L
+  rotate: true
+  xy: 1584, 106
+  size: 40, 55
+  orig: 50, 75
+  offset: 0, 0
+  index: -1
+TIE_O_leg_R
+  rotate: false
+  xy: 1465, 2
+  size: 31, 35
+  orig: 32, 41
+  offset: 0, 2
+  index: -1
+TIE_O_mouth
+  rotate: true
+  xy: 702, 2
+  size: 6, 9
+  orig: 6, 14
+  offset: 0, 0
+  index: -1
+TIE_W_body
+  rotate: true
+  xy: 81, 69
+  size: 198, 77
+  orig: 202, 80
+  offset: 0, 0
+  index: -1
+VSG_Knife
+  rotate: false
+  xy: 1372, 133
+  size: 31, 12
+  orig: 31, 12
+  offset: 0, 0
+  index: -1
+VSG_O_body
+  rotate: true
+  xy: 1075, 10
+  size: 111, 132
+  orig: 111, 132
+  offset: 0, 0
+  index: -1
+VSG_O_head
+  rotate: false
+  xy: 1645, 107
+  size: 61, 49
+  orig: 61, 49
+  offset: 0, 0
+  index: -1
+VSG_O_leg_L
+  rotate: false
+  xy: 1535, 33
+  size: 47, 72
+  orig: 47, 72
+  offset: 0, 0
+  index: -1
+VSG_O_leg_R
+  rotate: false
+  xy: 740, 11
+  size: 57, 84
+  orig: 57, 84
+  offset: 0, 0
+  index: -1
+VSG_O_wing
+  rotate: true
+  xy: 568, 8
+  size: 87, 59
+  orig: 87, 59
+  offset: 0, 0
+  index: -1
+VSG_W_body
+  rotate: true
+  xy: 1209, 10
+  size: 111, 132
+  orig: 111, 132
+  offset: 0, 0
+  index: -1
+VSG_W_head
+  rotate: true
+  xy: 70, 4
+  size: 63, 49
+  orig: 65, 49
+  offset: 2, 0
+  index: -1
+VSG_W_leg_L
+  rotate: true
+  xy: 1584, 2
+  size: 47, 72
+  orig: 47, 72
+  offset: 0, 0
+  index: -1
+VSG_W_leg_R
+  rotate: true
+  xy: 1568, 210
+  size: 57, 84
+  orig: 57, 84
+  offset: 0, 0
+  index: -1
+VSG_W_wing
+  rotate: true
+  xy: 629, 8
+  size: 87, 59
+  orig: 87, 59
+  offset: 0, 0
+  index: -1
+VSG_tail_B
+  rotate: false
+  xy: 1654, 210
+  size: 57, 57
+  orig: 57, 72
+  offset: 0, 7
+  index: -1
+VSG_tail_F
+  rotate: true
+  xy: 1568, 148
+  size: 60, 75
+  orig: 60, 75
+  offset: 0, 0
+  index: -1
+WOL_lose_O_body
+  rotate: true
+  xy: 160, 72
+  size: 195, 76
+  orig: 195, 77
+  offset: 0, 1
+  index: -1
+WOL_lose_O_leg_L
+  rotate: true
+  xy: 1641, 51
+  size: 54, 70
+  orig: 70, 70
+  offset: 16, 0
+  index: -1
+WOL_lose_O_leg_R
+  rotate: true
+  xy: 1645, 158
+  size: 50, 62
+  orig: 58, 62
+  offset: 8, 0
+  index: -1
+WOL_lose_O_mouth
+  rotate: false
+  xy: 1362, 132
+  size: 8, 13
+  orig: 8, 13
+  offset: 0, 0
+  index: -1
+WOL_lose_O_wing
+  rotate: true
+  xy: 1474, 169
+  size: 98, 45
+  orig: 98, 45
+  offset: 0, 0
+  index: -1
+WOL_lose_W_body
+  rotate: true
+  xy: 238, 72
+  size: 195, 76
+  orig: 195, 77
+  offset: 0, 1
+  index: -1
+WOL_lose_W_wing
+  rotate: true
+  xy: 1521, 169
+  size: 98, 45
+  orig: 98, 45
+  offset: 0, 0
+  index: -1
+WOL_win_O_body
+  rotate: true
+  xy: 799, 4
+  size: 117, 136
+  orig: 117, 143
+  offset: 0, 0
+  index: -1
+WOL_win_O_hair
+  rotate: false
+  xy: 121, 5
+  size: 91, 62
+  orig: 91, 71
+  offset: 0, 0
+  index: -1
+WOL_win_O_leg_R
+  rotate: true
+  xy: 214, 2
+  size: 68, 106
+  orig: 70, 115
+  offset: 0, 9
+  index: -1
+WOL_win_O_wing_L
+  rotate: false
+  xy: 322, 2
+  size: 49, 93
+  orig: 50, 105
+  offset: 1, 12
+  index: -1
+WOL_win_O_wing_R
+  rotate: true
+  xy: 1343, 11
+  size: 110, 120
+  orig: 110, 120
+  offset: 0, 0
+  index: -1
+WOL_win_W_body
+  rotate: true
+  xy: 937, 4
+  size: 117, 136
+  orig: 117, 143
+  offset: 0, 0
+  index: -1
+WOL_win_W_hair
+  rotate: true
+  xy: 504, 4
+  size: 91, 62
+  orig: 91, 71
+  offset: 0, 0
+  index: -1
+WOL_win_W_leg_L
+  rotate: false
+  xy: 690, 10
+  size: 48, 85
+  orig: 48, 97
+  offset: 0, 9
+  index: -1
+WOL_win_W_leg_R
+  rotate: false
+  xy: 1465, 39
+  size: 68, 106
+  orig: 70, 115
+  offset: 0, 9
+  index: -1
+WOL_win_W_mouth
+  rotate: false
+  xy: 690, 2
+  size: 10, 6
+  orig: 16, 10
+  offset: 0, 4
+  index: -1
+WOL_win_W_tail_B
+  rotate: true
+  xy: 2, 2
+  size: 65, 66
+  orig: 76, 67
+  offset: 11, 0
+  index: -1
+WOL_win_W_tail_F
+  rotate: true
+  xy: 424, 4
+  size: 91, 78
+  orig: 100, 85
+  offset: 6, 3
+  index: -1
+WOL_win_W_wing_L
+  rotate: false
+  xy: 373, 2
+  size: 49, 93
+  orig: 50, 105
+  offset: 1, 12
+  index: -1
+WOL_win_W_wing_R
+  rotate: false
+  xy: 1362, 147
+  size: 110, 120
+  orig: 110, 120
+  offset: 0, 0
+  index: -1
