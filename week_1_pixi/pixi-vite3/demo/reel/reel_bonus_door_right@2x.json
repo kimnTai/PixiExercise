@@ -1,0 +1,65 @@
+{
+    "skeleton": {
+        "hash": "IsRjN+Rqvs0",
+        "spine": "4.0.64",
+        "x": 449.76,
+        "y": -464.51,
+        "width": 247,
+        "height": 804,
+        "images": "../02_assets/reel_bonus/reel_bonus/",
+        "audio": "E:/09 Relax/!!!/18_MONEY_TRAIN_III/production/02_assets/reel_bonus"
+    },
+    "bones": [
+        {
+            "name": "root",
+            "x": 60.98
+        }
+    ],
+    "slots": [
+        {
+            "name": "door_right_anim_01",
+            "bone": "root",
+            "attachment": "door_right_closed_fs"
+        }
+    ],
+    "skins": [
+        {
+            "name": "default",
+            "attachments": {
+                "door_right_anim_01": {
+                    "door_right_anim_01": {
+                        "x": 512.28,
+                        "y": -62.51,
+                        "width": 247,
+                        "height": 804
+                    },
+                    "door_right_closed_fs": {
+                        "x": 512.28,
+                        "y": -62.51,
+                        "width": 247,
+                        "height": 804
+                    }
+                }
+            }
+        }
+    ],
+    "animations": {
+        "explosion": {
+            "slots": {
+                "door_right_anim_01": {
+                    "attachment": [
+                        {
+                            "time": 0.3333,
+                            "name": "door_right_anim_01"
+                        },
+                        {
+                            "time": 0.5333,
+                            "name": "door_right_anim_01"
+                        }
+                    ]
+                }
+            }
+        },
+        "static": {}
+    }
+}

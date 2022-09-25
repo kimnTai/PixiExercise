@@ -1,0 +1,213 @@
+reel_bonus@2x.png
+size:2048,2048
+filter:Linear,Linear
+back_part
+bounds:503,1827,145,94
+bumper_back
+bounds:1681,1299,321,168
+bumper_back_behind
+bounds:1370,1786,164,135
+bumper_front
+bounds:2,1192,395,192
+bumper_front_behind
+bounds:1013,1798,150,123
+canister_back
+bounds:634,842,272,522
+rotate:90
+canister_fluid
+bounds:1814,1763,170,158
+chain_A
+bounds:1392,1303,287,164
+chain_B
+bounds:864,1804,147,117
+counter_left_fs
+bounds:318,873,280,314
+rotate:90
+counter_mobile_a
+bounds:821,1116,505,227
+counter_mobile_b
+bounds:1328,1070,359,227
+counter_right_fs
+bounds:2,912,278,314
+rotate:90
+door_left_anim_01
+bounds:1158,813,242,811
+rotate:90
+door_left_closed_fs
+bounds:2,598,242,811
+rotate:90
+door_right_anim_01
+bounds:815,564,247,804
+rotate:90
+door_right_closed_fs
+bounds:2,349,247,804
+rotate:90
+dynamite
+bounds:1165,1789,132,203
+rotate:90
+flare_a
+bounds:1689,1057,240,250
+rotate:90
+gril_front_lights_meged
+bounds:399,1169,203,199
+grill_back
+bounds:604,1155,215,213
+grill_front
+bounds:1516,134,385,370
+pipes_A/pipes A_00000
+bounds:1536,1776,145,276
+rotate:90
+pipes_A/pipes A_00001
+bounds:2,1681,145,276
+rotate:90
+pipes_A/pipes A_00002
+bounds:280,1680,145,276
+rotate:90
+pipes_A/pipes A_00003
+bounds:558,1664,145,276
+rotate:90
+pipes_A/pipes A_00004
+bounds:836,1651,145,276
+rotate:90
+pipes_A/pipes A_00005
+bounds:1114,1639,145,276
+rotate:90
+pipes_A/pipes A_00006
+bounds:1392,1629,145,276
+rotate:90
+pipes_A/pipes A_00007
+bounds:1670,1616,145,276
+rotate:90
+pipes_A/pipes A_00008
+bounds:2,1534,145,276
+rotate:90
+pipes_A/pipes A_00009
+bounds:280,1533,145,276
+rotate:90
+pipes_A/pipes A_00010
+bounds:558,1517,145,276
+rotate:90
+pipes_A/pipes A_00011
+bounds:836,1504,145,276
+rotate:90
+pipes_A/pipes A_00012
+bounds:1114,1492,145,276
+rotate:90
+pipes_A/pipes A_00013
+bounds:1392,1482,145,276
+rotate:90
+pipes_A/pipes A_00014
+bounds:1670,1469,145,276
+rotate:90
+pipes_A/pipes A_00015
+bounds:2,1387,145,276
+rotate:90
+pipes_A/pipes A_00016
+bounds:280,1386,145,276
+rotate:90
+pipes_A/pipes A_00017
+bounds:558,1370,145,276
+rotate:90
+pipes_A/pipes A_00018
+bounds:836,1357,145,276
+rotate:90
+pipes_A/pipes A_00019
+bounds:1114,1345,145,276
+rotate:90
+pipes_B/pipes B_00000
+bounds:173,1923,84,94
+rotate:90
+pipes_B/pipes B_00001
+bounds:269,1923,84,94
+rotate:90
+pipes_B/pipes B_00002
+bounds:365,1923,84,94
+rotate:90
+pipes_B/pipes B_00003
+bounds:461,1923,84,94
+rotate:90
+pipes_B/pipes B_00004
+bounds:557,1923,84,94
+rotate:90
+pipes_B/pipes B_00005
+bounds:653,1923,84,94
+rotate:90
+pipes_B/pipes B_00006
+bounds:749,1923,84,94
+rotate:90
+pipes_B/pipes B_00007
+bounds:845,1923,84,94
+rotate:90
+pipes_B/pipes B_00008
+bounds:941,1923,84,94
+rotate:90
+pipes_B/pipes B_00009
+bounds:1037,1923,84,94
+rotate:90
+pipes_B/pipes B_00010
+bounds:1133,1923,84,94
+rotate:90
+pipes_B/pipes B_00011
+bounds:1229,1923,84,94
+rotate:90
+pipes_B/pipes B_00012
+bounds:1325,1923,84,94
+rotate:90
+pipes_B/pipes B_00013
+bounds:1421,1923,84,94
+rotate:90
+pipes_B/pipes B_00014
+bounds:1517,1923,84,94
+rotate:90
+pipes_B/pipes B_00015
+bounds:1613,1923,84,94
+rotate:90
+pipes_B/pipes B_00016
+bounds:1709,1923,84,94
+rotate:90
+pipes_B/pipes B_00017
+bounds:1805,1923,84,94
+rotate:90
+pipes_B/pipes B_00018
+bounds:1901,1923,84,94
+rotate:90
+pipes_B/pipes B_00019
+bounds:2,1856,84,94
+rotate:90
+reel_decoration_light
+bounds:98,1830,91,91
+reel_opener_light
+bounds:2,1957,71,50
+reel_top_fluid_A
+bounds:650,1811,212,110
+reel_top_fluid_B
+bounds:191,1828,310,93
+skull
+bounds:2,2,345,545
+rotate:90
+skull_light
+bounds:75,1942,65,96
+rotate:90
+wheel_back
+bounds:1162,220,342,352
+rotate:90
+wheel_back_sh
+bounds:808,231,331,352
+rotate:90
+wheel_front_sh
+bounds:1621,506,305,348
+rotate:90
+
+reel_bonus@2x_2.png
+size:2048,2048
+filter:Linear,Linear
+reel_ALL
+bounds:2,2,1519,992
+wheel_back_merged
+bounds:389,1046,456,414
+wheel_front
+bounds:2,1086,374,385
+rotate:90
+wheel_front_merged
+bounds:847,996,464,924
+rotate:90

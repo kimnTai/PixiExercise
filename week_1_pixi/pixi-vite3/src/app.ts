@@ -6,13 +6,15 @@ export default class App extends PIXI.Application {
         super({ width: 1200, height: 800 });
         this.ticker.maxFPS = 30;
         this._init().then(() => {
-            const spine = new Spine(<any>this.loader.resources["effect"].spineData);
-            const [_in, out, score] = spine.spineData.animations.map(({ name }) => name);
+            const spine = new Spine(<any>this.loader.resources["win_feedback"].spineData);
+            const [_in, out, score, four] = spine.spineData.animations.map(({ name }) => name);
             spine.hackTextureBySlotName("01_pic/coin3", PIXI.Texture.from("blue"));
             spine.scale.set(0.5);
             spine.position.set(600, 400);
             this.stage.addChild(spine);
-            spine.state.addAnimation(0, score, true, 0);
+            console.log(spine.spineData.animations.map(({ name }) => name));
+
+            spine.state.addAnimation(0, four, true, 0);
             // console.log(this.loader.resources["idol_A"].spineData);
 
             // const spine = new Spine(<any>this.loader.resources["idol_A"].spineData);
@@ -37,6 +39,8 @@ export default class App extends PIXI.Application {
                 .add("effect", "../demo/01_json/effect_style136.json")
                 .add("gamePlay", "../demo/spine-3.8.99/gamePlay.json")
                 .add("idol_A", "../demo/spine-3.8.99/idol_A.json")
+                .add("SC", "../demo/reel/SC@2x.json")
+                .add("win_feedback", "../demo/reel/win_feedback@2x.json")
                 .load(resolve);
         });
     }
