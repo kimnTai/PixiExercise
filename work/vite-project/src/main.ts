@@ -2,19 +2,21 @@ import * as PIXI from "pixi.js";
 import "pixi-spine";
 import { Power0, TweenMax } from "gsap";
 
-const app = new PIXI.Application({ width: 900, height: 500, backgroundColor: 0x1099bb });
+const app = new PIXI.Application({ width: 1500, height: 900, backgroundColor: 0x1099bb });
 document.querySelector("#app")?.appendChild(app.view);
 
 app.loader
     .add("bunny", "../img/bunny.png")
-    .add("gamePlay", "../demo/spine-3.8.99/gamePlay.json")
-    .add("idol", "../demo/spine-3.8.99/idol_A.json")
+    // .add("gamePlay", "../demo/spine-3.8.99/gamePlay.json")
+    // .add("idol", "../demo/spine-3.8.99/idol_A.json")
     .add("effect", "../demo/01_json/effect_style136.json")
+    .add("moreSpin", "../demo/more2/moreSpin.json")
     .load(setup);
 
 app.ticker.remove(app.render, app);
 
 async function setup() {
+    PIXI.extras.BitmapText;
     const text = new PIXI.Text("0");
     text.position.set(800, 0);
     app.stage.addChild(text);
@@ -48,19 +50,26 @@ async function setup() {
         con.addChild(PIXI.Sprite.from("bunny")).x = i * 50;
     });
     con.cacheAsBitmap = false;
-    app.stage.addChild(con);
+    console.log();
+
     let elapsedTime = 0;
-    const APP_FPS = 30;
-    const fpsDelta = 60 / APP_FPS;
-    const spine = new PIXI.spine.Spine(app.loader.resources.gamePlay.spineData);
+
+    const spine = new PIXI.spine.Spine(app.loader.resources.moreSpin.spineData);
     spine.position.set(500, 250);
     console.log(spine.spineData.animations.map(({ name }) => name));
-    spine.spineData.animations.map(({ name }) => name).forEach((v) => spine.state.addAnimation(0, v, true, 0));
+
+    const [five, ten] = spine.spineData.skins.map(({ name }) => name);
+    spine.skeleton.setSkinByName(ten);
+    spine.update(0);
+    spine.hackTextureBySlotName("num/6", PIXI.Texture.from("bunny"), new PIXI.Rectangle());
+    spine.hackTextureBySlotName("num/7", PIXI.Texture.from("bunny"), new PIXI.Rectangle(50, 0, 100, 200));
+    spine.skeleton.findSlot("num/7").currentSprite.addChild(con);
+    spine.state.addAnimation(0, "L", true, 0);
     app.stage.addChild(spine);
 
     app.ticker.add((delta) => {
         elapsedTime += delta;
-        if (elapsedTime >= fpsDelta) {
+        if (elapsedTime >= 2) {
             app.render();
             elapsedTime = 0;
         }

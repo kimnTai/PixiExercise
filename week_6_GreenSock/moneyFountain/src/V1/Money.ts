@@ -1,4 +1,4 @@
-import { Sprite, Texture } from "pixi.js-legacy";
+import { Sprite, Texture } from "pixi.js";
 
 /**金錢 Sprite */
 class Money extends Sprite {

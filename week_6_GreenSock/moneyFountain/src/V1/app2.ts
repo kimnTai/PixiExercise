@@ -1,6 +1,6 @@
-import * as PIXI from "pixi.js-legacy";
+import * as PIXI from "pixi.js";
 import { gsap } from "gsap";
-import { Application, Container, filters, Sprite } from "pixi.js-legacy";
+import { Application, Container, filters, Sprite } from "pixi.js";
 import { Money } from "./Money";
 (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__ &&
   (window as any).__PIXI_INSPECTOR_GLOBAL_HOOK__.register({ PIXI: PIXI });
