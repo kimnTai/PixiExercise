@@ -23,6 +23,20 @@ export default class App extends PIXI.Application {
             // spine.state.setAnimation(0, "idle_1", true);
             // spine.position.set(500, 500);
             // this.stage.addChild(spine);
+            PIXI.BitmapFont.from("TitleFont", {
+                fill: "#333333",
+                fontSize: 40,
+                fontWeight: "bold",
+            });
+
+            const text = new PIXI.BitmapText("Hello World", { fontName: "TitleFont" });
+
+            this.stage.addChild(text);
+
+            const t = PIXI.Texture.from("../img/LazySophisticatedHummingbird-mobile.mp4");
+            //t.baseTexture.resource.source.loop = true;
+
+            this.stage.addChild(new PIXI.Sprite(t));
         });
     }
 
@@ -41,6 +55,7 @@ export default class App extends PIXI.Application {
                 .add("idol_A", "../demo/spine-3.8.99/idol_A.json")
                 .add("SC", "../demo/reel/SC@2x.json")
                 .add("win_feedback", "../demo/reel/win_feedback@2x.json")
+                .add("video", "../img/LazySophisticatedHummingbird-mobile.mp4")
                 .load(resolve);
         });
     }
