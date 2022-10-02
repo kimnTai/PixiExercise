@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import "pixi-spine";
 
-const app = new PIXI.Application({ width: 1500, height: 900, backgroundColor: 0x1099bb });
+const app = new PIXI.Application({ width: 800, height: 600, backgroundColor: 0x1099bb });
 document.querySelector("#app")?.appendChild(app.view);
 
 app.loader
@@ -13,23 +13,17 @@ app.loader
     .load(setup);
 
 async function setup() {
-    const text = new PIXI.Text("0");
-    text.position.set(800, 0);
-    app.stage.addChild(text);
-    const close = PIXI.Sprite.from("bunny");
-    app.stage.addChild(close).x = 700;
+    const text = app.stage.addChild(new PIXI.Text("0"));
+    text.position.set(300, 0);
+    const close = app.stage.addChild(PIXI.Sprite.from("bunny"));
+    close.x = 500;
     close.interactive = text.interactive = true;
+    close.on("pointerup", () => app.stage.removeChild(app.stage.getChildByName("video")));
     const video = app.loader.resources.test.data as HTMLVideoElement;
     video.muted = video.loop = true;
-    const test = PIXI.Texture.fromVideo(video);
-    const videoSprite = new PIXI.Sprite(test);
+    const videoSprite = new PIXI.Sprite(PIXI.Texture.fromVideo(video));
     videoSprite.name = "video";
-    text.on("pointerup", () => {
-        app.stage.addChild(videoSprite);
-    });
-    close.on("pointerup", () => {
-        app.stage.removeChild(app.stage.getChildByName("video"));
-    });
-    const t = new PIXI.extras.BitmapText("0", { font: "55px num_03" });
-    app.stage.addChild(t);
+    text.on("pointerup", () => app.stage.addChild(videoSprite));
+    const num = new PIXI.extras.BitmapText("0", { font: "55px num_03" });
+    app.stage.addChild(num);
 }
