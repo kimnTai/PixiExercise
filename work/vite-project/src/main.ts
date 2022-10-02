@@ -9,6 +9,7 @@ app.loader
     .add("effect", "../demo/01_json/effect_style136.json")
     .add("moreSpin", "../demo/more2/moreSpin.json")
     .add("test", "../img/video2.mp4")
+    .add("num_03", "../demo/num/num_03.fnt")
     .load(setup);
 
 async function setup() {
@@ -29,6 +30,6 @@ async function setup() {
     close.on("pointerup", () => {
         app.stage.removeChild(app.stage.getChildByName("video"));
     });
+    const t = new PIXI.extras.BitmapText("0", { font: "55px num_03" });
+    app.stage.addChild(t);
 }
-
-export default {};
