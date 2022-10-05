@@ -27,16 +27,15 @@ async function setup() {
     text.on("pointerup", () => app.stage.addChild(videoSprite));
 
     const spine = new PIXI.spine.Spine(app.loader.resources.moreSpin.spineData);
-    const [five, ten] = spine.spineData.skins.map(({ name }) => name);
-    spine.skeleton.setSkinByName(ten);
+    spine.skeleton.setSkinByName("10");
     spine.update(0);
-    ["num/6", "num/plus"].map((v) => spine.skeleton.findSlot(v).currentSprite).forEach((v) => (v.texture = null));
     const { currentSprite } = spine.skeleton.findSlot("num/7");
     const num = new PIXI.extras.BitmapText("+99", { font: `${currentSprite.height}px num_jp_79_yl` });
-
     currentSprite.addChild(num).anchor = new PIXI.Point(1, 0.5);
     num.x = currentSprite.x;
-    currentSprite.texture = null;
+    ["num/plus", "num/6", "num/7"]
+        .map((v) => spine.skeleton.findSlot(v).currentSprite)
+        .forEach((v) => (v.texture = null));
     spine.state.addAnimation(0, "L", true, 0);
     app.stage.addChild(spine).position.set(400, 300);
 }
