@@ -8,6 +8,7 @@ app.loader
     .add("bunny", "../img/bunny.png")
     .add("effect", "../demo/01_json/effect_style136.json")
     .add("moreSpin", "../demo/more2/moreSpin.json")
+    .add("symbol", "../demo/symbol/symbol.json")
     .add("test", "../img/video2.mp4")
     .add("num_03", "../demo/num/num_03.fnt")
     .add("num_jp_79_yl", "../demo/num/num_jp_79_yl.fnt")
@@ -26,16 +27,16 @@ async function setup() {
     videoSprite.name = "video";
     text.on("pointerup", () => app.stage.addChild(videoSprite));
 
-    const spine = new PIXI.spine.Spine(app.loader.resources.moreSpin.spineData);
-    spine.skeleton.setSkinByName("10");
-    spine.update(0);
-    const { currentSprite } = spine.skeleton.findSlot("num/7");
-    const num = new PIXI.extras.BitmapText("+99", { font: `${currentSprite.height}px num_jp_79_yl` });
-    currentSprite.addChild(num).anchor = new PIXI.Point(1, 0.5);
-    num.x = currentSprite.x;
-    ["num/plus", "num/6", "num/7"]
-        .map((v) => spine.skeleton.findSlot(v).currentSprite)
-        .forEach((v) => (v.texture = null));
-    spine.state.addAnimation(0, "L", true, 0);
+    const spine = new PIXI.spine.Spine(app.loader.resources.symbol.spineData);
+    // spine.skeleton.setSkinByName("10");
+    // spine.update(0);
+    // const { currentSprite } = spine.skeleton.findSlot("num/7");
+    // const num = new PIXI.extras.BitmapText("+99", { font: `${currentSprite.height}px num_jp_79_yl` });
+    // currentSprite.addChild(num).anchor = new PIXI.Point(1, 0.5);
+    //num.x = currentSprite.x;
+    // ["num/plus", "num/6", "num/7"]
+    //     .map((v) => spine.skeleton.findSlot(v).currentSprite)
+    //     .forEach((v) => (v.texture = null));
+    spine.state.addAnimation(0, "symbol16_crush", true, 0);
     app.stage.addChild(spine).position.set(400, 300);
 }
