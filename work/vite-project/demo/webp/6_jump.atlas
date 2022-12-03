@@ -1,0 +1,34 @@
+
+6_jump.webp
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+06
+  rotate: false
+  xy: 2, 2
+  size: 166, 52
+  orig: 166, 52
+  offset: 0, 0
+  index: -1
+JUMP_01
+  rotate: false
+  xy: 2, 283
+  size: 219, 195
+  orig: 221, 197
+  offset: 1, 1
+  index: -1
+JUMP_02
+  rotate: true
+  xy: 2, 56
+  size: 225, 189
+  orig: 227, 191
+  offset: 1, 1
+  index: -1
+JUMP_03
+  rotate: false
+  xy: 223, 295
+  size: 229, 183
+  orig: 231, 185
+  offset: 1, 1
+  index: -1

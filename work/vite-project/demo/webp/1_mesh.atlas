@@ -1,0 +1,20 @@
+
+1_mesh.webp
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+01
+  rotate: false
+  xy: 2, 2
+  size: 163, 52
+  orig: 163, 52
+  offset: 0, 0
+  index: -1
+standby
+  rotate: false
+  xy: 2, 56
+  size: 230, 205
+  orig: 230, 205
+  offset: 0, 0
+  index: -1

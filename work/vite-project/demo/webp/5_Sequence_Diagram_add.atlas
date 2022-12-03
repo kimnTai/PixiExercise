@@ -1,0 +1,111 @@
+
+5_Sequence_Diagram_add.webp
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+05
+  rotate: true
+  xy: 904, 768
+  size: 241, 52
+  orig: 241, 52
+  offset: 0, 0
+  index: -1
+LVup_01
+  rotate: false
+  xy: 2, 806
+  size: 229, 203
+  orig: 229, 203
+  offset: 0, 0
+  index: -1
+LVup_02
+  rotate: false
+  xy: 233, 810
+  size: 223, 199
+  orig: 223, 199
+  offset: 0, 0
+  index: -1
+LVup_03
+  rotate: false
+  xy: 458, 810
+  size: 221, 199
+  orig: 221, 199
+  offset: 0, 0
+  index: -1
+LVup_04
+  rotate: false
+  xy: 2, 203
+  size: 221, 199
+  orig: 221, 199
+  offset: 0, 0
+  index: -1
+LVup_05
+  rotate: false
+  xy: 681, 810
+  size: 221, 199
+  orig: 221, 199
+  offset: 0, 0
+  index: -1
+LVup_06
+  rotate: false
+  xy: 233, 609
+  size: 219, 199
+  orig: 219, 199
+  offset: 0, 0
+  index: -1
+LVup_07
+  rotate: false
+  xy: 675, 609
+  size: 218, 199
+  orig: 218, 199
+  offset: 0, 0
+  index: -1
+LVup_08
+  rotate: false
+  xy: 445, 409
+  size: 217, 198
+  orig: 217, 198
+  offset: 0, 0
+  index: -1
+LVup_09
+  rotate: false
+  xy: 226, 404
+  size: 217, 199
+  orig: 217, 199
+  offset: 0, 0
+  index: -1
+LVup_10
+  rotate: true
+  xy: 225, 184
+  size: 218, 199
+  orig: 218, 199
+  offset: 0, 0
+  index: -1
+LVup_11
+  rotate: false
+  xy: 454, 609
+  size: 219, 199
+  orig: 219, 199
+  offset: 0, 0
+  index: -1
+LVup_12
+  rotate: false
+  xy: 2, 2
+  size: 221, 199
+  orig: 221, 199
+  offset: 0, 0
+  index: -1
+LVup_13
+  rotate: false
+  xy: 2, 404
+  size: 222, 199
+  orig: 222, 199
+  offset: 0, 0
+  index: -1
+LVup_14
+  rotate: false
+  xy: 2, 605
+  size: 224, 199
+  orig: 224, 199
+  offset: 0, 0
+  index: -1
