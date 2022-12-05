@@ -29,21 +29,21 @@ async function setup(loader: PIXI.loaders.Loader) {
         spine.position.set(x, y);
         spine.state.setAnimation(0, "ani", true);
     };
-    Array.from({ length: 700 }, () => {
-        fn();
-    });
-    let test = 0;
-    const timer = setInterval(() => {
-        fn();
-        _childLength = app.stage.children.length;
-        console.log(_FPS, app.stage.children.length);
-        if (_FPS < 50) {
-            test++;
-        }
-        if (test > 3) {
-            clearInterval(timer);
-        }
-    }, 500);
+    // Array.from({ length: 700 }, () => {
+    //     fn();
+    // });
+    // let test = 0;
+    // const timer = setInterval(() => {
+    //     fn();
+    //     _childLength = app.stage.children.length;
+    //     console.log(_FPS, app.stage.children.length);
+    //     if (_FPS < 50) {
+    //         test++;
+    //     }
+    //     if (test > 3) {
+    //         clearInterval(timer);
+    //     }
+    // }, 500);
 }
 
 export { _childLength };
